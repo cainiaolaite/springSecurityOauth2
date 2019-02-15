@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--maven 版本-->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--聚合后的子项目 也要加上 父项目 （不加的话单独编译是无法找到这个父项目的）-->
+    <parent>
+        <groupId>com.hua.filepalt</groupId>
+        <artifactId>fileplat</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../fileplat/pom.xml</relativePath>
+    </parent>
+
+    <!--项目名-->
+    <groupId>com.hua.fileplat</groupId>
+    <!--项目-模块名-->
+    <artifactId>fileplat-cloud</artifactId>
+    <!--版本-->
+        <!--0.0.1
+            第一个0 表示 大版本号
+            第二个0 表示 分支版本号
+            第三个0 表示 小版本好
+
+            SNAPSHOT  快照 版本
+            ALPHA     内部测试 版本
+            RELEASE   稳定版本
+            GA        正式发布版本
+         -->
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <properties>
+        <!--项目的编译依赖路径-->
+        <project.build.complie.dependency.path>src\main\webapp\WEB-INF\lib</project.build.complie.dependency.path>
+        <!--项目的打包依赖路径-->
+        <project.build.package.dependency.path>target\cloud\WEB-INF\lib</project.build.package.dependency.path>
+    </properties>
+
+
+    <build>
+        <!--
+            打包后 的包名 为 cloud
+            没有的话 默认 artifactId+version
+        -->
+        <finalName>cloud</finalName>
+        <!--项目依赖关系插件
+            将 父项目的 继承的 jar copy 到 子项目 目录中 方便 编译，运行，打包
+            注：maven 所有的功能都是通过 插件实现的，自身没有自带 任何功能
+        -->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                    <execution>
+                        <id>complie-copy-dependencies</id>
+                        <!--执行阶段 为 编译阶段-->
+                        <phase>compile</phase>
+                        <goals>
+                            <!--执行目标 为 copy-dependencies  复制项目依赖 到指定目录-->
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <!-- 输出的依赖目录 -->
+                            <outputDirectory>${project.build.complie.dependency.path}</outputDirectory>
+                            <overWriteReleases> false </overWriteReleases>
+                            <overWriteSnapshots> false </overWriteSnapshots>
+                            <overWriteIfNewer> true </overWriteIfNewer>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>package-copy-dependencies</id>
+                        <!--执行阶段 为 编译阶段-->
+                        <phase>package</phase>
+                        <goals>
+                            <!--执行目标 为 copy-dependencies   复制项目依赖 到指定目录-->
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <!-- 输出的依赖目录 -->
+                            <outputDirectory>${project.build.package.dependency.path}</outputDirectory>
+                            <overWriteReleases> false </overWriteReleases>
+                            <overWriteSnapshots> false </overWriteSnapshots>
+                            <overWriteIfNewer> true </overWriteIfNewer>
+                        </configuration>
+                    </execution>
+
+                </executions>
+            </plugin>
+
+            <!--<plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <executions>
+                    <execution>
+                        &lt;!&ndash; 打包阶段 &ndash;&gt;
+                        <phase>package</phase>
+                        <goals>
+                            &lt;!&ndash; 目标运行 &ndash;&gt;
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
+        </plugins>
+    </build>
+
+</project>
