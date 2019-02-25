@@ -25,6 +25,21 @@
                 <version>4.0.0</version>
                 <!--provided  <scope>provided</scope>      编译测试有效-->
             </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>1.2</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>2.0</version>
+                <scope>runtime</scope>
+            </dependency>
+
             <!--单元测试
                     -->
             <dependency>
@@ -61,6 +76,18 @@
                 <artifactId>logback-access</artifactId>
                 <version>1.1.7</version>
             </dependency>
+
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>4.3.22.RELEASE</version>
+                <type>pom</type >
+                <scope>import</scope>
+            </dependency>
+
+
+
         </dependencies>
     </dependencyManagement>
 

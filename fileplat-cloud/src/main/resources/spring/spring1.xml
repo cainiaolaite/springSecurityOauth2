@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.1.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task-3.1.xsd">
+    <!--配置静态资源的HTTP缓存-->
+    <mvc:resources mapping="/resource/" location="/resource/" cache-period="31556926"></mvc:resources>
+
+    <!--配置转换与格式化-->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+
+    </bean>
+
+    <!--验证-->
+
+    <!--拦截-->
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+
+            <bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor"/>
+        </mvc:interceptor>
+        <!--<mvc:interceptor>
+            <mvc:mapping path="/secure/*"/>
+            <bean class="org.example.SecurityInterceptor"/>
+        </mvc:interceptor>-->
+    </mvc:interceptors>
+
+    <!--
+        配置Spring MVC 请求的媒体类型。可用选项是检查文件扩展URL路径，检测"accept" 标头，特定查询参数
+        或在没有请求任何内容是回退到默认内容类型
+    -->
+    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="mediaTypes">
+            <value>
+                json=application/json
+                xml=application/xml
+            </value>
+        </property>
+    </bean>
+
+    <!--配置视图控制器-->
+    <mvc:view-controller path="/" view-name="home"/>
+</beans>
