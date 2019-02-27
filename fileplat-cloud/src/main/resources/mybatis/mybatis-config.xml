@@ -39,7 +39,7 @@
         <!--   1.特指  具体到包.类名-->
         <!--<typeAlias alias="RoleDto" type="com.ceba.mybatis.demo.dto.RoleDto"></typeAlias>-->
         <!--   2.泛指  别名等于类名相同  -->
-        <package name="com.hua.fileplat.cloud.dto"></package>
+        <package name="com.hua.fileplat.cloud.user.dto"></package>
         <!--   3.枚举标识 @Alias("RoleDto")  com.ceba.mybatis.demo.dto.RoleDto 类上加枚举-->
     </typeAliases>
 
@@ -74,19 +74,13 @@
 
 
     <mappers>
-
         <!-- 使用相对于类路径的资源引用 -->
         <mapper resource="mapper/roleMapper.xml"/>
-
         <!-- 将包内的映射器接口实现全部注册为映射器 -->
         <!--<package name="org.mybatis.builder"/>-->
-
         <!-- 使用完全限定资源定位符（URL） -->
         <!--<mapper url="file:///var/mappers/AuthorMapper.xml"/>-->
-
-
         <!-- 使用映射器接口实现类的完全限定类名 -->
         <!--<mapper class="org.mybatis.builder.AuthorMapper"/>-->
-
     </mappers>
 </configuration>

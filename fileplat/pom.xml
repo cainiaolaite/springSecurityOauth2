@@ -9,15 +9,20 @@
     <packaging>pom</packaging>
     <parent>
         <groupId>com.hua.common</groupId>
-        <artifactId>hua-common</artifactId>
+        <artifactId>hua-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../hua-common/pom.xml</relativePath>
+        <relativePath>../hua-parent/pom.xml</relativePath>
     </parent>
     <!--
         用 dependencyManagement 括起来的依赖 如果子项目需要 引用 则需要 <dependencies> 添加依赖项（不需要version）
         没有用 dependencyManagement 括起来的依赖 子项目会 自动引用 不需要 添加依赖项
     -->
     <dependencies>
+        <dependency>
+            <groupId>com.hua.base</groupId>
+            <artifactId>hua-base</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!-- servlet 容器
                  https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
         <dependency>
@@ -28,10 +33,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
         </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jsp-api</artifactId>
-        </dependency>
+
         <!--单元测试
                 -->
         <dependency>
@@ -223,6 +225,17 @@
             <artifactId>jta</artifactId>
             <version>1.1</version>
         </dependency>-->
+
+        <!--fastJson-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.websocket</groupId>
+            <artifactId>javax.websocket-api</artifactId>
+        </dependency>
 
     </dependencies>
 

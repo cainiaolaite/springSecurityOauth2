@@ -21,9 +21,9 @@
         http://www.springframework.org/schema/task/spring-task-4.3.xsd">
         <!--启动切面-->
         <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
-        <bean id="operatorImplId" name="operatorImpl" class="com.hua.fileplat.cloud.aop.OperatorImpl"></bean>
+        <bean id="operatorImplId" name="operatorImpl" class="com.hua.fileplat.cloud.base.aop.OperatorImpl"></bean>
         <aop:config>
-            <aop:pointcut id="userServicePointcut" expression="execution(* com.hua.fileplat.cloud.aop.service.UserService.*())"/>
+            <aop:pointcut id="userServicePointcut" expression="execution(* com.hua.fileplat.cloud.base.aop.service.UserService.*())"/>
             <aop:aspect ref="operatorImplId">
                 <aop:before method="before" pointcut-ref="userServicePointcut"></aop:before>
                 <aop:around method="around" pointcut-ref="userServicePointcut"></aop:around>

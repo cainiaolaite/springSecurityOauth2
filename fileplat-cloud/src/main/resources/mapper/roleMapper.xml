@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hua.fileplat.cloud.dao.RoleDao">
+<mapper namespace="com.hua.fileplat.cloud.user.dao.RoleDao">
     <select id="selectRole" resultType="RoleDto">
         select * from u_role
     </select>

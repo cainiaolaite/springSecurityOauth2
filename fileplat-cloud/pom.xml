@@ -39,6 +39,15 @@
     </properties>
 
 
+    <dependencies>
+        <!--java EE web socket-->
+        <!-- https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api -->
+        <dependency>
+            <groupId>javax.json</groupId>
+            <artifactId>javax.json-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
     <build>
         <!--
             打包后 的包名 为 cloud

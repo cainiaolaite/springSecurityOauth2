@@ -19,8 +19,6 @@
         http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
         http://www.springframework.org/schema/task
         http://www.springframework.org/schema/task/spring-task-3.1.xsd">
-    <!--配置静态资源的HTTP缓存-->
-    <mvc:resources mapping="/resource/" location="/resource/" cache-period="31556926"></mvc:resources>
 
     <!--配置转换与格式化-->
     <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
@@ -34,7 +32,6 @@
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-
             <bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor"/>
         </mvc:interceptor>
         <!--<mvc:interceptor>
