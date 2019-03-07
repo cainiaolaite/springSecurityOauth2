@@ -303,9 +303,9 @@
     </appender>
     <!--mybatis 日志-->
     <logger name="com.hua.fileplat.cloud.*.dao" level="TRACE"></logger>
-    <logger name="org.springframework" level="TRACE"></logger>
+    <logger name="org.springframework" level="ERROR"></logger>
     <!-- 日志级别 -->
-    <root level="TRACE">
+    <root level="info">
         <appender-ref ref="console"></appender-ref>
     </root>
 

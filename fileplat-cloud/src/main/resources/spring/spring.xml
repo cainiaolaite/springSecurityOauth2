@@ -26,4 +26,5 @@
     <import resource="spring-aop.xml"></import>
     <import resource="spring-mvc.xml"></import>
     <import resource="spring-transaction.xml"></import>
+    <import resource="spring-jms.xml"></import>
 </beans>

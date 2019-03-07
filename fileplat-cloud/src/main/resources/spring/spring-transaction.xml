@@ -48,8 +48,13 @@
         <property name="dataSource" ref="mysqlDataSource"></property>
         <property name="globalRollbackOnParticipationFailure" value="false"></property>
     </bean>
+    <!--<bean id="userTransactionAdapter" class="org.springframework.transaction.jta.UserTransactionAdapter">
+        <constructor-arg name="transactionManager" ref="jmsTransactionManager"></constructor-arg>
+    </bean>-->
+
     <!--事务支持注解 @Transaction驱动  事务嵌套事务时有用-->
     <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+
 
 
     <!--

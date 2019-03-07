@@ -15,4 +15,8 @@ public interface RoleService {
      * @return
      */
     boolean transactionTest();
+
+    boolean transactionTest1();
+
+    boolean jmsTransactionTest();
 }
