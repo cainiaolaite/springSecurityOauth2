@@ -39,6 +39,15 @@
     </properties>
 
 
+    <dependencies>
+        <!--java EE web socket-->
+        <!-- https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api -->
+        <dependency>
+            <groupId>javax.json</groupId>
+            <artifactId>javax.json-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
     <build>
         <!--
             打包后 的包名 为 cloud
@@ -48,6 +57,8 @@
         <!--项目依赖关系插件
             将 父项目的 继承的 jar copy 到 子项目 目录中 方便 编译，运行，打包
             注：maven 所有的功能都是通过 插件实现的，自身没有自带 任何功能
+
+            http://maven.apache.org/components/plugins/
         -->
         <plugins>
             <plugin>
@@ -89,6 +100,28 @@
                     </execution>
 
                 </executions>
+            </plugin>
+
+            <!--清除 src/main/webapp/WEB-INF/lib 中的 jar-->
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>src/main/webapp/WEB-INF/lib</directory>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
             </plugin>
 
             <!--<plugin>

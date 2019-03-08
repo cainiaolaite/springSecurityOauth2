@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--设置 mybatis 的参数设置 解释请浏览 http://www.mybatis.org/mybatis-3/zh/configuration.html#properties -->
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="multipleResultSetsEnabled" value="true"/>
+        <setting name="useColumnLabel" value="true"/>
+        <setting name="useGeneratedKeys" value="false"/>
+        <setting name="autoMappingBehavior" value="PARTIAL"/>
+        <setting name="autoMappingUnknownColumnBehavior" value="WARNING"/>
+        <setting name="defaultExecutorType" value="SIMPLE"/>
+        <setting name="defaultStatementTimeout" value="25"/>
+        <setting name="defaultFetchSize" value="100"/>
+        <setting name="safeRowBoundsEnabled" value="false"/>
+        <setting name="mapUnderscoreToCamelCase" value="false"/>
+        <setting name="localCacheScope" value="SESSION"/>
+        <setting name="jdbcTypeForNull" value="OTHER"/>
+        <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+
+        <!--mybatis 日志
+            可选的日志类型
+            SLF4J、LOG4J、LOG4J2、JDK_LOGGING、COMMONS_LOGGING、STDOUT_LOGGING、NO_LOGGING
+        -->
+        <setting name="logImpl" value="SLF4J"/>
+
+    </settings>
+    
+    <!-- java 类型别名
+        RoleDto  com.ceba.mybatis.demo.dto.RoleDto
+        那么 RoleDto 就代表 com.ceba.mybatis.demo.dto.RoleDto 类的别名
+        映射文件 里 resultType parameterType 就可以简写为 RoleDto
+        别名的三种表现方式 -->
+    <typeAliases>
+        <!--   1.特指  具体到包.类名-->
+        <!--<typeAlias alias="RoleDto" type="com.ceba.mybatis.demo.dto.RoleDto"></typeAlias>-->
+        <!--   2.泛指  别名等于类名相同  -->
+        <package name="com.hua.fileplat.cloud.user.dto"></package>
+        <!--   3.枚举标识 @Alias("RoleDto")  com.ceba.mybatis.demo.dto.RoleDto 类上加枚举-->
+    </typeAliases>
+
+    <!-- 自定义类型转换
+         数据库类型  与  java类型 的转换关系  接口 org.apache.ibatis.type.BaseTypeHandler
+         解释请浏览 http://www.mybatis.org/mybatis-3/zh/configuration.html#properties
+         三种表现方式
+    -->
+    <!--<typeHandlers>
+              1.特指  具体到包.类名
+            <typeHandler  handler=""></typeHandler>
+              2.泛指  别名等于类名相同
+            <package name=""></package>
+             3.枚举标识 @MappedJdbcTypes(JdbcType.VARCHAR)  并继承 BaseTypeHandler
+        </typeHandlers>-->
+
+    <!-- 对象工厂
+        <objectFactory type=""></objectFactory>
+    -->
+
+    <!--插件
+        拦截处理，有点像 过滤器
+        <plugins>
+            <plugin interceptor=""></plugin>
+        </plugins>
+    -->
+
+
+
+
+
+
+
+    <mappers>
+        <!-- 使用相对于类路径的资源引用 -->
+        <mapper resource="mapper/roleMapper.xml"/>
+        <!-- 将包内的映射器接口实现全部注册为映射器 -->
+        <!--<package name="org.mybatis.builder"/>-->
+        <!-- 使用完全限定资源定位符（URL） -->
+        <!--<mapper url="file:///var/mappers/AuthorMapper.xml"/>-->
+        <!-- 使用映射器接口实现类的完全限定类名 -->
+        <!--<mapper class="org.mybatis.builder.AuthorMapper"/>-->
+    </mappers>
+</configuration>
