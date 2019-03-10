@@ -25,23 +25,59 @@
         </mvc:annotation-driven>
         <context:component-scan base-package="com.hua.fileplat.cloud.*.controller"/>
         <!--  配置多个视图解析-->
-        <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+
+        <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver" >
             <property name="viewResolvers">
                 <list>
-                    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-                        <!-- 配置视图层 使用jstl标签 -->
+                    <!--<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                        &lt;!&ndash; 配置视图层 使用jstl标签 &ndash;&gt;
                         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
-                        <!--<property name="viewNames" value="*.jsp"></property>-->
+                        &lt;!&ndash;<property name="viewNames" value="*.jsp"></property>&ndash;&gt;
                         <property name="prefix" value="/WEB-INF/view/"></property>
                         <property name="suffix" value=".jsp"></property>
-                        <!--顺序-->
+                        &lt;!&ndash;顺序&ndash;&gt;
                         <property name="order" value="1"></property>
+                    </bean>-->
+                    <bean id="viewResolver"  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                        <property name="prefix" value="/WEB-INF/view/"></property>
+                        <property name="suffix" value=".html"></property>
                     </bean>
                 </list>
             </property>
         </bean>
+
         <!--配置静态资源-->
         <mvc:resources mapping="/static/**" location="/WEB-INF/view/static/"></mvc:resources>
+        <!--<mvc:resources mapping="/cloud/*/css/**" location="/WEB-INF/view/cloud/"></mvc:resources>
+        <mvc:resources mapping="/cloud/*/js/**" location="/WEB-INF/view/cloud/"></mvc:resources>
+        <mvc:resources mapping="/cloud/*/img/**" location="/WEB-INF/view/cloud/"></mvc:resources>-->
+        <mvc:resources mapping="/cloud/**/*.js" location="/WEB-INF/view/cloud/"></mvc:resources>
+        <mvc:resources mapping="/cloud/**/*.css" location="/WEB-INF/view/cloud/"></mvc:resources>
+        <mvc:resources mapping="/cloud/**/*.jpg" location="/WEB-INF/view/cloud/"></mvc:resources>
+        <mvc:resources mapping="/cloud/**/*.png" location="/WEB-INF/view/cloud/"></mvc:resources>
+
+
+
+    <!--国际化-->
+        <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+            <property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+            <property name="validationMessageSource" ref="messageSource"/>
+        </bean>
+
+        <bean id="messageSource"  class="org.springframework.context.support.ResourceBundleMessageSource">
+            <!--①在basenames中输入的相对路径-->
+            <!--②文件不需要文件类型比如：我的语言文件是lang_zh.properties和lang_en.properties在这里我就只需要输入lang-->
+            <!--③大家也看到了，不同语言的文件不需要全部都导入，只需要写文件名即可，看我的配置就知道了-->
+            <property name="basenames">
+                <list>
+                    <!--验证错误-->
+                    <value>i18n.validation_error</value>
+                </list>
+            </property>
+            <!-- 对资源文件内容缓存的时间，单位秒 -->
+            <property name="cacheSeconds" value="120"></property>
+        </bean>
+
         <!--mapping：映射    
             location：本地资源路径，注意必须是webapp根目录下的路径。          
             两个*，它表示映射resources/下所有的URL，包括子路径（即接多个/）-->

@@ -75,7 +75,11 @@
 
     <mappers>
         <!-- 使用相对于类路径的资源引用 -->
-        <mapper resource="mapper/roleMapper.xml"/>
+        <mapper resource="mapper/PermissionDao.xml"/>
+        <mapper resource="mapper/RoleDao.xml"/>
+        <mapper resource="mapper/RolePermissionDao.xml"/>
+        <mapper resource="mapper/UserDao.xml"/>
+        <mapper resource="mapper/UserRoleDao.xml"/>
         <!-- 将包内的映射器接口实现全部注册为映射器 -->
         <!--<package name="org.mybatis.builder"/>-->
         <!-- 使用完全限定资源定位符（URL） -->

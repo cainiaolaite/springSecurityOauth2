@@ -27,4 +27,5 @@
     <import resource="spring-mvc.xml"></import>
     <import resource="spring-transaction.xml"></import>
     <import resource="spring-jms.xml"></import>
+    <import resource="spring-session.xml"></import>
 </beans>

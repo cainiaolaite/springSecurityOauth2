@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <bean id="systemHttpSessionListener" class="com.hua.fileplat.cloud.base.session.SystemHttpSessionListener"></bean>
+    <bean id="JdbcHttpSessionConfiguration" class="org.springframework.session.jdbc.config.annotation.web.http.JdbcHttpSessionConfiguration">
+        <!--最大非活动间隔（秒） 不操作网页的时间 为 10分钟（会话会消失）-->
+        <property name="maxInactiveIntervalInSeconds" value="600"></property>
+        <property name="httpSessionListeners">
+            <list value-type="javax.servlet.http.HttpSessionListener">
+                <ref bean="systemHttpSessionListener"></ref>
+            </list>
+        </property>
+    </bean>
+</beans>

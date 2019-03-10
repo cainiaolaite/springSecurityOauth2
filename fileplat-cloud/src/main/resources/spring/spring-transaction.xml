@@ -28,6 +28,12 @@
         <property name="username" value="${jdbc.demo.username}" />
         <property name="password" value="${jdbc.demo.password}" />
     </bean>
+
+    <!--session 管理用的数据库-->
+    <bean id="springSessionJdbcOperations" name="springSessionJdbcOperations" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="mysqlDataSource"></property>
+    </bean>
+
     <bean id="mybatisConfigFileLocation" class="org.springframework.core.io.ClassPathResource">
         <constructor-arg name="path" value="mybatis/mybatis-config.xml"></constructor-arg>
     </bean>
