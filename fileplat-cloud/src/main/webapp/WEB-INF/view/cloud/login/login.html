@@ -8,9 +8,9 @@
     <link rel="stylesheet" type="text/css" href="/cloud/login/css/demo.css" />
     <!--必要样式-->
     <link rel="stylesheet" type="text/css" href="/cloud/login/css/component.css" />
-    <link rel="stylesheet" type="text/css" href="/static/layui/css/layui.css" />
-    <script type="text/javascript" src="/static/jquery/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="/static/layui/layui.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/js/layui/css/layui.css" />
+    <script type="text/javascript" src="/static/js/jquery/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/layui/layui.js"></script>
 </head>
 <body>
 <div class="container demo-1">
@@ -67,7 +67,7 @@
                 dataType:"json",
                 success:function(data){
                     if(data.result){
-                        window.location = "/";
+                        window.location = "/to_manager";
                     }else{
                         layer.msg(data.message);
                     }

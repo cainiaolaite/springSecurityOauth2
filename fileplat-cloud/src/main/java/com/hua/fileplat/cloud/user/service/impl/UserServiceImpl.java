@@ -94,17 +94,16 @@ public class UserServiceImpl implements UserService {
      * 登陆
      * @param loginUserVo    session
      * @param bindingResult  验证结果
-     * @param session spring 会话
      * @return
      */
     @Override
-    public Result login(LoginUserVo loginUserVo, BindingResult bindingResult, Session session) {
+    public Result login(LoginUserVo loginUserVo, BindingResult bindingResult) {
         Result result=new Result();
         if(bindingResult.hasErrors()){
             result.setResult(false);
             String[] stringArray=bindingResult.getSuppressedFields();
             for(String item:stringArray){
-                logger.info(session.getId()+" 验证失败:"+item);
+                logger.info(" 验证失败:"+item);
             }
             result.setMessage(stringArray[0]);
         }else{
@@ -117,18 +116,18 @@ public class UserServiceImpl implements UserService {
                 result.setResult(true);
                 user=userList.get(0);
                 SessionUserVo sessionUserVo=new SessionUserVo(user);
-                session.setAttribute(SessionUserVo.SESSION_USER_VO,sessionUserVo);
+                result.setData(sessionUserVo);
                 //TODO 权限日后加载
                 result.setResult(true);
                 result.setMessage("登陆成功");
             }
         }
         if(result.isResult()){
-            logger.info(session.getId()+" 登陆成功");
+            logger.info(" 登陆成功");
         }else{
-            logger.info(session.getId()+" 登陆失败，原因："+result.getMessage());
+            logger.info(" 登陆失败，原因："+result.getMessage());
         }
-        return null;
+        return result;
     }
 
 }

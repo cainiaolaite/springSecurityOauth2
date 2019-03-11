@@ -6,6 +6,7 @@ import com.hua.fileplat.cloud.user.vo.LoginUserVo;
 import org.springframework.session.Session;
 import org.springframework.validation.BindingResult;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -61,8 +62,7 @@ public interface UserService {
      * 登录
      * @param loginUserVo    session
      * @param bindingResult  验证结果
-     * @param session spring 会话
      * @return
      */
-    Result login(LoginUserVo loginUserVo, BindingResult bindingResult, Session session);
+    Result login(LoginUserVo loginUserVo, BindingResult bindingResult);
 }

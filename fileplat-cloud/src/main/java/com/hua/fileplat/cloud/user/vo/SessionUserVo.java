@@ -2,12 +2,13 @@ package com.hua.fileplat.cloud.user.vo;
 
 import com.hua.fileplat.cloud.user.entity.User;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 会话用户Vo
  */
-public class SessionUserVo {
+public class SessionUserVo  implements Serializable {
     public static final String SESSION_USER_VO="SESSION_USER_VO";
     private String id;//用户ID
     private String userName;//用户名
