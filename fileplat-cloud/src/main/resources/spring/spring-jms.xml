@@ -37,7 +37,7 @@
         <bean id="activeMQConnectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory">
             <property name="userName" value="admin"></property>
             <property name="password" value="admin"></property>
-            <property name="brokerURL" value="tcp://192.168.31.233:61616"></property>
+            <property name="brokerURL" value="tcp://localhost:61616"></property>
         </bean>
 
         <!--destination-resolver 目标资源 -->
