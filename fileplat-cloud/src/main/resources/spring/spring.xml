@@ -28,4 +28,5 @@
     <import resource="spring-transaction.xml"></import>
     <import resource="spring-jms.xml"></import>
     <import resource="spring-session.xml"></import>
+    <import resource="spring-quartz.xml"></import>
 </beans>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:task="http://www.springframework.org/schema/task" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task-4.3.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--spring框架 与 quartz 框架整合  https://blog.csdn.net/youthsong/article/details/79182567-->
+    <bean id="customJobFactory" class="com.hua.fileplat.cloud.base.quartz.CustomJobFactory"></bean>
+
+    <bean name="quartzScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" >
+        <property name="dataSource" ref ="mysqlDataSource" />
+        <!-- 可选，QuartzScheduler 启动时更新己存在的Job，这样就不用每次修改targetObject后删除qrtz_job_details表对应记录了 -->
+        <property name="overwriteExistingJobs" value="true" />
+        <!-- 必须的，QuartzScheduler 延时启动，应用启动完后 QuartzScheduler 再启动 -->
+        <property name="startupDelay" value="2" />
+        <!-- 重要：customJobFactory 是为了解决Spring quartz Job不能依赖注入。 -->
+        <property name="jobFactory" ref="customJobFactory"></property>
+        <!-- applicationContextSchedulerContextKey：配置这个可以获取spring容器中的context -->
+        <property name="applicationContextSchedulerContextKey" value="applicationContextKey"/>
+        <property name="configLocation" value="classpath:quartz/quartz.properties"/>
+
+        <!--触发器-->
+        <property name="triggers">
+            <list>
+                <ref bean="firstCronTrigger"></ref>
+                <ref bean="calendarIntervalTriggerImpl"></ref>
+                <ref bean="dailyTimeIntervalTriggerImpl"></ref>
+                <ref bean="simpleTriggerImpl"></ref>
+            </list>
+        </property>
+
+        <!--日历-->
+        <property name="calendars">
+            <map>
+                <entry key="firstCalendar" value-ref="firstCalendar"></entry>
+            </map>
+        </property>
+
+        <!--作业详细-->
+        <property name="jobDetails">
+            <list>
+                <ref bean="firstSimpleTask"></ref>
+            </list>
+        </property>
+
+    </bean>
+
+    <bean id="firstSimpleTask" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.hua.fileplat.cloud.base.quartz.HelloWordJob"></property>
+        <property name="jobDataMap" >
+            <bean class="org.quartz.JobDataMap">
+                <constructor-arg >
+                    <map>
+                        <entry key="helloWorld" value="word"></entry>
+                    </map>
+                </constructor-arg>
+            </bean>
+        </property>
+        <property name="durability" value="true"></property>
+        <property name="group" value="firstSimpleTask"></property>
+        <property name="name" value="firstSimpleTask"></property>
+    </bean>
+
+    <bean id="firstCalendar" class="org.quartz.impl.calendar.CronCalendar">
+        <constructor-arg value="0/5 * * ? * *"></constructor-arg>
+    </bean>
+
+    <!-- 触发器的四种类型-->
+    <!--1.表达式触发器-->
+    <bean id="firstCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="firstSimpleTask"></property>
+        <property name="cronExpression" value="0/6 * * ? * *"></property>
+        <property name="group" value="firstCronGroup"></property>
+        <property name="calendarName" value="firstCalendar"></property>
+        <!--<property name="timeZone"></property> 时区-->
+    </bean>
+    <!--2.日历触发器-->
+    <bean id="calendarIntervalTriggerImpl" class="org.quartz.impl.triggers.CalendarIntervalTriggerImpl">
+        <property name="name" value="calendarName"></property>
+        <property name="group" value="calendarGroup"></property>
+        <property name="startTime">
+            <bean class="java.util.Date">
+                <constructor-arg name="year" value="2019"></constructor-arg>
+                <constructor-arg name="month" value="3"></constructor-arg>
+                <constructor-arg name="date" value="18"></constructor-arg>
+                <constructor-arg name="hrs" value="19"></constructor-arg>
+                <constructor-arg name="min" value="0"></constructor-arg>
+            </bean>
+        </property>
+        <property name="endTime">
+            <bean class="java.util.Date">
+                <constructor-arg name="year" value="2019"></constructor-arg>
+                <constructor-arg name="month" value="3"></constructor-arg>
+                <constructor-arg name="date" value="18"></constructor-arg>
+                <constructor-arg name="hrs" value="20"></constructor-arg>
+                <constructor-arg name="min" value="30"></constructor-arg>
+            </bean>
+        </property>
+        <property name="repeatInterval" value="3"></property>
+        <property name="jobGroup" value="firstSimpleTask"></property>
+        <property name="jobName" value="firstSimpleTask"></property>
+    </bean>
+
+    <!--3.日期触发器-->
+    <bean id="dailyTimeIntervalTriggerImpl" class="org.quartz.impl.triggers.DailyTimeIntervalTriggerImpl">
+        <property name="name" value="dailyTimeTrigger"></property>
+        <property name="group" value="dailyTimeGroup"></property>
+        <property name="startTimeOfDay" >
+            <bean class="org.quartz.TimeOfDay">
+                <constructor-arg name="hour" value="19"></constructor-arg>
+                <constructor-arg name="minute" value="00"></constructor-arg>
+                <constructor-arg name="second" value="00"></constructor-arg>
+            </bean>
+        </property>
+        <property name="endTimeOfDay" >
+            <bean class="org.quartz.TimeOfDay">
+                <constructor-arg name="hour" value="20"></constructor-arg>
+                <constructor-arg name="minute" value="00"></constructor-arg>
+                <constructor-arg name="second" value="00"></constructor-arg>
+            </bean>
+        </property>
+        <property name="repeatIntervalUnit" >
+            <util:constant static-field="org.quartz.DateBuilder.IntervalUnit.SECOND"></util:constant>
+        </property>
+        <property name="repeatInterval" value="1"></property>
+        <property name="jobGroup" value="firstSimpleTask"></property>
+        <property name="jobName" value="firstSimpleTask"></property>
+    </bean>
+
+    <!--4.简单的触发器-->
+    <bean id="simpleTriggerImpl" class="org.quartz.impl.triggers.SimpleTriggerImpl">
+        <property name="name" value="simpleTriggerImpl"></property>
+        <property name="group" value="simpleGroup"></property>
+        <property name="startTime">
+            <bean class="java.util.Date">
+                <constructor-arg name="year" value="2019"></constructor-arg>
+                <constructor-arg name="month" value="3"></constructor-arg>
+                <constructor-arg name="date" value="18"></constructor-arg>
+                <constructor-arg name="hrs" value="19"></constructor-arg>
+                <constructor-arg name="min" value="0"></constructor-arg>
+            </bean>
+        </property>
+        <property name="endTime">
+            <bean class="java.util.Date">
+                <constructor-arg name="year" value="2019"></constructor-arg>
+                <constructor-arg name="month" value="3"></constructor-arg>
+                <constructor-arg name="date" value="18"></constructor-arg>
+                <constructor-arg name="hrs" value="20"></constructor-arg>
+                <constructor-arg name="min" value="30"></constructor-arg>
+            </bean>
+        </property>
+        <property name="repeatCount" value="1"></property>
+        <property name="repeatInterval" value="3"></property>
+        <property name="jobGroup" value="firstSimpleTask"></property>
+        <property name="jobName" value="firstSimpleTask"></property>
+    </bean>
+
+    <!--TriggerListener 触发监听器-->
+    <!--JobListener 作业监听器-->
+    <!--SchedulerListener 调度监听器 都是可以配置的-->
+
+    <!--事务-->
+
+    <!--
+    https://www.jianshu.com/p/36329ed4a085
+    https://www.cnblogs.com/skyLogin/p/6915921.html
+    https://www.cnblogs.com/meet/p/Quartz-biao-jie-gou-shuo-ming.html
+    https://www.cnblogs.com/loui/p/4187288.html
+    https://blog.csdn.net/yangshangwei/article/details/78172788
+    -->
+
+
+</beans>
