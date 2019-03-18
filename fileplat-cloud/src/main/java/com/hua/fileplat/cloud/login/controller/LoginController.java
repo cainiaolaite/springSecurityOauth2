@@ -3,6 +3,7 @@ package com.hua.fileplat.cloud.login.controller;
 import com.hua.base.entity.Result;
 import com.hua.fileplat.cloud.user.service.UserService;
 import com.hua.fileplat.cloud.user.vo.LoginUserVo;
+import com.hua.fileplat.cloud.user.vo.SessionUserVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,10 @@ public class LoginController {
     Logger logger= LoggerFactory.getLogger(LoginController.class);
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private HttpSession session;
+
     @RequestMapping("/to_login")
     public String index(Model model){
         return "cloud/login/login";
@@ -38,9 +43,12 @@ public class LoginController {
     @ResponseBody
     public Result login(Model model,
                         @Validated LoginUserVo loginUserVo,
-                        BindingResult bindingResult,
-                        Session session){
-        Result result=userService.login(loginUserVo,bindingResult,session);
+                        BindingResult bindingResult){
+        Result result=userService.login(loginUserVo,bindingResult);
+        if(result.isResult()){
+            session.setAttribute(SessionUserVo.SESSION_USER_VO,result.getData());
+            result.setData(null);
+        }
         return result;
     }
 
@@ -50,9 +58,19 @@ public class LoginController {
      * @return
      */
     @RequestMapping("/exit")
-    public String exit(Model model, HttpSession session){
+    public String exit(Model model){
         session.invalidate();
-        return "/";
+        session.setAttribute(SessionUserVo.SESSION_USER_VO,null);
+        return "cloud/login/login";
+    }
+
+    /**
+     * 到达管理页面
+     * @return
+     */
+    @RequestMapping("/to_manager")
+    public String toManager(){
+        return "cloud/manager/index";
     }
 
 

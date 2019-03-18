@@ -20,7 +20,7 @@
         http://www.springframework.org/schema/task
         http://www.springframework.org/schema/task/spring-task-4.3.xsd">
         <!--注解扫描驱动-->
-        <mvc:annotation-driven>
+        <mvc:annotation-driven validator="validator">
             <!--配置路径-->
         </mvc:annotation-driven>
         <context:component-scan base-package="com.hua.fileplat.cloud.*.controller"/>
@@ -56,6 +56,11 @@
         <mvc:resources mapping="/cloud/**/*.jpg" location="/WEB-INF/view/cloud/"></mvc:resources>
         <mvc:resources mapping="/cloud/**/*.png" location="/WEB-INF/view/cloud/"></mvc:resources>
 
+        <mvc:resources mapping="/css/**" location="/WEB-INF/view/static/css/"></mvc:resources>
+        <mvc:resources mapping="/fonts/**" location="/WEB-INF/view/static/fonts/"></mvc:resources>
+        <mvc:resources mapping="/images/**" location="/WEB-INF/view/static/images/"></mvc:resources>
+        <mvc:resources mapping="/js/**" location="/WEB-INF/view/static/js/"></mvc:resources>
+
 
 
     <!--国际化-->
@@ -86,6 +91,22 @@
         <bean class="com.hua.fileplat.cloud.base.exception.SpringHandlerExceptionResolver"></bean>
 
 
+        <mvc:interceptors>
+            <mvc:interceptor >
+                <mvc:mapping path="/*" />
+                <mvc:exclude-mapping path="/"></mvc:exclude-mapping>
+                <!--首页不用拦截-->
+                <mvc:exclude-mapping path="/login"></mvc:exclude-mapping>
+                <mvc:exclude-mapping path="/to_login"></mvc:exclude-mapping>
+                <!--首页不用拦截-->
+                <mvc:exclude-mapping path="/cloud/index/*"></mvc:exclude-mapping>
+                <!--登录不用拦截-->
+                <mvc:exclude-mapping path="/cloud/login/*"></mvc:exclude-mapping>
+                <!--错误不用拦截-->
+                <mvc:exclude-mapping path="/cloud/error/*"></mvc:exclude-mapping>
+                <bean class="com.hua.fileplat.cloud.base.LoginHandlerInterceptor"></bean>
+            </mvc:interceptor>
+        </mvc:interceptors>
 
 <!--配置视图控制器
     请求转发 / 到 home
