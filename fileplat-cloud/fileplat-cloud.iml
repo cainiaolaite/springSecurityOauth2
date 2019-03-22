@@ -42,6 +42,7 @@
     <orderEntry type="library" name="Maven: org.quartz-scheduler:quartz-jobs:2.3.0" level="project" />
     <orderEntry type="library" name="Maven: org.quartz-scheduler:quartz-weblogic:2.1.7" level="project" />
     <orderEntry type="library" name="Maven: org.quartz-scheduler:quartz-oracle:2.1.7" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache:2.10.6" level="project" />
     <orderEntry type="module" module-name="hua-base" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.5" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:4.0.0" level="project" />
