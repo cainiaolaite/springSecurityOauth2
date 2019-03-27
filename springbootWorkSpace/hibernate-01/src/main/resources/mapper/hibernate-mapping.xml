@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hua.hibernate.entity.User" table="user">
+        <id name="id" type="java.lang.String">
+            <column name="ID"></column>
+
+            <!--自增策略
+                assigned
+                   ID值不会自动生成，保存（save）之前 必须制定 id
+                increment
+                   每个session(只取一次)取出主键的最大值，每次增量1 成为这条数据的主键
+                   （不适合多线程，不能用集群）
+                hilo (推荐)
+                    (高低位方式high low)是hibernate中最常用的一种生成方式。会自动创建一张表保存 hi的值
+                    (可跨数据库)
+
+                seqhilo
+                    与hilo类似，通过hi/Io 算法实现的主键生成机制，只是将hilo中的数据表换成了序列 sequence,
+                    需要数据库中创建sequence
+                    (适用于支持sequence的数据库，如Oracel）
+
+                sequence
+                    采用数据库提供的sequence机制生成主键，需要数据库支持sequence。
+                    如：oralce,DB,SAQ DB,PostgerSQL ,McKoi 中的sequence.
+                    mysql 这种不支持 sequence 的数据库则不行
+
+                 identity
+                    identity 由底层数据库生成标识符。identity是由数据库自己生成的，当这个主键必须设置
+                    自增长，使用identity的前提条件是底层数据库支持自动增长字段类型
+                    如 DB2,SQL Server,MySQL,Sybase 和 HypersonicSQL
+                    Oracle 类没有自增字段的则不支持。
+
+                 native (推荐)
+                   native 由 hibernate 根据使用的数据库自信判断采用 identity,hilo,sequence 其中一种作为主键生成方式，灵活性很强
+                   特点：根据数据库自动选择，项目中如果用到多个数据库时，可以使用这种方式，使用时需要设置表的自增字段
+                   或建立序列，建立表等。
+
+                 UUID (推荐)
+                    由hibernate 生成的主键，确保唯一性
+                    特点：长度大，占用空间，跨数据库，保证唯一性，移植方便
+
+                 guid
+                    有数据库底层 自动生成的
+                 foreign (不用)
+                 select (不用)
+            -->
+            <generator class="assigned"></generator>
+        </id>
+        <property name="userName" type="java.lang.String">
+            <column name="USER_NAME"></column>
+        </property>
+
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL"></column>
+        </property>
+
+        <property name="phone" type="java.lang.String">
+            <column name="PHONE"></column>
+        </property>
+
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD"></column>
+        </property>
+
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS"></column>
+        </property>
+
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME"></column>
+        </property>
+        <property name="updateTime" type="java.util.Date">
+            <column name="UPDATE_TIME"></column>
+        </property>
+    </class>
+</hibernate-mapping>

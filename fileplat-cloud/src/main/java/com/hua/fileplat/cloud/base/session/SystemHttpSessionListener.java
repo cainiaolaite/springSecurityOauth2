@@ -49,7 +49,7 @@ public class SystemHttpSessionListener implements HttpSessionListener {
         }
         Session session=sessionRepository.getSession(httpSession.getId());
         if(session == null){
-            logger.error("不能通过HttpSession的session id {0} 取 Spring Session",httpSession.getId());
+            logger.error("不能通过HttpSession的session id {} 取 Spring Session",httpSession.getId());
             return null;
         }
         return session;

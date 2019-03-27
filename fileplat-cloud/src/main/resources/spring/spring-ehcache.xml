@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/cache
+        http://www.springframework.org/schema/cache/spring-cache-3.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+        <!-- 可以使用cache 相关的注解-->
+        <cache:annotation-driven cache-manager="cacheManager"></cache:annotation-driven>
+        <!--缓存切面通知-->
+        <!--<cache:advice id="aopEhcacheAdvice" cache-manager="ehCacheCacheManager">
+            <cache:caching>
+                <cache:cache-put method="putCacheObject" cache=""></cache:cache-put>
+            </cache:caching>
+        </cache:advice>
+        <aop:config>
+            <aop:pointcut id="aopEhcacheService" expression="this(com.hua.fileplat.cloud.base.ehcache.AopEhcacheService)"></aop:pointcut>
+            <aop:advisor advice-ref="aopEhcacheAdvice" pointcut-ref="aopEhcacheService" id="aopEhcacheAdvisor"></aop:advisor>
+        </aop:config>-->
+    
+
+    
+        <context:component-scan base-package="com.hua.fileplat.cloud"></context:component-scan>
+        <!--<bean id="ehcacheConfigFileLocation" class="org.springframework.core.io.ClassPathResource">
+            <constructor-arg name="path" value="ehcache/ehcache.xml"></constructor-arg>
+        </bean>-->
+        <bean id="ehCacheManagerFactoryBean" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+            <property name="configLocation" value="classpath:ehcache/ehcache.xml"></property>
+            <!--
+                1. Use one of the CacheManager.create() static factory methods to reuse same CacheManager with same name or create one if necessary
+                2. Shutdown the earlier cacheManager before creating new one with same name.
+                ehcache.xml 与  ehcache.jar 中的 ehcache-failsafe.xml 中的缓存名称 重复导致错误
+                shared=true 代表共享
+            -->
+            <property name="shared" value="true"></property>
+        </bean>
+        <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+            <property name="cacheManager" ref="ehCacheManagerFactoryBean"></property>
+            <!--事务感知，加入到spring 事务中-->
+            <property name="transactionAware" value="true"></property>
+        </bean>
+
+
+        <!--spring cache 注解 使用-->
+    
+        
+</beans>

@@ -8,13 +8,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.session.Session;
+import org.springframework.session.SessionRepository;
+import org.springframework.session.jdbc.JdbcOperationsSessionRepository;
+import org.springframework.session.web.http.HttpSessionStrategy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -26,8 +32,16 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    /*@Autowired
+    private HttpSession session;*/
     @Autowired
-    private HttpSession session;
+    private HttpSession httpSession;
+
+    @Autowired
+    private HttpSessionStrategy httpSessionStrategy;
+
+    @Autowired
+    private SessionRepository sessionRepository;
 
     @RequestMapping("/to_login")
     public String index(Model model){
@@ -46,7 +60,10 @@ public class LoginController {
                         BindingResult bindingResult){
         Result result=userService.login(loginUserVo,bindingResult);
         if(result.isResult()){
+            logger.info("sessionId {} 登錄成功后設置會話",httpSession.getId());
+            Session session=sessionRepository.getSession(httpSession.getId());
             session.setAttribute(SessionUserVo.SESSION_USER_VO,result.getData());
+            sessionRepository.save(session);
             result.setData(null);
         }
         return result;
@@ -59,8 +76,8 @@ public class LoginController {
      */
     @RequestMapping("/exit")
     public String exit(Model model){
-        session.invalidate();
-        session.setAttribute(SessionUserVo.SESSION_USER_VO,null);
+        //httpSessionStrategy.onInvalidateSession(httpServletRequest,httpServletResponse);
+        httpSession.invalidate();
         return "cloud/login/login";
     }
 
@@ -69,7 +86,8 @@ public class LoginController {
      * @return
      */
     @RequestMapping("/to_manager")
-    public String toManager(){
+    public String toManager(@SessionAttribute(SessionUserVo.SESSION_USER_VO) SessionUserVo sessionUserVo){
+        logger.info("session 用户 "+sessionUserVo.toString());
         return "cloud/manager/index";
     }
 
