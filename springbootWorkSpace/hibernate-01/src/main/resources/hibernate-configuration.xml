@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--hibernate 数据库连接-->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dev</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">ceba</property>
+
+        <property name="hibernate.c3p0.timeout">1000</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">10</property>
+
+        <!--hibernate 数据库连接池-->
+        <!--<property name="hibernate.c3p0.max_size">10</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.timeout">1000</property>-->
+
+        <!--hibernate 数据库方言（特别的地方） 开发的过程中要在控制台显示sql语句等等 -->
+        <!--5 为 mysql 版本 5以上的会支持 InnoDB 是为了支持事务-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <!--显示sql语句-->
+        <property name="hibernate.show_sql">true</property>
+        <!--输出的sql语句 被格式化-->
+        <property name="hibernate.format_sql">true</property>
+        <!--对数据库表进行操作 值如下
+            create : 每次启动hibernate都会创建新的表
+            create-drop : 每次启动hibernate，执行sql时，会帮助创建表，执行完成后，会删除表
+            update : 第一次启动hibernate 会帮助创建表，以后启动 如果 entity 有更新 那么 表就会跟着自动更新
+            validate : 启动时 不会创建表，但是会 比较表 结构 插入 新的值
+        -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!--引入mapping映射文件-->
+        <mapping resource="mapper/hibernate-mapping.xml"></mapping>
+
+    </session-factory>
+</hibernate-configuration>

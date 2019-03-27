@@ -18,7 +18,10 @@
             </plugin>
         </plugins>
     </build>
-    <packaging>jar</packaging>
+    <modules>
+        <module>../springbootWorkSpace/hibernate-01</module>
+    </modules>
+    <packaging>pom</packaging>
     <parent>
         <groupId>com.hua.common</groupId>
         <artifactId>hua-parent</artifactId>
