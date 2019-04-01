@@ -1,24 +1,20 @@
-package com.hua.hibernate;
+package com.hua.hibernate.onecache.method;
 
 import com.hua.hibernate.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Date;
-
 /**
- * hibernate连接测试
+ * Hibernate 的一级缓存-get测试
+ * Hibernate 的一级缓存就是Session 的缓存
  */
-public class HibernateConnectionTest {
-
+public class HibernateGetTest {
     //SessionFactoryImpl(MetadataImplementor metadata, SessionFactoryOptions options)
     private SessionFactory sessionFactory=null;
     private static final String HIBERANTE_CONFIG_FILE="hibernate-configuration.xml";
@@ -38,28 +34,23 @@ public class HibernateConnectionTest {
         MetadataSources metadataSources=new MetadataSources(serviceRegistry);
         sessionFactory=metadataSources.buildMetadata().buildSessionFactory();
         session=sessionFactory.openSession();
-        transaction=session.getTransaction();
-        transaction.begin();
+        /*transaction=session.getTransaction();
+        transaction.begin();*/
     }
 
     @Test
     public void saveUser(){
-        User user=new User();
-        user.setId("000000000000000000000");
-        user.setUserName("hahha");
-        user.setPassword("hahha");
-        user.setEmail("1308189967@qq.com");
-        user.setPhone("13476096121");
-        user.setAddress("武汉");
-        user.setCreateTime(new Date());
-        user.setUpdateTime(new Date());
-        session.save(user);
+        User user=session.get(User.class,"000000000000000000000");
+        System.out.println("第一次从数据库中取出id为【000000000000000000000】:"+user.toString());
+        User user2=session.get(User.class,"000000000000000000000");
+        System.out.println("第二次从数据库中取出id为【000000000000000000000】:"+user2.toString());
+        System.out.println("如日志所示：session.get()两次重复取出数据库中的相同的数据，\n第一次是到数据库中提取，\n第二次是到session的缓存中提取:");
     }
 
 
     @After
     public void after(){
-        transaction.commit();
+        /*transaction.commit();*/
         session.close();
         sessionFactory.close();
     }

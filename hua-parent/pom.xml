@@ -7,6 +7,9 @@
     <groupId>com.hua.common</groupId>
     <artifactId>hua-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>../springbootWorkSpace/shiro</module>
+    </modules>
     <packaging>pom</packaging>
     <!--
         用 dependencyManagement 括起来的依赖 如果子项目需要 引用 则需要 <dependencies> 添加依赖项（不需要version）

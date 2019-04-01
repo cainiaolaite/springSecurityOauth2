@@ -1,0 +1,312 @@
+<?xml version="1.0"?>
+<!--官网详解 https://logback.qos.ch/manual/introduction.html
+    Logback 优点 https://logback.qos.ch/reasonsToSwitch.html
+    1.快速实施，速度开上10倍
+    2.大量测试
+    3.实现了 slf4j
+    4.配置文件有 XML 或 Groovy(格罗维：apache 开发的java 脚本)
+    5.自动重新加载配置文件
+        Logback-classic 可以在修改后自动重新加载器配置文件
+    6.从 I/O 中恢复正常
+    7.自动删除旧的日志
+    8.通过http访问日志
+        Logback-access，即带有大脑的HTTP访问日志记录，是logback的一个组成部分
+        最后但同样重要的是，logback-access模块​​是logback发行版的一部分，它与Servlet容器（如Jetty或Tomcat）集成，
+        以提供丰富而强大的HTTP访问日志功能。由于logback-access是初始设计的一部分，因此您喜欢的所有logback-classic功能也可用于logback-access。
+
+    注：logback 如果没有找到 配置策略，就会有一个默认策略配置自己
+
+
+    第二章 logback 架构
+
+    logback 的模块
+        logback-core  （核心）
+        logback-classic  （实现了SLF4J API ）
+        logback-access    (集成了Servlet 容器，可以提供 HTTP访问日志功能)
+
+    logback 组件
+        Logger (记录器
+                怎么记录日志)
+        Appender (是将在日志添加到什么地方，
+                   控制台，文件，套接字，数据库，JMS...)
+        Layout   (布局)
+
+    有效等级 与 等级继承
+    记录器的等级  org.slf4j.event.Level
+                （TRACE，DEBUG，INFO，WARN和ERROR）
+                OFF 关闭
+                ALL 开启所有
+    记录器等级顺序
+        TRACE(跟踪) < DEBUG(调试) < INFO(信息) <  WARN(警告) < ERROR(错误)
+
+    有效级别
+    1.默认是 root level 的级别
+    <root level = "DEBUG"> </root>
+    2.通过配置日志记录器
+    <logger name = "x.y" level = "INFO" />
+    3.级别 继承
+        x.y.z 的有效级别 为 INFO
+        d.t   的有效级别 为 DEBUG
+
+    请求级别
+    1. Logger logger= LoggerFactory.getLogger("x.y");
+       logger.debug("");
+       请求级别为 DEBUG
+
+    规则
+        请求级别 >= 有效级别  则会appender
+
+    注：在开发测试的时候 可以把有效级别设置为 TRACE，在上线后可以把 有效级别 设置为 INFO ，这样有效的控制日志量
+
+
+    检索记录器
+    Logger logger= LoggerFactory.getLogger("x.y")
+
+    appenders 和 布局
+    appender 到 控制台，文件，远程套接字服务器，MySQL，PostgreSQL，Oracle和其他数据库，JMS和远程UNIX Syslog守护程序
+
+    参数化日志记录
+    logger.debug（“新条目是{}。它取代{}。”，entry，oldEntry）
+
+
+
+
+
+
+
+
+
+
+
+    如果给定的记录器没有分配级别，那么它将从就有指定级别的最近祖先继承一个级别
+
+
+
+
+
+
+
+
+    第三章 logback 配置
+    一.logback 自身初始化的步骤
+    在类路径中自动依次查找
+    logback-test.xml->logback.groovy->logback.xml
+    如果以上依次都没有查找到
+    ch.qos.logback.classic.spi.Configurator
+    查找 此接口 所实现的  BasicConfigurator 来做为默认配置
+
+    二。状态监听器
+    <configuration  debug="true" >
+    </configuration>
+            无法读取配置文件的一种状态
+            设置debug="true"完全等同于安装 OnConsoleStatusListener
+
+    三。系统属性指定默认配置文件（System 中的系统属性）
+    System.setProperty(ContextInitializer.CONFIG_FILE_PROPERTY ，/ path / to / config.xml)
+
+    四。修改后自动重新加载配置文件
+    <configuration scan="true" scanPeriod="30 seconds" >
+    </configuration>
+    scan = "true" 代表需要扫描，scanPeriod 30秒 一次
+    扫描后 发现，有修改，会自动刚更新（如果读取配置失败，自动回退）
+
+    五。在堆栈跟踪中启用打包数据
+    <configuration packagingData="true" >
+    </configuration>
+
+    六。通过 JoranConfigurator 直接调用
+    LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
+    try {
+      JoranConfigurator configurator = new JoranConfigurator();
+      configurator.setContext(context);
+      // Call context.reset() to clear any previous configuration, e.g. default
+      // configuration. For multi-step configuration, omit calling context.reset().
+      context.reset();
+      configurator.doConfigure(args[0]);
+    } catch (JoranException je) {
+      // StatusPrinter will handle this
+    }
+    StatusPrinter.printInCaseOfErrorsOrWarnings(context);
+
+    七。通过 servlet 查看
+
+    配置位置web.xml 的servlet 的映射关系
+    <servlet>
+        <servlet-name>ViewStatusMessages</servlet-name>
+        <servlet-class>ch.qos.logback.classic.ViewStatusMessagesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewStatusMessages</servlet-name>
+        <url-pattern>/lbClassicStatus</url-pattern>
+    </servlet-mapping>
+
+    八  通过关闭钩子停止 logback-classic
+        安装 JVM关闭挂钩是关闭注销和释放相关资源的快捷方式。
+        <configuration debug="true">
+            <shutdownHook/>
+        </configuration>
+        shutdownHook -> ch.qos.logback.core.hook.DefaultShutdownHook
+
+        web.xml 中安装初始化器
+        <web-app>
+            <context-param>
+                <param-name>logbackDisableServletContainerInitializer</param-name>
+                <param-value>true</param-value>
+            </context-param>
+            ....
+        </web-app>
+
+
+     九 配置记录器 <logger>
+        <logger name = “chapters.configuration”level = “INFO” />
+        name 为 记录器的名称  level 记录器的有效级别，默认是 根节点的有效级别
+
+     十 配置根
+     level 等于 debug 默认的有效级别
+     appender-ref 需要打印哪儿去（appender）
+
+     <root level="debug">
+        <appender-ref ref="STDOUT" />
+     </root>
+
+     十一 配置 上下文
+     <contextName>myAppName</contextName>
+      <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+          <pattern>%d %contextName [%t] %level %logger{36} - %msg%n</pattern>
+        </encoder>
+      </appender>
+
+     十二 配置文件的属性
+          1.自定义属性
+          <property name="USER_HOME" value="/home/sebastien" />
+          <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+            <file>${USER_HOME}/myApp.log</file>
+            <encoder>
+              <pattern>%msg%n</pattern>
+            </encoder>
+          </appender>
+
+          2.加载 properties 文件 中的属性
+            <property file="src/main/java/chapters/configuration/variables1.properties" />
+            <property resource="resource1.properties" />
+
+          3.变量范围
+            local
+                应用在配置文件中
+            context
+                上下文，应用在整个日志事件中
+            system
+                此属性会添加到 jvm系统中
+            <property  scope = “context”>
+
+           4.变量的嵌套
+
+           resource1.properties
+            USER_HOME=/home/sebastien
+            fileName=myApp.log
+            destination=${USER_HOME}/${fileName}
+
+          4.xml变量名的的嵌套
+            <property name="USER_HOME" value="/home/sebastien" />
+            <property name="USER_HOME_DOM" value="/home/sebastien/dom" />
+            <property name="DOM" value="_DOM" />
+          <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+            <file>${USER_HOME${DOM}}/myApp.log</file>
+            <encoder>
+              <pattern>%msg%n</pattern>
+            </encoder>
+          </appender>
+
+          5.动态定义属性
+            <define> 元素动态定义属性
+            class 类需要实现 PropertyDefiner接口 实现 getPropertyValue 方法
+            <define name="rootLevel" class="a.class.implementing.PropertyDefiner">
+                <shape>round</shape>
+                <color>brown</color>
+                <size>24</size>
+              </define>
+            <root level="${rootLevel}"/>
+
+       十二 条件处理配置文件
+       通过 janino库实现  不同环境(测试，开发)的下 使用 用同一个 logback.xml 文件
+
+
+        十三 文件包含
+        标签
+        <include file=""></include>
+        属性 file,resource,url
+
+
+
+        <configuration>
+          <include file="src/main/java/chapters/configuration/includedConfig.xml"/>
+          <root level="DEBUG">
+            <appender-ref ref="includedConsole" />
+          </root>
+        </configuration>
+
+        includedConfig.xml 的文件内容
+        <included>
+          <appender name="includedConsole" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+              <pattern>"%d - %m%n"</pattern>
+            </encoder>
+          </appender>
+        </included>
+
+        十四 添加上下文 监听器
+
+
+   第四章 appender
+        介绍 logback 自带的 各种 appender 比如 控制台，文件，套接字，数据库，JMS
+
+   第五章 编码器
+            从logback版本0.9.19开始，WriterAppender 该类已重命名为OutputStreamAppender， FileAppender现在对后者进行子类化。OutputStreamAppender现在，子类Encoder作为子组件而不是Layout。
+
+            PatternLayoutBase 模式布局 里有编码器所需要的 属性
+
+            https://logback.qos.ch/manual/layouts.html
+   第六章 布局
+           布局属性
+           https://logback.qos.ch/manual/layouts.html
+
+    第七章过滤器
+
+    第8章 映射诊断 上下文 （正需要 明天重点查看）
+        logback 的设计目标之一是升级和调试负责的分布式应用程序。大多数显示世界的分布式系统需要同时处理多个客户端。
+        在这种系统的电信多线程实现中，不同的线程将处理不同的客户端。将一个客户端的日志记录输出 与 另一个客户端的日志
+        记录输出区分开来的可能 当 稍微不鼓励的方法包括为 每个客户端实例化 一个新的独立记录器。这种技术处境了记录器的
+        扩散，并可能增加其管理开销
+        较轻的技术包括对给定客户端的每个日志请求进行唯一标记。logback 利用SLF4J API中包含的此技术的变体 映射诊断上下文
+
+    第11章 joran
+        logback 依赖于 joran ，这是一个成熟，灵活器功能请打的配置框架。
+
+
+
+
+
+
+
+-->
+<configuration  debug="false" xmlns="http://ch.qos.logback/xml/ns/logback"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://ch.qos.logback/xml/ns/logback
+               https://raw.githubusercontent.com/enricopulatzo/logback-XSD/master/src/main/xsd/logback.xsd">
+    <!-- ch.qos.logback.core.ConsoleAppender 控制台输出 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>[%-5level] %d{HH:mm:ss.SSS} [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--mybatis 日志-->
+    <logger name="com.hua.fileplat.cloud.*.dao" level="DEBUG"></logger>
+    <logger name="org.springframework.web" level="TRACE"></logger>
+    <!-- 日志级别 -->
+    <root level="ERROR">
+        <appender-ref ref="console"></appender-ref>
+    </root>
+
+</configuration>

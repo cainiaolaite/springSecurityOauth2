@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:jms="http://www.springframework.org/schema/jms"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task-4.3.xsd
+        http://www.springframework.org/schema/jms
+        http://www.springframework.org/schema/jms/spring-jms.xsd">
+
+        <!--jms 注解驱动-->
+        <jms:annotation-driven ></jms:annotation-driven>
+
+
+        <!--jms 侦听器容器-->
+        <!--transaction-manager jms 事务管理  JMS有两种事务 第一种是监听容器默认事务开关-->
+        <!--<bean id="jmsTransactionManager" class="org.springframework.jms.connection.JmsTransactionManager">
+            <constructor-arg name="connectionFactory" ref="activeMQConnectionFactory"></constructor-arg>
+        </bean>-->
+
+        <!--activeMQ的连接工厂-->
+        <bean id="activeMQConnectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory">
+            <property name="userName" value="admin"></property>
+            <property name="password" value="admin"></property>
+            <property name="brokerURL" value="tcp://localhost:61616"></property>
+        </bean>
+
+        <!--destination-resolver 目标资源 -->
+        <bean id="dynamicDestinationResolver" class="org.springframework.jms.support.destination.DynamicDestinationResolver">
+        </bean>
+        <bean id="jmsReceiveListener" class="com.hua.fileplat.cloud.base.jms.JmsReceiveListener"></bean>
+
+        <!--消息队列-->
+        <jms:listener-container
+                factory-id="jmsFactory"
+                connection-factory="activeMQConnectionFactory"
+                destination-resolver="dynamicDestinationResolver"
+                destination-type="queue"
+                response-destination-type="queue"
+                receive-timeout="3000"
+        >
+            <jms:listener destination="dynamicDestinationResolver" ref="jmsReceiveListener"></jms:listener>
+        </jms:listener-container>
+        <bean id="jmsTemplate" name="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+            <property name="connectionFactory" ref="activeMQConnectionFactory"></property>
+            <!--如果没有使用JTA，对于上面的配置如果把属性 sessionTransacted 设成true jms事务与 数据库事务融合-->
+            <property name="sessionTransacted" value="true"></property>
+        </bean>
+</beans>
