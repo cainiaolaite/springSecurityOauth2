@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hua.fileplat.cloud.user.dao.RolePermissionDao">
+
+    <resultMap type="com.hua.fileplat.cloud.user.entity.RolePermission" id="RolePermissionMap">
+        <result property="id" column="ID" jdbcType="VARCHAR"/>
+        <result property="permissionId" column="PERMISSION_ID" jdbcType="VARCHAR"/>
+        <result property="roleId" column="ROLE_ID" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="RolePermissionMap">
+        select
+          ID, PERMISSION_ID, ROLE_ID
+        from fileplat.role_permission
+        where ID = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="RolePermissionMap">
+        select
+          ID, PERMISSION_ID, ROLE_ID
+        from fileplat.role_permission
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="RolePermissionMap">
+        select
+          ID, PERMISSION_ID, ROLE_ID
+        from fileplat.role_permission
+        <where>
+            <if test="id != null and id != ''">
+                and ID = #{id}
+            </if>
+            <if test="permissionId != null and permissionId != ''">
+                and PERMISSION_ID = #{permissionId}
+            </if>
+            <if test="roleId != null and roleId != ''">
+                and ROLE_ID = #{roleId}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into fileplat.role_permission(PERMISSION_ID, ROLE_ID)
+        values (#{permissionId}, #{roleId})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update fileplat.role_permission
+        <set>
+            <if test="permissionId != null and permissionId != ''">
+                PERMISSION_ID = #{permissionId},
+            </if>
+            <if test="roleId != null and roleId != ''">
+                ROLE_ID = #{roleId},
+            </if>
+        </set>
+        where ID = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from fileplat.role_permission where ID = #{id}
+    </delete>
+
+</mapper>

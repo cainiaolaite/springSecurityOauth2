@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task-4.3.xsd">
+
+    <!--扫描 Autowired 注解-->
+    <context:annotation-config></context:annotation-config>
+    <!--扫描 com.hua.fileplat.cloud 里的 component 注解-->
+    <!-- <context:component-scan base-package="com.hua.fileplat.cloud"></context:component-scan>-->
+
+    <context:property-placeholder location="classpath:mybatis/jdbc_config.properties"></context:property-placeholder>
+    <bean id="basicDataSource" name="basicDataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.demo.driver}" />
+        <property name="url" value="${jdbc.demo.url}" />
+        <property name="username" value="${jdbc.demo.username}" />
+        <property name="password" value="${jdbc.demo.password}" />
+    </bean>
+
+    <bean id="ehCacheManagerFactoryBean" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+        <property name="configLocation" value="classpath:ehcache/ehcache.xml"></property>
+        <!--
+            1. Use one of the CacheManager.create() static factory methods to reuse same CacheManager with same name or create one if necessary
+            2. Shutdown the earlier cacheManager before creating new one with same name.
+            ehcache.xml 与  ehcache.jar 中的 ehcache-failsafe.xml 中的缓存名称 重复导致错误
+            shared=true 代表共享
+        -->
+        <property name="shared" value="true"></property>
+    </bean>
+
+    <bean id="shiroEhCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <property name="cacheManager" ref="ehCacheManagerFactoryBean"></property>
+    </bean>
+
+    <bean id="formAuthenticationFilter" class="org.apache.shiro.web.filter.authc.FormAuthenticationFilter">
+        <property name="successUrl" value="/view/shiro/index.html"></property>
+        <property name="loginUrl" value="/login"></property>
+        <property name="passwordParam" value="password"></property>
+        <property name="usernameParam" value="username"></property>
+        <property name="enabled" value="true"></property>
+    </bean>
+    <bean id="logoutFilter" class="org.apache.shiro.web.filter.authc.LogoutFilter">
+        <property name="redirectUrl" value="/exit"></property>
+    </bean>
+    <bean id="noSessionCreationFilter" class="org.apache.shiro.web.filter.session.NoSessionCreationFilter">
+        <property name="enabled" value="true"></property>
+    </bean>
+
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="unauthorizedUrl" value="/view/static"></property>
+        <!--登录url-->
+        <property name="securityManager">
+            <!--DefaultWebSecurityManager 实现了 authenticator authorizer eventBus-->
+            <bean class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+                <!--缓存管理-->
+                <property name="cacheManager" ref="shiroEhCacheManager"></property>
+
+                <!--会话管理-->
+                <property name="sessionManager">
+                    <bean class="org.apache.shiro.session.mgt.DefaultSessionManager">
+                        <property name="cacheManager" ref="shiroEhCacheManager"></property>
+                        <!-- 会话超时时间 单位s 秒 10分钟-->
+                        <property name="globalSessionTimeout" value="36000"></property>
+                    </bean>
+                </property>
+
+                <property name="subjectDAO">
+                    <bean class="org.apache.shiro.mgt.DefaultSubjectDAO">
+                    </bean>
+                </property>
+
+                <property name="subjectFactory">
+                    <bean class="org.apache.shiro.web.mgt.DefaultWebSubjectFactory">
+                    </bean>
+                </property>
+
+                <!--记住我管理-->
+                <property name="rememberMeManager">
+                    <bean class="org.apache.shiro.web.mgt.CookieRememberMeManager">
+                    </bean>
+                </property>
+                <property name="realm">
+                    <bean class="org.apache.shiro.realm.jdbc.JdbcRealm">
+                        <property name="authenticationQuery" value="select PASSWORD as password from user where USER_NAME = ?"></property>
+                        <property name="permissionsQuery" value="select r.NAME as role_name from user u,user_role ur,role r where u.USER_NAME = ? and ur.USER_ID=u.ID and r.ID=ur.ROLE_ID"></property>
+                        <property name="userRolesQuery" value="select (select code from permission where ID=rp.PERMISSION_ID) as permission from roles_permission rp where rp.ROLE_ID = ?"></property>
+                        <property name="name" value="realmTest"></property>
+
+                        <!--是否开启缓存-->
+                        <property name="cachingEnabled" value="true"></property>
+                        <!--是否启动认证缓存-->
+                        <property name="authorizationCachingEnabled" value="true"> </property>
+                        <property name="authorizationCacheName" value="shiroAuthorizationName"></property>
+                        <!--<property name="authorizationCache"></property>-->
+
+                        <!--是否启动授权缓存-->
+                        <property name="authenticationCachingEnabled" value="true"></property>
+                        <property name="authenticationCacheName" value="shiroAuthenticationName"></property>
+                        <!--<property name="authenticationCache"></property>-->
+
+                        <!--权限提供者-->
+                        <!--<property name="permissionResolver"></property>-->
+                        <!--<property name="saltStyle"></property>-->
+
+                        <property name="dataSource" ref="basicDataSource"></property>
+                        <property name="cacheManager" ref="shiroEhCacheManager"></property>
+                    </bean>
+                </property>
+
+                <!--<property name="eventBus"-->
+                <!--安全认证-->
+                <!--<property name="authenticator">
+                    <bean class="org.apache.shiro.authc.pam.ModularRealmAuthenticator"></bean>
+                </property>-->
+                <!--授权-->
+                <!--<property name="authorizer">
+                    <bean></bean>
+                </property>-->
+            </bean>
+        </property>
+        <!--<property name="filters">
+            <map>
+                <entry key="formAuthenticationFilter" value-ref="formAuthenticationFilter">
+                </entry>
+                <entry key="logoutFilter" value-ref="logoutFilter">
+                </entry>
+                <entry key="noSessionCreationFilter" value-ref="noSessionCreationFilter">
+                </entry>
+            </map>
+        </property>-->
+    </bean>
+</beans>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <bean id="systemHttpSessionListener" class="com.hua.fileplat.cloud.base.session.SystemHttpSessionListener"></bean>
+    <bean id="cookieHttpSessionStrategy"  name="httpSessionStrategy" class="org.springframework.session.web.http.CookieHttpSessionStrategy">
+        <property name="cookieSerializer">
+            <bean class="org.springframework.session.web.http.DefaultCookieSerializer">
+                <property name="useBase64Encoding" value="false"></property>
+                <property name="useHttpOnlyCookie" value="false"></property>
+            </bean>
+        </property>
+    </bean>
+    <!--session 管理用的数据库-->
+    <bean id="springSessionJdbcOperations" name="springSessionJdbcOperations" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="mysqlDataSource"></property>
+    </bean>
+    <bean id="JdbcHttpSessionConfiguration" class="org.springframework.session.jdbc.config.annotation.web.http.JdbcHttpSessionConfiguration" scope="singleton">
+        <!--最大非活动间隔（秒） 不操作网页的时间 为 10分钟（会话会消失）-->
+        <property name="cookieSerializer">
+            <bean class="org.springframework.session.web.http.DefaultCookieSerializer">
+                <property name="useBase64Encoding" value="false"></property>
+                <property name="useHttpOnlyCookie" value="false"></property>
+            </bean>
+        </property>
+        <property name="maxInactiveIntervalInSeconds" value="600"></property>
+        <property name="httpSessionStrategy" ref="cookieHttpSessionStrategy"></property>
+        <property name="httpSessionListeners">
+            <list>
+                <ref bean="systemHttpSessionListener"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <bean name="sessionRepository" class="org.springframework.session.jdbc.JdbcOperationsSessionRepository" scope="singleton">
+        <constructor-arg name="jdbcOperations" ref="springSessionJdbcOperations"></constructor-arg>
+        <constructor-arg name="transactionManager" ref="transactionManager"></constructor-arg>
+        <property name="conversionService">
+            <bean class="com.hua.fileplat.cloud.base.test.DefaultGenericConversionService"></bean>
+        </property>
+        <property name="defaultMaxInactiveInterval" value="600"></property>
+    </bean>
+</beans>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task-4.3.xsd">
+
+    <!--spring 数据库 配置-->
+    <context:property-placeholder location="classpath:mybatis/jdbc_config.properties"></context:property-placeholder>
+    <bean id="mysqlDataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.demo.driver}" />
+        <property name="url" value="${jdbc.demo.url}" />
+        <property name="username" value="${jdbc.demo.username}" />
+        <property name="password" value="${jdbc.demo.password}" />
+    </bean>
+
+
+    <bean id="mybatisConfigFileLocation" class="org.springframework.core.io.ClassPathResource">
+        <constructor-arg name="path" value="mybatis/mybatis-config.xml"></constructor-arg>
+    </bean>
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="mysqlDataSource"></property>
+        <property name="configLocation" ref="mybatisConfigFileLocation"></property>
+    </bean>
+    <!-- mapper扫描配置 主要实现 mybatis Dao 能 支持spring的依赖注入 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--dao接口 层的jar-->
+        <property name="basePackage" value="com.hua.fileplat.cloud.*.dao"></property>
+        <property name="sqlSessionFactoryBeanName"  value="sqlSessionFactory" />
+    </bean>
+
+
+    <!--要 开 启 Spring 的 事 务 处 理 , 在 Spring 的 XML 配 置 文 件 中 简 单 创 建 一 个 DataSourceTransactionManager 对象:-->
+    <bean id="transactionManager" name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="mysqlDataSource"></property>
+        <property name="globalRollbackOnParticipationFailure" value="false"></property>
+    </bean>
+    <!--<bean id="userTransactionAdapter" class="org.springframework.transaction.jta.UserTransactionAdapter">
+        <constructor-arg name="transactionManager" ref="jmsTransactionManager"></constructor-arg>
+    </bean>-->
+
+    <!--事务支持注解 @Transaction驱动  事务嵌套事务时有用-->
+    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+
+
+
+    <!--
+    指定的 DataSource 一般可以是你使用 Spring 的任意 JDBC DataSource。这包含了连接 池和通过 JNDI 查找获得的 DataSource。
+    要注意, 为事务管理器指定的 DataSource 必须和用来创建 SqlSessionFactoryBean 的 是同一个数据源,否则事务管理器就无法工作了。
+    -->
+    <!--<tx:advice id="transactionAdvice">
+        <tx:attributes>
+            &lt;!&ndash;
+            name 切入点的方法名
+            propagation 传播行为
+            timeout 超时时间 seconds 秒
+            read-only 是否只读
+            isolation 隔离规则
+            rollback-for 什么异常回滚
+            no-rollback-for 什么异常不回滚
+             &ndash;&gt;
+            <tx:method name="add*" propagation="REQUIRED" timeout="1" read-only="false" isolation="DEFAULT" rollback-for="java.lang.Exception"/>
+            <tx:method name="delete*" propagation="REQUIRED" timeout="1" read-only="false" isolation="DEFAULT" rollback-for="java.lang.Exception"/>
+            <tx:method name="update*" propagation="REQUIRED" timeout="1" read-only="false" isolation="DEFAULT" rollback-for="java.lang.Exception"/>
+        </tx:attributes>
+    </tx:advice>
+    &lt;!&ndash;确定需要处理事务的切面&ndash;&gt;
+    <aop:config>
+        &lt;!&ndash;切入点&ndash;&gt;
+        <aop:pointcut id="dbTransactionPointcut" expression="within(com.hua.fileplat.cloud.dao.*)"></aop:pointcut>
+        &lt;!&ndash;advice-ref 切入点触发通知 pointcut-ref 那些切入点&ndash;&gt;
+        <aop:advisor advice-ref="transactionAdvice" pointcut-ref="dbTransactionPointcut"></aop:advisor>
+    </aop:config>-->
+
+
+</beans>

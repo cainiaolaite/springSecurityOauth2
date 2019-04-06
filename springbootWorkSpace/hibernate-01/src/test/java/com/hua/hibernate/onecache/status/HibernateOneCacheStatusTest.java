@@ -17,7 +17,7 @@ import java.util.Date;
 /**
  * hibernate连接测试
  */
-public class HibernateConnectionTest {
+public class HibernateOneCacheStatusTest {
 
     //SessionFactoryImpl(MetadataImplementor metadata, SessionFactoryOptions options)
     private SessionFactory sessionFactory=null;
@@ -45,7 +45,7 @@ public class HibernateConnectionTest {
     @Test
     public void saveUser(){
         User user=new User();
-        user.setId("000000000000000000000");
+        user.setId("000000000000000000002");
         user.setUserName("hahha");
         user.setPassword("hahha");
         user.setEmail("1308189967@qq.com");
@@ -53,13 +53,19 @@ public class HibernateConnectionTest {
         user.setAddress("武汉");
         user.setCreateTime(new Date());
         user.setUpdateTime(new Date());
+        //user对象被新建好后 状态为 临时状态，不被session托管
         session.save(user);
+        //session.save(user)执行后 user对象被session缓存托管，即存在session缓存中，又存在与数据库中 被称为临时状态
+        System.out.println("新增保存的user:"+user.toString());
+        transaction.commit();
+        User user1=session.get(User.class,"000000000000000000002");
+        System.out.println("session.get:"+user1.toString());
+        System.out.println("如日志所示：\n如果session.get 没有打印 查询sql语句就说明 【000000000000000000002】的状态为 持久状态");
     }
 
 
     @After
     public void after(){
-        transaction.commit();
         session.close();
         sessionFactory.close();
     }
