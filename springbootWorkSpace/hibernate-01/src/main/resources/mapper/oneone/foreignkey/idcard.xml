@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hua.hibernate.oneone">
+    <class name="IdCard" table="idcard">
+        <id name="id" type="int">
+            <column name="ID"></column>
+            <generator class="native"></generator>
+        </id>
+        <property name="no" type="java.lang.String">
+            <column name="NO"></column>
+        </property>
+        <!--
+            外键已经确定为 person 的 CARD_ID
+            person 为 IdCard 对象的属性
+            Person 为 对象的类
+            property-ref="idCard" 指的是 一对一 中 Person 的属性名(对应的那个属性)
+        -->
+        <one-to-one name="person" class="Person" property-ref="idCard"></one-to-one>
+    </class>
+</hibernate-mapping>

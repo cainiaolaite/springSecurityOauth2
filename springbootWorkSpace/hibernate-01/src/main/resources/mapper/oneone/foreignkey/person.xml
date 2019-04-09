@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hua.hibernate.oneone">
+    <class name="Person" table="person">
+        <id name="id" type="int">
+            <column name="ID"></column>
+            <generator class="native"></generator>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME"></column>
+        </property>
+
+        <!--
+            多对一的情况下
+                对多的那一端的外键 加 唯一约束  就变成了 一对一 (而外键就在person 表中)
+             name : person 对象中的 idCard 属性
+             class : person 对象中的 idCard 属性的 类
+             name="CARD_ID"  为 表person 的外键名 为 CARD_ID
+             unique="true"  为 外键的
+        -->
+        <many-to-one name="idCard" class="IdCard">
+            <column name="CARD_ID" unique="true"></column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

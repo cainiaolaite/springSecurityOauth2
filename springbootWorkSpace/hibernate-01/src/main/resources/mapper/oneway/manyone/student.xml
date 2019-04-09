@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hua.hibernate.oneway.manyone">
+    <class name="Student" table="student">
+        <id name="id" type="int">
+            <column name="ID"></column>
+            <generator class="native"></generator>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME"></column>
+        </property>
+
+        <!--单向多对一
+            单向指的是  student 的表中 包含 teachar 的信息
+                （比如：TEACHER_ID,而teachar 未包含 student 的信息，所以方向是从 student 开始的）
+            多对一指的是 多名学生对于一个老师
+
+            name:多这端的属性名
+            class:一的那段的类的反射 （注：标注了package属性）
+            fetch:用联合查询，还是使用分开的多条单独sql查询
+            column:多的这端外键名字
+        -->
+        <many-to-one name="teachar" class="Teachar" fetch="join">
+            <column name="TEACHER_ID"></column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

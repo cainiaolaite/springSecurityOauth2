@@ -6,11 +6,14 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.jdbc.Work;
 import org.hibernate.service.ServiceRegistry;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Date;
 
 /**
@@ -119,7 +122,41 @@ public class HibernateMethodTest {
         session.update(user);
     }
 
+    @Test
+    public void deleteTest(){
+        Transaction transaction=session.getTransaction();
+        transaction.begin();
+        User user=session.get(User.class,"000000000000000000000");
+        System.out.println(user);
+        session.delete(user);//删除了数据库中数据，缓存中对象
+        transaction.commit();
+        //user 成为了游离状态 只存在于内存中了
+        System.out.println(user);
+    }
 
+    /**
+     * 清除对象的持久化
+     */
+    @Test
+    public void evictTest(){
+        User user=session.get(User.class,"000000000000000000000");
+        session.evict(user);
+        User user1=session.get(User.class,"000000000000000000000");
+        System.out.println("查询sql执行了两次，第二次没有从缓存中取，说明evict清除了缓存中的对象");
+    }
+
+
+    /**
+     * 获取jdbc连接
+     */
+    @Test
+    public void doWorkTest(){
+        session.doWork(new Work() {
+            public void execute(Connection connection) throws SQLException {
+                System.out.println(connection);
+            }
+        });
+    }
 
     @After
     public void after(){

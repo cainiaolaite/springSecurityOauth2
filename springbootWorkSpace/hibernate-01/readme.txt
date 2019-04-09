@@ -90,6 +90,46 @@ session.close();
     如下：HibernateMethodTest
 
 
+2.session.delete()
+    1.删除对象
+    2.删除持久对象
+    3.删除数据库里对应的记录
+    4.当删除的独享数据库里没有对应的id值的记录是抛出异常
+    5.默认的删除的时候，会把缓存对象和数据库中记录删除，但这个对象
+    会保留id,妨碍后面重复利用这个对象，这个问题通过配置来处理，作用
+    删除操作后吧对象的id设置null
+
+    <property name="hibernate.use_identifier_rollback">true</property>
+
+    Hibernate 的 cfg.xml 配置文件中有一个 hibernate.use_identitier_rollback
+    属性，其默认值为false，若吧他设为true，将改变delete() 方法的运行行为
+    delete() 方法会把持久化对象或有你兑仓过的OID设置为null，使他们变为
+    临时对象，这样程序就可以重复利用这些对象了。
+
+3.session.evict 方法
+    这个方法就是将持久化对象从session缓存中删除，使其成为一个游离的对象
+
+4.session.doWork方法
+    这个方法是在hibernate中拿到jdbc的原生的connection
+
+
+
+
+
+
+二。hibernate 映射
+    1.一对多
+        1.单向 一对多
+        2.双向 一对多
+        3.双向 多对一
+    2.一对一
+
+    3.多对多
+        1.单向 多对多
+        2.双向 多对多
+
+    4.组件映射
+    5.继承映射
 
 
 

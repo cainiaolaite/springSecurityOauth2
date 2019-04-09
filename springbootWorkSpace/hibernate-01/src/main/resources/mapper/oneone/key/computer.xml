@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hua.hibernate.oneone">
+    <class name="Computer" table="computer">
+        <id name="id" type="int">
+            <column name="ID"></column>
+            <!--
+                class="foreign" 即作为主键，也作为外键的一种生成策略
+                <param name="property">cpu</param> 外键 指向的那个对象的主键
+            -->
+            <generator class="foreign">
+                <param name="property">cpu</param>
+            </generator>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME"></column>
+        </property>
+        <!--
+            name="cpu" 连接的对象在本类中的
+            class="Cpu" 连接对象的类名，因为有 package
+            constrained="true" 指定本类主键id来冲当外键
+        -->
+        <one-to-one name="cpu" class="Cpu" constrained="true"></one-to-one>
+    </class>
+</hibernate-mapping>

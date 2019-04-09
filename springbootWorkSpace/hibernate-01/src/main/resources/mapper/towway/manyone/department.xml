@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hua.hibernate.towway.manyone">
+    <class name="Department" table="department">
+        <id name="id" type="int">
+            <column name="ID"></column>
+            <generator class="native"></generator>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME"></column>
+        </property>
+
+        <!--双向多对一
+            双向指的是 你我双方都需要维护 关系
+            多对一指的是 多名部门对于一个公司
+            name:多这端的属性名
+            class:一的那段的类的反射 （注：标注了package属性）
+            fetch:用联合查询，还是使用分开的多条单独sql查询
+            column:多的这端外键名字
+        -->
+        <many-to-one name="company" class="Company" fetch="join">
+            <column name="COMPANY_ID"></column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

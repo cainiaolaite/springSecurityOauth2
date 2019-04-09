@@ -75,5 +75,11 @@
         <property name="updateTime" type="java.util.Date">
             <column name="UPDATE_TIME"></column>
         </property>
+        <!--
+            formula:设置当前节点对应的持久类中的属性的值
+            由指定的SQL从数据库获取，主要用在派生属性上面
+            这个配置里有里formula就不要在配置 column 了
+            （数据库中并不会有这个字段）
+            <property name="" formula=""></property>-->
     </class>
 </hibernate-mapping>

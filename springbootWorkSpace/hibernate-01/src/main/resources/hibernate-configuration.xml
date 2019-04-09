@@ -10,9 +10,48 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">ceba</property>
 
+        <!--hibernate c3p0 数据库连接池配置-->
+        <!--hibernate 使用 c3p0 连接提供类-->
+        <property name="hibernate.connection.provider_class">
+            org.hibernate.c3p0.internal.C3P0ConnectionProvider
+        </property>
+        <!--当连接池里的连接已经耗尽的时候，hibernate 应该向数据库一次性申请多少次连接-->
+        <property name="hibernate.c3p0.acquire_increment">2</property>
+        <!--
+            表示连接池检查线程多长时间检查一次连接池里的所有连接是不是已连接
+            连接池本身是不会把超时的连接移除出连接池的
+            移除的话要通过专门做这个事情的线程来实现
+            这个线程是通过比较连接的最后使用时间和当前系统时间之间的差值和
+            超时的时间值来判断是不是该把这个连接干掉
+        -->  <!--长时间未使用的连接是不是需要被干掉-->
+        <property name="hibernate.c3p0.idle_test_period">3000</property>
+        <!--指定连接池里statement 最大缓存对象个数-->
+        <property name="hibernate.c3p0.max_statements">100</property>
+        <!--建立连接的超时时间-->
         <property name="hibernate.c3p0.timeout">1000</property>
+        <!--连接池的最小列结束-->
         <property name="hibernate.c3p0.min_size">5</property>
+        <!--连接池的最大连接数-->
         <property name="hibernate.c3p0.max_size">10</property>
+
+        <!--优化-->
+        <!--
+            Fetch Size 是设定JDBC的Statement 读取数据的时候每次从数据库中取出的记录条数。
+            例如一次查询1万条记录，对于Oracle的JDBC驱动来说，是不会一次性吧一万条取出来的
+            而只会取出Fetch Size 条数，当纪录集遍历完了这些记录以后，再去数据库取Fetch Size
+            条数据。因此大大节省了五位的内存消耗。当然Fetch Size 设置的越大，度数据库的次数越多，
+            速度越慢。这有点像平时我们写程序写硬盘文件一样，设立一个buffer,每次写入Buffer,等
+            buffer 慢了以后，一次写入硬盘。
+        -->
+        <property name="hibernate.jdbc.fetch_size">50</property>
+        <!--批量次数
+            多少次算一个批量，
+            一万条数据需要删除，1次/批  耗时 25s,5次/批  耗时 5s
+            所以可以设置大一点
+        -->
+        <property name="hibernate.jdbc.batch_size">500</property>
+
+
 
         <!--hibernate 数据库连接池-->
         <!--<property name="hibernate.c3p0.max_size">10</property>
@@ -33,9 +72,27 @@
             validate : 启动时 不会创建表，但是会 比较表 结构 插入 新的值
         -->
         <property name="hibernate.hbm2ddl.auto">update</property>
-
+        <!--
+            执行了session.delete()后数据库数据删除，缓存删除，内存对象的id被清除
+        -->
+        <property name="hibernate.use_identifier_rollback">true</property>
         <!--引入mapping映射文件-->
-        <mapping resource="mapper/hibernate-mapping.xml"></mapping>
+        <!--<mapping resource="mapper/hibernate-mapping.xml"></mapping>
+        <mapping resource="mapper/oneway/manyone/student.xml"></mapping>
+        <mapping resource="mapper/oneway/manyone/teachar.xml"></mapping>
+        <mapping resource="mapper/towway/manyone/company.xml"></mapping>
+        <mapping resource="mapper/towway/manyone/department.xml"></mapping>
 
+        <mapping resource="mapper/oneone/foreignkey/idcard.xml"></mapping>
+        <mapping resource="mapper/oneone/foreignkey/person.xml"></mapping>
+
+        <mapping resource="mapper/oneone/key/computer.xml"></mapping>
+        <mapping resource="mapper/oneone/key/cpu.xml"></mapping>
+
+        <mapping resource="mapper/towway/manymany/permission.xml"></mapping>
+        <mapping resource="mapper/towway/manymany/role.xml"></mapping>-->
+
+        <mapping resource="mapper/oneway/manymany/member.xml"></mapping>
+        <mapping resource="mapper/oneway/manymany/group.xml"></mapping>
     </session-factory>
 </hibernate-configuration>
