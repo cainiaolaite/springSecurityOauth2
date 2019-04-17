@@ -1,9 +1,7 @@
-package com.hua.hibernate.towway.oneone.key;
+package com.hua.hibernate.towcache;
 
-import com.hua.hibernate.oneone.Computer;
-import com.hua.hibernate.oneone.Cpu;
-import com.hua.hibernate.oneone.IdCard;
-import com.hua.hibernate.oneone.Person;
+import com.hua.hibernate.towway.manymany.Permission;
+import com.hua.hibernate.towway.manymany.Role;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -14,15 +12,16 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 /**
- * 双向一对一 主键作为外键
+ * 二级缓存
  */
-public class KetTest {
+public class TowcacheEhcacheTest {
     //SessionFactoryImpl(MetadataImplementor metadata, SessionFactoryOptions options)
     private SessionFactory sessionFactory=null;
     private static final String HIBERANTE_CONFIG_FILE="hibernate-configuration.xml";
     private Session session;
-    private Transaction transaction;
     @Before
     public void before(){
         /**
@@ -37,30 +36,30 @@ public class KetTest {
         MetadataSources metadataSources=new MetadataSources(serviceRegistry);
         sessionFactory=metadataSources.buildMetadata().buildSessionFactory();
         session=sessionFactory.openSession();
-        transaction=session.getTransaction();
-        transaction.begin();
     }
 
 
     /**
-     * 保存公司
+     * 集合缓存
+     * Role permissionSet 集合有 做过集合缓存
+     * 执行结果 是 permissionSet 集合被缓存了 没有打印SQL语句
      */
     @Test
-    public void saveComputer(){
-        Computer computer=new Computer();
-        computer.setName("张三");
-        Cpu cpu=new Cpu();
-        cpu.setName("421282192503151712");
-        computer.setCpu(cpu);
-        cpu.setComputer(computer);
-        session.save(computer);
-        session.save(cpu);
+    public void collectionCache(){
+        Role role=session.get(Role.class,1);
+        System.out.println(Arrays.toString(role.getPermissionSet().toArray()));
+        session.close();
+        session=sessionFactory.openSession();
+        role=session.get(Role.class,1);
+        System.out.println(Arrays.toString(role.getPermissionSet().toArray()));
+        session.close();
     }
+
+
+
 
     @After
     public void after(){
-        transaction.commit();
-        session.close();
         sessionFactory.close();
     }
 }

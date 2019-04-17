@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hua.hibernate.hql">
+    <!--加载Student 对象的需要延迟   类级别操作时（也就是只涉及一张表时）  lazy="true"-->
+    <class name="Student" table="hql_student" lazy="true">
+        <id name="id" type="int">
+            <column name="ID"></column>
+            <generator class="native"></generator>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME"></column>
+        </property>
+        <property name="sex" type="java.lang.String">
+            <column name="SEX"></column>
+        </property>
+        <many-to-one name="teachar" class="Teachar">
+            <column name="TEACHER_ID"></column>
+        </many-to-one>
+    </class>
+
+    <query name="studentPageQuery">
+        <![CDATA[ from Student t where t.sex = :sex]]>
+    </query>
+    <query name="studentPageQueryAttriber">
+        <![CDATA[ select t.id,t.name from Student t where t.sex = :sex]]>
+    </query>
+</hibernate-mapping>

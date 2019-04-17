@@ -1,4 +1,4 @@
-package com.hua.hibernate.oneway.manyone;
+package com.hua.hibernate.hql;
 
 /**
  * 学生
@@ -6,8 +6,7 @@ package com.hua.hibernate.oneway.manyone;
 public class Student {
     private int id;
     private String name;
-    private StudentInfo studentInfo;
-
+    private String sex="女";
     private Teachar teachar;
 
     public int getId() {
@@ -34,12 +33,12 @@ public class Student {
         this.teachar = teachar;
     }
 
-    public StudentInfo getStudentInfo() {
-        return studentInfo;
+    public String getSex() {
+        return sex;
     }
 
-    public void setStudentInfo(StudentInfo studentInfo) {
-        this.studentInfo = studentInfo;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     @Override
@@ -47,7 +46,7 @@ public class Student {
         return "Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", teachar=" + teachar +
+                ", sex='" + sex + '\'' +
                 '}';
     }
 }

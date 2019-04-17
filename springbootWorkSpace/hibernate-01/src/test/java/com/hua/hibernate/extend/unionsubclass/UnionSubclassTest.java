@@ -1,9 +1,8 @@
-package com.hua.hibernate.towway.oneone.key;
+package com.hua.hibernate.extend.unionsubclass;
 
-import com.hua.hibernate.oneone.Computer;
-import com.hua.hibernate.oneone.Cpu;
-import com.hua.hibernate.oneone.IdCard;
-import com.hua.hibernate.oneone.Person;
+import com.hua.hibernate.extend.unionsubclass.Animal;
+import com.hua.hibernate.extend.unionsubclass.Big;
+import com.hua.hibernate.extend.unionsubclass.Bird;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -15,9 +14,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * 双向一对一 主键作为外键
+ * 关联策略
  */
-public class KetTest {
+public class UnionSubclassTest {
     //SessionFactoryImpl(MetadataImplementor metadata, SessionFactoryOptions options)
     private SessionFactory sessionFactory=null;
     private static final String HIBERANTE_CONFIG_FILE="hibernate-configuration.xml";
@@ -41,21 +40,27 @@ public class KetTest {
         transaction.begin();
     }
 
-
-    /**
-     * 保存公司
-     */
     @Test
-    public void saveComputer(){
-        Computer computer=new Computer();
-        computer.setName("张三");
-        Cpu cpu=new Cpu();
-        cpu.setName("421282192503151712");
-        computer.setCpu(cpu);
-        cpu.setComputer(computer);
-        session.save(computer);
-        session.save(cpu);
+    public void saveAnimal(){
+        Animal animal=new Animal();
+        animal.setName("张三");
+        animal.setSex("男");
+
+        Big big=new Big();
+        big.setName("天蓬");
+        big.setSex("公");
+        big.setWeight(200);
+
+        Bird bird=new Bird();
+        bird.setName("凤凰");
+        bird.setSex("母");
+        bird.setHeight(200);
+
+        session.save(animal);
+        session.save(big);
+        session.save(bird);
     }
+
 
     @After
     public void after(){
@@ -63,4 +68,5 @@ public class KetTest {
         session.close();
         sessionFactory.close();
     }
+
 }

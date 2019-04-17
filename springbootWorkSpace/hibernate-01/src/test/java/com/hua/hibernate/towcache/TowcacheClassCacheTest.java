@@ -1,23 +1,25 @@
-package com.hua.hibernate.towway.oneone.key;
+package com.hua.hibernate.towcache;
 
-import com.hua.hibernate.oneone.Computer;
-import com.hua.hibernate.oneone.Cpu;
-import com.hua.hibernate.oneone.IdCard;
-import com.hua.hibernate.oneone.Person;
+import com.hua.hibernate.hql.Student;
+import com.hua.hibernate.hql.Teachar;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
- * 双向一对一 主键作为外键
+ * 二级缓存中的  类缓存
  */
-public class KetTest {
+public class TowcacheClassCacheTest {
     //SessionFactoryImpl(MetadataImplementor metadata, SessionFactoryOptions options)
     private SessionFactory sessionFactory=null;
     private static final String HIBERANTE_CONFIG_FILE="hibernate-configuration.xml";
@@ -37,30 +39,30 @@ public class KetTest {
         MetadataSources metadataSources=new MetadataSources(serviceRegistry);
         sessionFactory=metadataSources.buildMetadata().buildSessionFactory();
         session=sessionFactory.openSession();
-        transaction=session.getTransaction();
-        transaction.begin();
+
     }
+
 
 
     /**
-     * 保存公司
+     * 分页查询 Hql 语句映射到文件中
      */
     @Test
-    public void saveComputer(){
-        Computer computer=new Computer();
-        computer.setName("张三");
-        Cpu cpu=new Cpu();
-        cpu.setName("421282192503151712");
-        computer.setCpu(cpu);
-        cpu.setComputer(computer);
-        session.save(computer);
-        session.save(cpu);
+    public void testTowCache(){
+        transaction=session.getTransaction();
+        transaction.begin();
+        Student student=session.get(Student.class,2);
+        System.out.println(student.toString());
+        transaction.commit();
+        session.close();
+        Session session1=sessionFactory.openSession();
+        Student student1=session1.get(Student.class,2);
+        System.out.println(student1.toString());
     }
+
 
     @After
     public void after(){
-        transaction.commit();
-        session.close();
         sessionFactory.close();
     }
 }

@@ -1,4 +1,5 @@
-package com.hua.hibernate.oneway.manyone;
+package com.hua.hibernate.retrieval.join;
+
 
 /**
  * 学生
@@ -6,7 +7,6 @@ package com.hua.hibernate.oneway.manyone;
 public class Student {
     private int id;
     private String name;
-    private StudentInfo studentInfo;
 
     private Teachar teachar;
 
@@ -32,14 +32,6 @@ public class Student {
 
     public void setTeachar(Teachar teachar) {
         this.teachar = teachar;
-    }
-
-    public StudentInfo getStudentInfo() {
-        return studentInfo;
-    }
-
-    public void setStudentInfo(StudentInfo studentInfo) {
-        this.studentInfo = studentInfo;
     }
 
     @Override

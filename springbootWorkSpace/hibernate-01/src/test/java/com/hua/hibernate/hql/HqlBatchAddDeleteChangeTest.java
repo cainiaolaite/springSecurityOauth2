@@ -1,9 +1,5 @@
-package com.hua.hibernate.towway.oneone.key;
+package com.hua.hibernate.hql;
 
-import com.hua.hibernate.oneone.Computer;
-import com.hua.hibernate.oneone.Cpu;
-import com.hua.hibernate.oneone.IdCard;
-import com.hua.hibernate.oneone.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -14,10 +10,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * 双向一对一 主键作为外键
- */
-public class KetTest {
+public class HqlBatchAddDeleteChangeTest {
+
     //SessionFactoryImpl(MetadataImplementor metadata, SessionFactoryOptions options)
     private SessionFactory sessionFactory=null;
     private static final String HIBERANTE_CONFIG_FILE="hibernate-configuration.xml";
@@ -42,20 +36,33 @@ public class KetTest {
     }
 
 
+    @Test
+    public void batchInsert(){
+        /*String hql = "insert into Student(name,sex) values (?,?)";
+        int result=session.createQuery(hql).setParameter(0,"张三").setParameter(1,"男").executeUpdate();
+        System.out.println(result);*/
+    }
+
     /**
-     * 保存公司
+     * 批量更新
      */
     @Test
-    public void saveComputer(){
-        Computer computer=new Computer();
-        computer.setName("张三");
-        Cpu cpu=new Cpu();
-        cpu.setName("421282192503151712");
-        computer.setCpu(cpu);
-        cpu.setComputer(computer);
-        session.save(computer);
-        session.save(cpu);
+    public void batchUpdate(){
+        String hql="update Student t set t.name=:name where t.sex=:sex";
+        int result=session.createQuery(hql).setParameter("name","张三").setParameter("sex","男").executeUpdate();
+        System.out.println(result);
     }
+
+    /**
+     * 批量删除
+     */
+    @Test
+    public void batchDelete(){
+        String hql="delete Student t where t.name=:name";
+        int result=session.createQuery(hql).setParameter("name","张三").executeUpdate();
+        System.out.println(result);
+    }
+
 
     @After
     public void after(){

@@ -1,23 +1,22 @@
-package com.hua.hibernate.towway.oneone.key;
+package com.hua.hibernate.retrieval.join;
 
-import com.hua.hibernate.oneone.Computer;
-import com.hua.hibernate.oneone.Cpu;
-import com.hua.hibernate.oneone.IdCard;
-import com.hua.hibernate.oneone.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Iterator;
+
 /**
- * 双向一对一 主键作为外键
+ * 左外连接检索策略
  */
-public class KetTest {
+public class ManyManyJoinTest {
     //SessionFactoryImpl(MetadataImplementor metadata, SessionFactoryOptions options)
     private SessionFactory sessionFactory=null;
     private static final String HIBERANTE_CONFIG_FILE="hibernate-configuration.xml";
@@ -43,20 +42,56 @@ public class KetTest {
 
 
     /**
-     * 保存公司
+     * 保存角色
      */
     @Test
-    public void saveComputer(){
-        Computer computer=new Computer();
-        computer.setName("张三");
-        Cpu cpu=new Cpu();
-        cpu.setName("421282192503151712");
-        computer.setCpu(cpu);
-        cpu.setComputer(computer);
-        session.save(computer);
-        session.save(cpu);
+    public void saveRole(){
+        Student student=new Student();
+        student.setName("黄冈学生");
+        Student student1=new Student();
+        student.setName("溪水学生");
+        Student student2=new Student();
+        student.setName("蕲春学生");
+        Teachar teachar=new Teachar();
+        teachar.setName("湖北教师");
+        student.setTeachar(teachar);
+        student1.setTeachar(teachar);
+        student2.setTeachar(teachar);
+        session.save(student);
+        session.save(student1);
+        session.save(student2);
+        session.save(teachar);
+        System.out.println(teachar);
     }
 
+    /**
+     * 延迟查询
+     * <set table="join_student" name="studentSet" inverse="true"  lazy="true"  batch-size="2">
+     */
+    @Test
+    public void fetchSubSelectBatchSize(){
+        Teachar teachar=session.get(Teachar.class,1);
+
+    }
+
+    /**
+     * 延迟查询
+     * <set table="join_student" name="studentSet" inverse="true"  lazy="true"  batch-size="2">
+     * teachar 查询了 两片
+     */
+    @Test
+    public void fetchSubSelectBatchSize1(){
+        String hql="from Teachar";
+        Query<Teachar> query=session.createQuery(hql);
+        System.out.println(query.list().size());
+
+        for(Teachar teachar:query.getResultList()){
+            Iterator<Student> iterator=teachar.getStudentSet().iterator();
+            System.out.println(iterator.next());
+        }
+
+    }
+    
     @After
     public void after(){
         transaction.commit();

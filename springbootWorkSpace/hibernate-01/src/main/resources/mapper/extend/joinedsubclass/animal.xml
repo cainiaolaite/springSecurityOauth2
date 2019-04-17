@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hua.hibernate.extend.joinedsubclass">
+    <class name="Animal" table="joined_animal">
+        <id name="id" type="int">
+            <column name="ID"></column>
+            <generator class="native"></generator>
+        </id>
+        <property name="sex" type="java.lang.String">
+            <column name="SEX"></column>
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="NAME"></column>
+        </property>
+
+        <!--关联策略
+            子，父类  都有各自的表
+            子类所对应的表  主键 即作为主键，又作为外键（负责关联父类的主键）
+            <key></key> 一般用着 标注外键
+        -->
+        <joined-subclass name="Big" table="joined_big">
+            <key>
+                <column name="ID"></column>
+            </key>
+            <property name="weight" type="int">
+                <column name="WEIGHT"></column>
+            </property>
+        </joined-subclass>
+
+        <joined-subclass name="Bird" table="joined_bird">
+            <key>
+                <column name="ID"></column>
+            </key>
+            <property name="height">
+                <column name="HEIGHT"></column>
+            </property>
+        </joined-subclass>
+    </class>
+</hibernate-mapping>

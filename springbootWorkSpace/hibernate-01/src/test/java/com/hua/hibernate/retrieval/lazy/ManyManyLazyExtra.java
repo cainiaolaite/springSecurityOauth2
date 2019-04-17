@@ -1,9 +1,5 @@
-package com.hua.hibernate.towway.oneone.key;
+package com.hua.hibernate.retrieval.lazy;
 
-import com.hua.hibernate.oneone.Computer;
-import com.hua.hibernate.oneone.Cpu;
-import com.hua.hibernate.oneone.IdCard;
-import com.hua.hibernate.oneone.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -14,10 +10,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Set;
+
 /**
- * 双向一对一 主键作为外键
+ * 多对多延迟增强
  */
-public class KetTest {
+public class ManyManyLazyExtra {
     //SessionFactoryImpl(MetadataImplementor metadata, SessionFactoryOptions options)
     private SessionFactory sessionFactory=null;
     private static final String HIBERANTE_CONFIG_FILE="hibernate-configuration.xml";
@@ -41,20 +39,47 @@ public class KetTest {
         transaction.begin();
     }
 
+    @Test
+    public void testSave(){
+        Group student=new Group();
+        student.setName("学生会");
+
+        Member zhang=new Member();
+        zhang.setName("章");
+
+        Member li=new Member();
+        li.setName("李");
+
+        student.getMemberSet().add(zhang);
+        student.getMemberSet().add(li);
+
+        session.save(li);
+        session.save(zhang);
+        session.save(student);
+    }
 
     /**
-     * 保存公司
+     * 延迟增强
+     * <set name="memberSet" table="lazy_group_member" lazy="extra">
      */
     @Test
-    public void saveComputer(){
-        Computer computer=new Computer();
-        computer.setName("张三");
-        Cpu cpu=new Cpu();
-        cpu.setName("421282192503151712");
-        computer.setCpu(cpu);
-        cpu.setComputer(computer);
-        session.save(computer);
-        session.save(cpu);
+    public void testLazyExtra(){
+        Group group=session.get(Group.class,1);
+        Set<Member> memberSet=group.getMemberSet();
+    }
+
+    /**
+     * 延迟增强
+     * <set name="memberSet" table="lazy_group_member" lazy="extra">
+     * member 集合 中只要有一个对象未被用到 就不会查询
+     */
+    @Test
+    public void testLazyExtra1(){
+        Group group=session.get(Group.class,1);
+        Set<Member> memberSet=group.getMemberSet();
+        if(!memberSet.isEmpty()){
+           System.out.println(memberSet.iterator().next().getName());
+        }
     }
 
     @After

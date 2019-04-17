@@ -12,6 +12,14 @@
             <column name="NAME"></column>
         </property>
 
+        <component name="studentInfo" class="StudentInfo">
+            <property name="age" type="int">
+                <column name="AGE"></column>
+            </property>
+            <property name="sex" type="java.lang.String">
+                <column name="SEX"></column>
+            </property>
+        </component>
         <!--单向多对一
             单向指的是  student 的表中 包含 teachar 的信息
                 （比如：TEACHER_ID,而teachar 未包含 student 的信息，所以方向是从 student 开始的）

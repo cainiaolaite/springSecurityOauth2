@@ -1,9 +1,5 @@
-package com.hua.hibernate.towway.oneone.key;
+package com.hua.hibernate.retrieval.promptly;
 
-import com.hua.hibernate.oneone.Computer;
-import com.hua.hibernate.oneone.Cpu;
-import com.hua.hibernate.oneone.IdCard;
-import com.hua.hibernate.oneone.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -15,9 +11,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * 双向一对一 主键作为外键
+ * 1.立即检索策略
+ 采用立即检索策略，会将被检索的对象，以及和这个对象
+ 关联的一对多对象都加载到缓存中。Session的get方法就
+ 使用的立即检索策略
+ 优点：频繁使用的关联对象能够被加载到缓存中。
+ 缺点：1.占用内存  2.select语句过多
  */
-public class KetTest {
+public class PromptlyTest {
     //SessionFactoryImpl(MetadataImplementor metadata, SessionFactoryOptions options)
     private SessionFactory sessionFactory=null;
     private static final String HIBERANTE_CONFIG_FILE="hibernate-configuration.xml";
@@ -41,20 +42,37 @@ public class KetTest {
         transaction.begin();
     }
 
+    @Test
+    public void testSave(){
+        Student student=new Student();
+        student.setName("黄冈学生");
+        Student student1=new Student();
+        student.setName("溪水学生");
+        Teachar teachar=new Teachar();
+        teachar.setName("湖北教师");
+        student.setTeachar(teachar);
+        session.save(student);
+        session.save(student1);
+        session.save(teachar);
+    }
 
     /**
-     * 保存公司
+     * session.get() 是立即检索策略，<class lazy="true"> lazy 属性影响不了它
      */
     @Test
-    public void saveComputer(){
-        Computer computer=new Computer();
-        computer.setName("张三");
-        Cpu cpu=new Cpu();
-        cpu.setName("421282192503151712");
-        computer.setCpu(cpu);
-        cpu.setComputer(computer);
-        session.save(computer);
-        session.save(cpu);
+    public void testGetLazy(){
+        Student student=session.get(Student.class,1);
+        System.out.println(student.getId());
+    }
+
+    /**
+     *  load 为延迟检索策略  仅在lazy=true <class lazy="true">
+     *      lazy=false 效果跟get是一样的
+     */
+    @Test
+    public void testLoadLazy(){
+        Student student=session.load(Student.class,1);
+        System.out.println(student.getId());
     }
 
     @After

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+	<!-- 指定一个文件目录，当EhCache把数据写到硬盘上时，将把数据写到这个文件目录下 -->
+	<diskStore path="F:/wuhaihuaSpace/ehcache" />
+	<!-- 设定缓存的默认数据过期策略 -->
+	<defaultCache
+			maxElementsInMemory="1"
+			eternal="false"
+			timeToIdleSeconds="120"
+			timeToLiveSeconds="120"
+			overflowToDisk="true"
+			diskSpoolBufferSizeMB="30"
+			maxElementsOnDisk="10000000"
+			diskPersistent="false"
+			diskExpiryThreadIntervalSeconds="120"
+			memoryStoreEvictionPolicy="LRU"
+	/>
+
+	<!--maxElementsInMemory 内存中对象的数量  memory：内存-->
+	<!--maxElementsOnDisk   磁盘中对象的数量  disk：磁盘-->
+	<!--eternal="false"     对象不需要永久保存-->
+	<!--timeToIdleSeconds="3600"     对象一个小时没被使用就会失效-->
+	<!--timeToLiveSeconds="3600"     对象存活时间为 1个小时-->
+	<!--overflowToDisk="true"     内存对象超过数量会被写到磁盘中  overflow：溢出 disk：磁盘-->
+	<!--diskPersistent="true"     是否持久化到磁盘中  Persistent：持久的-->
+	<!--diskSpoolBufferSizeMB="30"     缓存块磁盘的大小-->
+	<!--memoryStoreEvictionPolicy="LFU"     数据超过规定 使用 最近最少使用的 删除策略-->
+	<cache name="hibernateEhcache"
+		   maxElementsInMemory="10000"
+		   maxElementsOnDisk="999999"
+		   eternal="false"
+		   timeToIdleSeconds="3600"
+		   timeToLiveSeconds="3600"
+		   overflowToDisk="true"
+		   diskPersistent="true"
+		   diskSpoolBufferSizeMB="30"
+		   memoryStoreEvictionPolicy="LFU"
+	></cache>
+
+</ehcache>

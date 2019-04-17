@@ -1,23 +1,20 @@
-package com.hua.hibernate.towway.oneone.key;
+package com.hua.hibernate.hql;
 
-import com.hua.hibernate.oneone.Computer;
-import com.hua.hibernate.oneone.Cpu;
-import com.hua.hibernate.oneone.IdCard;
-import com.hua.hibernate.oneone.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * 双向一对一 主键作为外键
- */
-public class KetTest {
+import java.util.Arrays;
+import java.util.List;
+
+public class HqlJoinTest {
     //SessionFactoryImpl(MetadataImplementor metadata, SessionFactoryOptions options)
     private SessionFactory sessionFactory=null;
     private static final String HIBERANTE_CONFIG_FILE="hibernate-configuration.xml";
@@ -41,20 +38,16 @@ public class KetTest {
         transaction.begin();
     }
 
-
     /**
-     * 保存公司
+     * 关联查询
+     * 内连接
      */
     @Test
-    public void saveComputer(){
-        Computer computer=new Computer();
-        computer.setName("张三");
-        Cpu cpu=new Cpu();
-        cpu.setName("421282192503151712");
-        computer.setCpu(cpu);
-        cpu.setComputer(computer);
-        session.save(computer);
-        session.save(cpu);
+    public void joinTest(){
+        String hql="from Student s inner join s.teachar t where t.name=:name";
+        Query query=session.createQuery(hql).setParameter("name","浙江教师");
+        List<Student> studentList = query.getResultList();
+        System.out.println(Arrays.toString(studentList.toArray()));
     }
 
     @After

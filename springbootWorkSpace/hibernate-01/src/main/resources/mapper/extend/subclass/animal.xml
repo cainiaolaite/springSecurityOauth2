@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 一张表策略
+    父类对象，各子类对象 都存放到一张表里，那么区分每一条数据（那个类的对象）必须要有一个属性来做区分
+
+    discriminator-value="animal"
+       discriminator 辨别  用来辨别 Animal 父类 在表中的 对象
+    <discriminator column="type" type="java.lang.String"></discriminator>
+       表示 表中除开有三个类的所有属性 ，还外加 这个属性 type ，作为区分 不同类的对象
+
+
+-->
+
+<hibernate-mapping package="com.hua.hibernate.extend.subclass">
+    <class name="Animal" table="animal" discriminator-value="animal">
+        <id name="id" type="int">
+            <column name="ID"></column>
+            <generator class="native"></generator>
+        </id>
+        <discriminator column="type" type="java.lang.String"></discriminator>
+        <property name="sex" type="java.lang.String">
+            <column name="SEX"></column>
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="NAME"></column>
+        </property>
+
+        <!--
+            discriminator-value="big"  用于区分表中的 Big 对象数据
+        -->
+        <subclass name="Big" discriminator-value="big">
+            <property name="weight">
+                <column name="WEIGHT"></column>
+            </property>
+        </subclass>
+
+        <!--
+            discriminator-value="bird"  用于区分表中的 bird 对象数据
+        -->
+        <subclass name="Bird" discriminator-value="bird">
+            <property name="height">
+                <column name="HEIGHT"></column>
+            </property>
+        </subclass>
+    </class>
+</hibernate-mapping>

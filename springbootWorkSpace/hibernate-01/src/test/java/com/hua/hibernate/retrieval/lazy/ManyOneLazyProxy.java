@@ -1,9 +1,5 @@
-package com.hua.hibernate.towway.oneone.key;
+package com.hua.hibernate.retrieval.lazy;
 
-import com.hua.hibernate.oneone.Computer;
-import com.hua.hibernate.oneone.Cpu;
-import com.hua.hibernate.oneone.IdCard;
-import com.hua.hibernate.oneone.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -15,9 +11,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * 双向一对一 主键作为外键
+ * 多对一延迟代理
  */
-public class KetTest {
+public class ManyOneLazyProxy {
+
     //SessionFactoryImpl(MetadataImplementor metadata, SessionFactoryOptions options)
     private SessionFactory sessionFactory=null;
     private static final String HIBERANTE_CONFIG_FILE="hibernate-configuration.xml";
@@ -41,20 +38,38 @@ public class KetTest {
         transaction.begin();
     }
 
+    @Test
+    public void testSave(){
+        Student student=new Student();
+        student.setName("黄冈学生");
+        Student student1=new Student();
+        student.setName("溪水学生");
+        Teachar teachar=new Teachar();
+        teachar.setName("湖北教师");
+        student.setTeachar(teachar);
+        session.save(student);
+        session.save(student1);
+        session.save(teachar);
+    }
 
     /**
-     * 保存公司
+     * 多对一延迟代理
+     * <many-to-one name="teachar" class="Teachar" lazy="proxy">
      */
     @Test
-    public void saveComputer(){
-        Computer computer=new Computer();
-        computer.setName("张三");
-        Cpu cpu=new Cpu();
-        cpu.setName("421282192503151712");
-        computer.setCpu(cpu);
-        cpu.setComputer(computer);
-        session.save(computer);
-        session.save(cpu);
+    public void lazyProxy(){
+        Student student=session.get(Student.class,1);
+        System.out.println("看 hibernate 日志 "+student.getName());
+    }
+
+    /**
+     * 多对一延迟代理
+     * <many-to-one name="teachar" class="Teachar" lazy="proxy">
+     */
+    @Test
+    public void lazyProxy1(){
+        Student student=session.get(Student.class,1);
+        System.out.println("看 hibernate 日志 "+student.getTeachar().getName());
     }
 
     @After

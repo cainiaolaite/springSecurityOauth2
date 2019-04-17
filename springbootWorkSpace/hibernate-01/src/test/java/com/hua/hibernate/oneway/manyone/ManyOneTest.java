@@ -84,10 +84,18 @@ public class ManyOneTest {
 
         Student student=new Student();
         student.setName("黄冈学生");
+        StudentInfo studentInfo=new StudentInfo();
+        studentInfo.setAge(18);
+        studentInfo.setSex("man");
+        student.setStudentInfo(studentInfo);
         student.setTeachar(teachar);
 
         Student student1=new Student();
         student1.setName("溪水学生");
+        StudentInfo studentInfo1=new StudentInfo();
+        studentInfo1.setAge(11);
+        studentInfo1.setSex("wman");
+        student.setStudentInfo(studentInfo1);
         student1.setTeachar(teachar);
 
         session.save(teachar);

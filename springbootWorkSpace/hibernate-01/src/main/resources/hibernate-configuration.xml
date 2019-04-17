@@ -76,23 +76,85 @@
             执行了session.delete()后数据库数据删除，缓存删除，内存对象的id被清除
         -->
         <property name="hibernate.use_identifier_rollback">true</property>
-        <!--引入mapping映射文件-->
-        <!--<mapping resource="mapper/hibernate-mapping.xml"></mapping>
+
+        <!--开启hibernate 的二级缓存-->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+        <property name="hibernate.cache.provider_configuration_file_resource_path">ehcache/ehcache.xml</property>
+        <!--一级缓存-->
+        <mapping resource="mapper/hibernate-mapping.xml"></mapping>
+
+        <!--开启线程管理模式,可以通过当前线程取得session-->
+        <property name="current_session_context_class">thread</property>
+
+
+        <!--单向 指的是表A中包含表B的属性（外键），表B中不包含表A,能从A中找到B-->
+        <!--双向 指的是A包含B，B包含A-->
+        <!--单向 多对一-->
         <mapping resource="mapper/oneway/manyone/student.xml"></mapping>
         <mapping resource="mapper/oneway/manyone/teachar.xml"></mapping>
+
+        <!--双向 多对一 和 一对多-->
         <mapping resource="mapper/towway/manyone/company.xml"></mapping>
         <mapping resource="mapper/towway/manyone/department.xml"></mapping>
 
+        <!--双向 一对一 指定外键-->
         <mapping resource="mapper/oneone/foreignkey/idcard.xml"></mapping>
         <mapping resource="mapper/oneone/foreignkey/person.xml"></mapping>
 
+        <!--双向 一对一 主键做外键-->
         <mapping resource="mapper/oneone/key/computer.xml"></mapping>
         <mapping resource="mapper/oneone/key/cpu.xml"></mapping>
 
+        <!--双向 多对多-->
         <mapping resource="mapper/towway/manymany/permission.xml"></mapping>
-        <mapping resource="mapper/towway/manymany/role.xml"></mapping>-->
+        <mapping resource="mapper/towway/manymany/role.xml"></mapping>
 
+        <!--单向 多对多-->
         <mapping resource="mapper/oneway/manymany/member.xml"></mapping>
         <mapping resource="mapper/oneway/manymany/group.xml"></mapping>
+
+        <!--继承映射-->
+        <!--一张表策略-->
+        <mapping resource="mapper/extend/subclass/animal.xml"></mapping>
+        <!--外键关联策略-->
+        <mapping resource="mapper/extend/joinedsubclass/animal.xml"></mapping>
+        <!--子类拥有父类所有的属性，并独自拥有一张表：注 1父类为抽象类就不会生成表 2自动生成的ID必须为UUID-->
+        <mapping resource="mapper/extend/unionsubclass/animal.xml"></mapping>
+
+        <!--检索-->
+        <!--立即检索策略-->
+        <mapping resource="mapper/retrieval/promptly/student.xml"></mapping>
+        <mapping resource="mapper/retrieval/promptly/teachar.xml"></mapping>
+
+        <!--延迟检索策略-->
+        <mapping resource="mapper/retrieval/lazy/student.xml"></mapping>
+        <mapping resource="mapper/retrieval/lazy/teachar.xml"></mapping>
+
+        <mapping resource="mapper/retrieval/lazy/group.xml"></mapping>
+        <mapping resource="mapper/retrieval/lazy/member.xml"></mapping>
+
+        <!--左外连接检索策略-->
+        <mapping resource="mapper/retrieval/join/student.xml"></mapping>
+        <mapping resource="mapper/retrieval/join/teachar.xml"></mapping>
+
+        <!--Hql-->
+        <mapping resource="mapper/hql/student.xml"></mapping>
+        <mapping resource="mapper/hql/teachar.xml"></mapping>
+
+
+
+        <!--那些类需要二级缓存
+            usage 二级缓存并发访问策略
+            read-write 读写策略
+        -->
+        <class-cache region="hibernateEhcache" class="com.hua.hibernate.hql.Student" usage="read-write"></class-cache>
+        <class-cache region="hibernateEhcache" class="com.hua.hibernate.hql.Teachar" usage="read-write"></class-cache>
+        <class-cache region="hibernateEhcache" class="com.hua.hibernate.towway.manymany.Permission" usage="read-write"></class-cache>
+        <class-cache region="hibernateEhcache" class="com.hua.hibernate.towway.manymany.Role" usage="read-write"></class-cache>
+
+        <!--组的成员集合-->
+        <collection-cache region="hibernateEhcache" collection="com.hua.hibernate.towway.manymany.Role.permissionSet" usage="read-write"></collection-cache>
     </session-factory>
 </hibernate-configuration>
