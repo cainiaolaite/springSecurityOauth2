@@ -89,6 +89,11 @@ session.close();
 
     如下：HibernateMethodTest
 
+1.  session.get() 和  session.load() 的区别
+    session.get() 马上执行 select 查询语句，取得对象，并持久化
+    session.load() 是懒加载，返回的Student的代理，只有当使用的时候才会去执行select 查询语句，取得对象，并持久化
+
+
 
 
 
