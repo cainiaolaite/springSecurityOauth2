@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hua.hibernate.towway.manyone">
+    <class name="Company" table="company">
+        <id name="id" type="int">
+            <column name="ID"></column>
+            <generator class="native"></generator>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME"></column>
+        </property>
+
+        <!--
+            多向一对多
+            一个公司对应多个部门
+
+            name:Company 对象的 部门属性名称
+            table:多端的表
+            key:代表company表的主键
+            column:代表department表的外键
+            one-to-many class：部门对象
+
+            inverse=true   双向多对一 由单方（由多的那一端（department））维护关系
+                    false  双向多对一 双方都要维护关系（默认）
+            cascade="delete"  双向关系中  如果删除 公司 那么公司旗下部门就会跟着删除
+            cascade="save-update"  级联保存  公司 部门 双向关系  只需要保存公司就可以了（部门会跟着保存）
+            order-by 指的排序  以 department 表 id 做降序排列
+
+            注：inverse , cascade，order-by 非必填项
+        -->
+        <set name="departmentSet" table="department" inverse="true" cascade="save-update" order-by="ID DESC">
+            <key>
+                <column name="COMPANY_ID"></column>
+            </key>
+            <one-to-many class="Department"></one-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hua.hibernate.towway.manymany">
+    <class name="Role" table="role">
+        <id name="id" type="int">
+            <column name="ID"></column>
+            <generator class="native"></generator>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME"></column>
+        </property>
+
+        <!--
+            双向多对多 时
+            inverse=false 代表双方都需要维护关系
+            inverse=true 代表只需要 role 来维护关系
+        -->
+        <set name="permissionSet" table="role_permission" inverse="true">
+            <!-- key 代表为主键  主键对应的外键是column-->
+            <key>
+                <!--外键字段属性-->
+                <column name="ROLE_ID"></column>
+            </key>
+            <many-to-many class="Permission">
+                <column name="PERMISSION_ID" ></column>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hua.hibernate.retrieval.lazy">
+    <!--加载Student 对象的需要延迟   类级别操作时（也就是只涉及一张表时）  lazy="true" 默认-->
+    <class name="Student" table="lazy_student">
+        <id name="id" type="int">
+            <column name="ID"></column>
+            <generator class="native"></generator>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME"></column>
+        </property>
+        <!--
+            关联级别延迟策略
+            lazy="proxy"  代理就是需要延迟
+            lazy="no-proxy" 不需要代理
+            lazy="false"    不需要延迟
+        -->
+        <many-to-one name="teachar" class="Teachar" lazy="proxy">
+            <column name="TEACHER_ID"></column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

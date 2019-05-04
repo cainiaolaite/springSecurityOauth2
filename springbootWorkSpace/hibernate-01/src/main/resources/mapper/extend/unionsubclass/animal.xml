@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hua.hibernate.extend.unionsubclass">
+    <!--union 策略 父类如果为抽象类，那么就不会生成表-->
+    <class name="Animal" table="union_animal" >
+        <id name="id" type="java.lang.String">
+            <column name="ID"></column>
+            <!--union 策略 ID生成规则 一定要 设置为UUID-->
+            <generator class="uuid"></generator>
+        </id>
+        <property name="sex" type="java.lang.String">
+            <column name="SEX"></column>
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="NAME"></column>
+        </property>
+
+        <!--
+            每个类都有一张表，父类有的子类都有策略
+        -->
+        <union-subclass name="Big" table="union_big">
+            <property name="weight">
+                <column name="WEIGHT"></column>
+            </property>
+        </union-subclass>
+
+        <union-subclass name="Bird" table="union_bird">
+            <property name="height">
+                <column name="HEIGHT"></column>
+            </property>
+        </union-subclass>
+    </class>
+</hibernate-mapping>
