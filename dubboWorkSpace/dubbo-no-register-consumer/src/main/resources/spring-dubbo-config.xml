@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+>
+    <!--注册服务对象-->
+    <dubbo:application name="dubbo-no-register-consumer" > </dubbo:application>
+
+    <!--消费者消费的服务，从注册中心指定的服务-->
+    <dubbo:reference
+            id="dubboBaseService"
+            interface="com.hua.dubbo.service.DubboBaseService"
+            url="dubbo://127.0.0.1:20880"
+    ></dubbo:reference>
+</beans>

@@ -1,0 +1,47 @@
+
+data:
+  commondityList[0]:
+    id: 0
+    name: Redmi K20
+    price: 1599
+    description: 小米 Redmi K20Pro 4800万超广角三摄 8GB+256GB 碳纤黑 骁龙855 全网通4G
+    imagePath: /statics/redmi.jpg
+  commondityList[1]:
+    id: 1
+    name: 荣耀10X
+    price: 1299
+    description: 荣耀10青春版 幻彩渐变 2400万AI自拍 全网通版4GB+64GB 渐变蓝 移
+    imagePath: /statics/rongyao.jpg
+  commondityList[2]:
+    id: 2
+    name: 荣耀10
+    price: 1299
+    description: 荣耀10青春版 幻彩渐变 2400万AI自拍 全网通版4GB+64GB 渐变蓝 移
+    imagePath: /statics/rongyaoshi.jpg
+  commondityList[3]:
+    id: 3
+    name: 一加 OnePlus 7 Pro
+    price: 4499
+    description: 一加 OnePlus 7 Pro 2K+90Hz 一加6T升级版 流体屏 骁龙855旗舰性能 超广角 曜
+    imagePath: /statics/oppo.jpg
+  commondityList[4]:
+    id: 4
+    name: OPPO K3
+    price: 1599
+    description: OPPO K3 高通骁龙710 升降摄像头 VOOC闪充 6GB+64GB 星云紫 全网通4G 全面
+    imagePath: /statics/yijia.jpg
+  commondityList[5]:
+    id: 5
+    name: 豪车
+    price: 159900
+    description: 豪车吴海华
+    imagePath: /statics/haoce.jpg
+  tests[0]: 1
+  tests[1]: 2
+  testList[0]:
+    name: hahaha
+  testList[1]:
+    name: hehe
+spring:
+  banner:
+    charset: UTF-8

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+>
+    <!--注册服务对象-->
+    <dubbo:application name="dubbo-no-register-consumer" > </dubbo:application>
+    <!--添加注册中心
+        zooKeeperLinuxOs 这是ip 映射 前提是必须在 hosts（windows）（Linux vim /etc/hostname）文件中配置
+        zooKeeper集群 路径编写
+            zookeeper://zooKeeperLinuxOs1:2181?backup=zooKeeperLinuxOs2:2181,zooKeeperLinuxOs3:2181
+    -->
+    <dubbo:registry address="zookeeper://zooKeeperLinuxOs1:2181?backup=zooKeeperLinuxOs2:2181,zooKeeperLinuxOs3:2181"></dubbo:registry>
+    <!--消费者消费的服务，从注册中心指定的服务
+        1.声明缓存
+        cache="true"
+            <dubbo:reference
+                id="dubboBaseService"
+                interface="com.hua.dubbo.service.DubboBaseService"
+                cache="true"
+            >
+
+        2.方法级别缓存
+        <dubbo:method name="sreachUser" cache="lru"></dubbo:method>
+            1.lru:服务级别缓存的默认机制。该机制默认认可缓存1000结果。若超出1000，采用最近最少使用原则来删除缓存
+              以保证最热的数据被缓存。
+            2.threadlocal:当前线程缓存
+            3.jcache:可以桥接各种缓存实现。
+        注：易被改动的数据不需缓存，以免数据脏读。
+    -->
+    <dubbo:reference
+            id="dubboBaseService"
+            interface="com.hua.dubbo.service.DubboBaseService"
+            version="0.0.2"
+    >
+        <dubbo:method name="sreachUser" cache="lru"></dubbo:method>
+    </dubbo:reference>
+
+
+</beans>

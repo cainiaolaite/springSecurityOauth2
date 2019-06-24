@@ -1,0 +1,28 @@
+server:
+  servlet:
+   context-path: /
+  port: 8888
+eureka:
+  client:
+    service-url:
+      # \u670D\u52A1\u6CE8\u518C\u4E2D\u5FC3\u7684\u5730\u5740
+      defaultZone: http://localhost:8182/eureka,http://localhost:8282/eureka
+spring:
+  application:
+    #\u6D88\u8D39\u8005\u5BF9\u7528\u6237\u66B4\u9732\u7684\u540D\u79F0
+    name: spring-cloud-zuul
+zuul:
+  #统一前缀
+  #prefix: /zuul
+  #指定要忽略所有微服务
+  #ignored-services: "*"
+  routes:
+    user.serviceId: spring-cloud-consumer
+    user.path: /user/**
+#监控信息
+info:
+  auth: 吴海华
+  app.name: spring cloud 消费者
+  app.desc: 这是一个应用
+  company.name: 上海测试集团
+  company.addr: 中国上海

@@ -1,0 +1,28 @@
+server:
+  servlet:
+   context-path: /
+  port: 8183
+eureka:
+  client:
+    service-url:
+      # \u670D\u52A1\u6CE8\u518C\u4E2D\u5FC3\u7684\u5730\u5740
+      defaultZone: http://localhost:8182/eureka,http://localhost:8282/eureka
+    #\u6D88\u8D39\u8005eureka \u5BA2\u6237\u7AEF\u9700\u8981\u83B7\u53D6 \u670D\u52A1\u7684\u6CE8\u518C\u5217\u8868
+    fetch-registry: true
+    #\u6D88\u8D39\u8005\u9700\u8981\u5411 eureka \u670D\u52A1\u6CE8\u518C\u4E2D\u5FC3\u6CE8\u518C
+    register-with-eureka: true
+spring:
+  application:
+    #\u6D88\u8D39\u8005\u5BF9\u7528\u6237\u66B4\u9732\u7684\u540D\u79F0
+    name: spring-cloud-consumer
+  main:
+    allow-bean-definition-overriding: true
+
+
+#监控信息
+info:
+  auth: 吴海华
+  app.name: spring cloud 消费者
+  app.desc: 这是一个应用
+  company.name: 上海测试集团
+  company.addr: 中国上海

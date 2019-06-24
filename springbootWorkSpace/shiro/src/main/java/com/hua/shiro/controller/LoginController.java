@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-public class LoginController {
+public class LoginController{
     private static Logger logger= LoggerFactory.getLogger(LoginController.class);
 
     /**

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+>
+    <!--没有配置扫描器，所以需要通过配置文件注册到spring 容器中-->
+    <bean name="dubboBaseService" class="com.hua.dubbo.service.DubboBaseServiceImpl"></bean>
+    <!--注册服务对象-->
+    <dubbo:application name="dubbo-zookeeper-no-clonoy-proviter"> </dubbo:application>
+    <!--添加注册中心-->
+    <dubbo:registry address="zookeeper://zooKeeperLinuxOs:2181"></dubbo:registry>
+    <!--暴露服务，将服务注册到注册中心-->
+    <dubbo:service
+            interface="com.hua.dubbo.service.DubboBaseService"
+            ref="dubboBaseService"
+    ></dubbo:service>
+</beans>

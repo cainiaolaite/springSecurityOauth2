@@ -1,0 +1,1338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3968194a-a552-4814-b486-df07fb5f804e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/bubbo-springboot-consumer/src/main/java/com/hua/bubbo/user/controller/PermissionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/bubbo-springboot-consumer/src/main/java/com/hua/bubbo/user/controller/RoleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/bubbo-springboot-consumer/src/main/java/com/hua/bubbo/user/controller/RolePermissionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/bubbo-springboot-consumer/src/main/java/com/hua/bubbo/user/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/bubbo-springboot-consumer/src/main/java/com/hua/bubbo/user/controller/UserRoleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-no-register-common/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-no-register-common/src/main/java/com/hua/dubbo/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-no-register-common/src/main/java/com/hua/dubbo/service/DubboBaseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-no-register-consumer/src/main/resources/spring-dubbo-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-no-register-consumer/src/test/java/com/hua/dubbo/ConsumerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-no-register-proviter/dubbo-no-register-proviter.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/dao/PermissionDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/dao/RoleDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/dao/RolePermissionDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/dao/UserRoleDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/service/PermissionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/service/RolePermissionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/service/RoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/service/UserRoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/service/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-springboot-provider/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-springboot-provider/src/main/resources/mapper/PermissionDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-springboot-provider/src/main/resources/mapper/RoleDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-springboot-provider/src/main/resources/mapper/RolePermissionDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-springboot-provider/src/main/resources/mapper/UserDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-springboot-provider/src/main/resources/mapper/UserRoleDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-springboot-provider/src/main/resources/mybatis-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-zookeeper-clonoy-proviter/src/main/java/com/hua/dubbo/service/DubboBaseServiceChangeImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-zookeeper-no-clonoy-common/src/main/java/com/hua/dubbo/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-zookeeper-no-clonoy-common/src/main/java/com/hua/dubbo/service/DubboBaseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-zookeeper-no-clonoy-consumer/src/main/resources/spring-dubbo-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-zookeeper-no-clonoy-consumer/src/test/java/com/hua/dubbo/ConsumerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-zookeeper-no-clonoy-proviter/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-zookeeper-no-clonoy-proviter/src/main/resources/spring-dubbo-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dubboWorkSpace/dubbo-zookeeper-no-clonoy-proviter/src/test/java/service/ProviterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastdfs-client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastdfs-client/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastdfs-client/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastdfs-client/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastdfs-client/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastdfs-client/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastdfs-client/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastdfs-client/src/main/java/com/hua/cloud/FastDFSApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastdfs-client/src/main/java/com/hua/cloud/controller/FdfsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastdfs-client/src/main/java/com/hua/cloud/controller/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastdfs-client/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastdfs-client/src/test/java/com/hua/cloud/FastDFSTestApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/hua/project/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../luceneWorkSpace/lucene/src/main/java/com/hua/lucene/configuration/LuceneConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../luceneWorkSpace/lucene/src/main/java/com/hua/lucene/entity/Commodity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../luceneWorkSpace/lucene/src/main/java/com/hua/lucene/entity/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../luceneWorkSpace/lucene/src/main/java/com/hua/lucene/propertie/CommodityProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../luceneWorkSpace/lucene/src/main/resources/IKAnalyzer.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../luceneWorkSpace/lucene/src/main/resources/commondity.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../luceneWorkSpace/lucene/src/main/resources/ext.dic" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../luceneWorkSpace/lucene/src/main/resources/stopword.dic" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-consumer/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-consumer/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-consumer/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-consumer/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-consumer/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-consumer/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-consumer/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-consumer/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-consumer/src/main/java/com/hua/cloud/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-consumer/src/main/java/com/hua/cloud/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-consumer/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka-provider1/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka-provider1/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka-provider1/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka-provider1/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka-provider1/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka-provider1/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka-provider1/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka-provider1/src/main/java/com/hua/cloud/SpringCloudEurekaProvider1Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka-provider1/src/main/java/com/hua/cloud/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka-provider1/src/main/java/com/hua/cloud/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka-provider1/src/main/java/com/hua/cloud/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka-provider1/src/main/java/com/hua/cloud/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka-provider1/src/main/java/com/hua/cloud/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka-provider1/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka-provider1/src/main/resources/mapper/UserDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka-provider1/src/test/java/com/hua/cloud/SpringCloudProviderApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka1/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka1/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka1/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka1/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka1/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka1/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka1/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka1/src/main/java/com/hua/cloud/SpringCloudEureka1Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-eureka1/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-feign-consumer/src/main/java/com/hua/cloud/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-hystrix-consumer/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-hystrix-consumer/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-hystrix-consumer/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-hystrix-consumer/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-hystrix-consumer/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-hystrix-consumer/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-hystrix-consumer/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-hystrix-consumer/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-hystrix-consumer/src/main/java/com/hua/cloud/SpringCloudHystrixConsumerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-hystrix-consumer/src/main/java/com/hua/cloud/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-hystrix-consumer/src/main/java/com/hua/cloud/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-hystrix-consumer/src/main/java/com/hua/cloud/irule/CustomRule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-hystrix-consumer/src/main/java/com/hua/cloud/service/HystrixFallbackUserSerivce.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-hystrix-consumer/src/main/java/com/hua/cloud/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-hystrix-consumer/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-hystrix-consumer/src/test/java/com/hua/cloud/SpringCloudConsumerApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-ribbon-consumer/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-ribbon-consumer/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-ribbon-consumer/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-ribbon-consumer/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-ribbon-consumer/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-ribbon-consumer/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-ribbon-consumer/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-ribbon-consumer/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-ribbon-consumer/src/main/java/com/hua/cloud/SpringCloudRibbonConsumerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-ribbon-consumer/src/main/java/com/hua/cloud/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-ribbon-consumer/src/main/java/com/hua/cloud/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-ribbon-consumer/src/main/java/com/hua/cloud/irule/CustomRule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-ribbon-consumer/src/main/java/com/hua/cloud/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-ribbon-consumer/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-ribbon-consumer/src/test/java/com/hua/cloud/SpringCloudConsumerApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-server-config/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-server-config/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-server-config/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-server-config/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-server-config/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-server-config/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-server-config/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-server-config/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-server-config/src/main/java/com/hua/cloud/SpringCloudConfigServerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-server-config/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-server-config/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-zuul/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-zuul/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-zuul/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-zuul/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-zuul/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-zuul/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-zuul/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-zuul/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-zuul/src/main/java/com/hua/cloud/SpringCloudZuulApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-zuul/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-zuul/src/test/java/com/hua/cloud/SpringCloudConsumerApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/nginx-jsp/src/main/java/com/hua/primary/controller/IndexController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/nginx-jsp/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/nginx-jsp/src/main/webapp/statics/haoce.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/nginx-jsp/src/test/java/DaXiaoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/shiro/shiro.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/shiro/webfulx-servlet.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/springboot-dev/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-servlet/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-servlet/src/com/hua/webflux/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-servlet/src/com/hua/webflux/servlet/AsynServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-servlet/src/com/hua/webflux/servlet/SyncServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-servlet/src/com/hua/webflux/sse/SseEventServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-servlet/src/com/hua/webflux/sse/SseServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-servlet/src/com/hua/webflux/stream/ComstomProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-servlet/src/com/hua/webflux/stream/ComstomSubscriber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-servlet/src/com/hua/webflux/stream/ComstomSudentSubscriber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-servlet/src/com/hua/webflux/stream/ProcessorStreamServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-servlet/src/com/hua/webflux/stream/StreamServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-servlet/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-servlet/web/custom.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-servlet/web/default.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-servlet/web/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-servlet/webflux-servlet.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-servlet/开课吧-02反应式Web开发框架WebFlux(笔记).pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-springboot/readme" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-springboot/src/main/java/com/hua/webflux/advice/StudentControllerAdrice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-springboot/src/main/java/com/hua/webflux/controller/StudentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-springboot/src/main/java/com/hua/webflux/entity/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-springboot/src/main/java/com/hua/webflux/exception/StudentValidNameException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-springboot/src/main/java/com/hua/webflux/respsitory/StudentReaciveRespsitory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springbootWorkSpace/webflux-springboot/src/main/java/com/hua/webflux/utils/HibernateValidUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/fileplat-cloud.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/fileplat-cloud.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/LoginHandlerInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/LoginHandlerInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/aop/Operator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/aop/Operator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/aop/OperatorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/aop/OperatorImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/aop/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/aop/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/aop/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/aop/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/cookie/CookieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/cookie/CookieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/ehcache/AopEhcacheService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/ehcache/AopEhcacheService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/exception/SpringHandlerExceptionResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/exception/SpringHandlerExceptionResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/intl/IntlMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/intl/IntlMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/jms/DefaultFilePlatMessageListenerContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/jms/DefaultFilePlatMessageListenerContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/jms/JmsReceiveListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/jms/JmsReceiveListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/quartz/CustomJobFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/quartz/CustomJobFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/quartz/HelloWordJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/quartz/HelloWordJob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/session/SystemHttpSessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/session/SystemHttpSessionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/test/DefaultGenericConversionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/test/DefaultGenericConversionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/error/controller/ErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/error/controller/ErrorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/index/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/index/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/login/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/login/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/dto/RoleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/dto/RoleDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/enums/RoleEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/enums/RoleEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/socket/EchoEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/socket/EchoEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/vo/LoginUserVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/vo/LoginUserVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/vo/RoleVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/vo/RoleVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/vo/SessionUserVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/vo/SessionUserVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/ehcache/ehcache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/ehcache/ehcache.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/i18n/validation_error_zh_CN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/i18n/validation_error_zh_CN.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/log/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/log/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/log/logback.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/log/logback.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/mybatis/jdbc_config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/mybatis/jdbc_config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/mybatis/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/mybatis/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/quartz/quartz.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/quartz/quartz.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/spring/spring-aop.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/spring/spring-aop.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/spring/spring-ehcache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/spring/spring-ehcache.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/spring/spring-jms.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/spring/spring-jms.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/spring/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/spring/spring-mvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/spring/spring-quartz.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/spring/spring-quartz.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/spring/spring-session.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/spring/spring-session.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/spring/spring-transaction.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/spring/spring-transaction.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/spring/spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/spring/spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/sql/fileplat1.0.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/sql/fileplat1.0.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/sql/tables_mysql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/resources/sql/tables_mysql.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/error/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/error/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/index/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/login/css/component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/login/css/component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/login/css/demo.css" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/login/css/demo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/login/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/login/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/login/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/app.plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/app.plugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/jPlayer/demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/jPlayer/demo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/jquery/jquery-3.1.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/jquery/jquery-3.1.1.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/layui.css" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/layui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/layui.mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/layui.mobile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/modules/code.css" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/modules/code.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/modules/laydate/default/laydate.css" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/modules/laydate/default/laydate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/modules/layer/default/layer.css" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/modules/layer/default/layer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/font/iconfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/font/iconfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/code.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/code.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/element.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/element.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/flow.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/flow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/laydate.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/laydate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/layedit.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/layedit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/layer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/layer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/laypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/laypage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/laytpl.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/laytpl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/mobile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/mobile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/rate.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/rate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/table.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/tree.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/tree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/upload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/layui.all.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/layui.all.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/layui.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/layui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/parsley/parsley.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/parsley/parsley.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat-cloud/src/test/java/com/hua/fileplat/cloud/HelloWordTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat-cloud/src/test/java/com/hua/fileplat/cloud/HelloWordTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat/fileplat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat/fileplat.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileplat/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileplat/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springCloudWorkSpace/spring-cloud-consumer/src/test/java/com/hua/cloud/SpringCloudProviderApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/hibernate-01/hibernate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../springbootWorkSpace/hibernate-01/hibernate.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/hibernate-01/src/test/java/com/hua/hibernate/HibernateConnectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springbootWorkSpace/hibernate-01/src/test/java/com/hua/hibernate/HibernateConnectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/main/resources/application-dev.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/main/resources/ehcache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/main/resources/ehcache.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/test/java/com/hua/primary/Primary01ApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/test/java/com/hua/primary/controller/AutoPropertiesController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/test/java/com/hua/primary/controller/SomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/test/java/com/hua/primary/dao/UserDaoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/test/java/com/hua/primary/entity/Author.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/test/java/com/hua/primary/entity/ListObjectPro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/test/java/com/hua/primary/entity/ListPro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/test/java/com/hua/primary/entity/ObjectPro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/test/java/com/hua/primary/entity/Pro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/test/java/com/hua/primary/service/DevMsgService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/test/java/com/hua/primary/service/MsgService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/test/java/com/hua/primary/service/ProMsgService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/primary-01/src/test/java/com/hua/primary/service/TestMsgService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/shiro/src/main/java/com/hua/shiro/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springbootWorkSpace/shiro/src/main/java/com/hua/shiro/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/springboot-dev/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springbootWorkSpace/springboot-dev/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springbootWorkSpace/springboot-dev/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../springbootWorkSpace/springboot-dev/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/hua/project/Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/TreeMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="1117" column="39" selection-start-line="1117" selection-start-column="39" selection-end-line="1117" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/Map.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="12507">
+              <caret line="405" column="16" selection-start-line="405" selection-start-column="16" selection-end-line="405" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/HashMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="58905">
+              <caret line="1853" column="23" selection-start-line="1853" selection-start-column="23" selection-end-line="1853" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/Hashtable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42438">
+              <caret line="1353" column="25" selection-start-line="1353" selection-start-column="25" selection-end-line="1353" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/AbstractSet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1122">
+              <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/Set.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2937">
+              <caret line="112" column="17" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/AbstractMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="12804">
+              <caret line="447" column="36" selection-start-line="447" selection-start-column="36" selection-end-line="447" selection-end-column="36" />
+              <folding>
+                <element signature="docComment;method#equals#0;class#AbstractMap#0" />
+                <element signature="method#equals#0;class#AbstractMap#0" />
+                <element signature="docComment;method#hashCode#0;class#AbstractMap#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/com/hua/project/Test.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560398638569" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hua.project.Test" />
+      <module name="java-project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hua.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3968194a-a552-4814-b486-df07fb5f804e" name="Default Changelist" comment="" />
+      <created>1559828470346</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1559828470346</updated>
+      <workItem from="1559828477981" duration="807000" />
+      <workItem from="1560053398019" duration="603000" />
+      <workItem from="1560394299908" duration="973000" />
+      <workItem from="1560395298133" duration="183000" />
+      <workItem from="1560395505654" duration="737000" />
+      <workItem from="1560396268813" duration="2688000" />
+      <workItem from="1560405493284" duration="798000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="6789000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23720682" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.329718" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="13" visible="true" weight="0.2505423" />
+      <window_info anchor="bottom" id="JProfiler" order="14" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="PlantUML" order="9" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/jdk/internal/loader/ClassLoaders.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2706">
+          <caret line="125" column="56" selection-start-line="125" selection-start-column="56" selection-end-line="125" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/security/SecureClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="43" column="44" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/jdk/internal/loader/BuiltinClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="95" column="13" selection-start-line="95" selection-start-column="13" selection-end-line="95" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/lang/Iterable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+          <folding>
+            <element signature="e#2832#2833#0" expanded="true" />
+            <element signature="e#2905#2906#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/lang/ClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="1921" column="25" selection-start-line="1921" selection-start-column="25" selection-end-line="1921" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/Iterator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1286">
+          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/java.util.Collection">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>java.util.Collection</OriginalElement>
+          <nodes>
+            <node x="" y="">java.util.Collection</node>
+            <node x="" y="">java.lang.Iterable</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.1" x="52.0" y="55.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/Collection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="222" lean-forward="true" selection-start-line="222" selection-end-line="222" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/java.util.LinkedHashSet">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>java.util.LinkedHashSet</OriginalElement>
+          <nodes>
+            <node x="174.0758928571428" y="320.0">java.util.HashSet</node>
+            <node x="0.0" y="240.0">java.lang.Cloneable</node>
+            <node x="77.99999999999997" y="160.0">java.util.AbstractCollection</node>
+            <node x="171.51339285714283" y="80.0">java.util.Collection</node>
+            <node x="125.99999999999997" y="240.0">java.util.AbstractSet</node>
+            <node x="269.65178571428567" y="160.0">java.util.Set</node>
+            <node x="177.51339285714286" y="0.0">java.lang.Iterable</node>
+            <node x="204.18749999999994" y="400.0">java.util.LinkedHashSet</node>
+            <node x="294.4375" y="240.0">java.io.Serializable</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="java.util.HashSet" target="java.util.AbstractSet">
+              <point x="-11.874999999999972" y="-15.0" />
+              <point x="209.70089285714283" y="290.0" />
+              <point x="182.99999999999997" y="290.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.HashSet" target="java.util.Set">
+              <point x="11.875000000000028" y="-15.0" />
+              <point x="233.45089285714283" y="290.0" />
+              <point x="283.9375" y="290.0" />
+              <point x="283.9375" y="220.0" />
+              <point x="302.65178571428567" y="220.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.LinkedHashSet" target="java.lang.Cloneable">
+              <point x="-49.875" y="-15.0" />
+              <point x="220.81249999999994" y="380.0" />
+              <point x="26.5" y="380.0" />
+              <point x="-26.5" y="15.0" />
+            </edge>
+            <edge source="java.util.HashSet" target="java.lang.Cloneable">
+              <point x="-35.62499999999997" y="-15.0" />
+              <point x="185.95089285714283" y="300.0" />
+              <point x="79.5" y="300.0" />
+              <point x="26.5" y="15.0" />
+            </edge>
+            <edge source="java.util.LinkedHashSet" target="java.util.Set">
+              <point x="49.875" y="-15.0" />
+              <point x="320.56249999999994" y="380.0" />
+              <point x="418.9375" y="380.0" />
+              <point x="418.9375" y="220.0" />
+              <point x="324.65178571428567" y="220.0" />
+              <point x="22.0" y="15.0" />
+            </edge>
+            <edge source="java.util.Set" target="java.util.Collection">
+              <point x="0.0" y="-15.0" />
+              <point x="302.65178571428567" y="135.0" />
+              <point x="250.26339285714283" y="135.0" />
+              <point x="26.25" y="15.0" />
+            </edge>
+            <edge source="java.util.LinkedHashSet" target="java.io.Serializable">
+              <point x="16.625" y="-15.0" />
+              <point x="287.31249999999994" y="370.0" />
+              <point x="379.9375" y="370.0" />
+              <point x="28.5" y="15.0" />
+            </edge>
+            <edge source="java.util.Collection" target="java.lang.Iterable">
+              <point x="2.8421709430404007E-14" y="-15.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.AbstractSet" target="java.util.Set">
+              <point x="28.5" y="-15.0" />
+              <point x="211.49999999999997" y="210.0" />
+              <point x="280.65178571428567" y="210.0" />
+              <point x="-22.0" y="15.0" />
+            </edge>
+            <edge source="java.util.LinkedHashSet" target="java.util.HashSet">
+              <point x="-16.625" y="-15.0" />
+              <point x="254.06249999999994" y="370.0" />
+              <point x="221.5758928571428" y="370.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.AbstractCollection" target="java.util.Collection">
+              <point x="0.0" y="-15.0" />
+              <point x="154.49999999999997" y="135.0" />
+              <point x="197.76339285714283" y="135.0" />
+              <point x="-26.25" y="15.0" />
+            </edge>
+            <edge source="java.util.HashSet" target="java.io.Serializable">
+              <point x="35.62500000000003" y="-15.0" />
+              <point x="257.20089285714283" y="300.0" />
+              <point x="322.9375" y="300.0" />
+              <point x="-28.5" y="15.0" />
+            </edge>
+            <edge source="java.util.AbstractSet" target="java.util.AbstractCollection">
+              <point x="-28.5" y="-15.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.1" x="-342.0" y="124.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JIGSAW/java.base">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JIGSAW</ID>
+          <OriginalElement>java.base</OriginalElement>
+          <nodes>
+            <node x="" y="">java.base</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="43.0" y="15.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/java">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>java</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.791860465116279" x="555.0" y="420.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/LinkedHashSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="113" column="21" lean-forward="true" selection-start-line="113" selection-start-column="21" selection-end-line="113" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/java.util">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>java.util</OriginalElement>
+          <nodes>
+            <node x="801.3702991452994" y="320.0">java.util.AbstractQueue</node>
+            <node x="669.9999999999999" y="590.0">java.util.DoubleSummaryStatistics</node>
+            <node x="1234.7042735042733" y="80.0">java.util.zip</node>
+            <node x="1992.2005341880342" y="480.0">java.util.Vector</node>
+            <node x="2372.625" y="80.0">java.util.Map</node>
+            <node x="282.4452991452995" y="480.0">java.util.EnumSet</node>
+            <node x="2387.200534188034" y="480.0">java.util.EnumMap</node>
+            <node x="274.36976495726503" y="80.0">java.util.Set</node>
+            <node x="163.0" y="590.0">java.util.RegularEnumSet</node>
+            <node x="2779.950534188034" y="80.0">java.util.Dictionary</node>
+            <node x="1210.7916666666665" y="590.0">java.util.stream</node>
+            <node x="495.11976495726515" y="480.0">java.util.TreeSet</node>
+            <node x="1643.7042735042733" y="480.0">java.util.ArrayList</node>
+            <node x="1460.5452991452994" y="320.0">java.util.RandomAccess</node>
+            <node x="2464.950534188034" y="590.0">java.util.LinkedHashMap</node>
+            <node x="10.0" y="590.0">java.util.LinkedHashSet</node>
+            <node x="2752.450534188034" y="320.0">java.util.Properties</node>
+            <node x="2099.200534188034" y="480.0">java.util.TreeMap</node>
+            <node x="800.6292735042733" y="480.0">java.util.ArrayDeque</node>
+            <node x="542.8697649572651" y="190.0">java.util.SortedSet</node>
+            <node x="653.6292735042733" y="480.0">java.util.PriorityQueue</node>
+            <node x="1875.216025641026" y="320.0">java.util.AbstractList</node>
+            <node x="1263.7042735042733" y="320.0">java.util.Random</node>
+            <node x="838.4542735042734" y="190.0">java.util.AbstractCollection</node>
+            <node x="2220.200534188034" y="480.0">java.util.IdentityHashMap</node>
+            <node x="1183.3255341880342" y="480.0">java.util.concurrent</node>
+            <node x="1113.375" y="0.0">java.util.Collection</node>
+            <node x="532.8697649572651" y="320.0">java.util.NavigableSet</node>
+            <node x="1616.5452991452994" y="320.0">java.util.NavigableMap</node>
+            <node x="1797.2005341880342" y="480.0">java.util.AbstractSequentialList</node>
+            <node x="1859.6249999999998" y="190.0">java.util.List</node>
+            <node x="937.6292735042733" y="480.0">java.util.function</node>
+            <node x="1154.7042735042733" y="190.0">java.util.Queue</node>
+            <node x="1558.2042735042733" y="190.0">java.util.SortedMap</node>
+            <node x="288.6952991452995" y="320.0">java.util.AbstractSet</node>
+            <node x="2515.200534188034" y="480.0">java.util.HashMap</node>
+            <node x="1046.8792735042734" y="320.0">java.util.Deque</node>
+            <node x="2043.716025641026" y="590.0">java.util.Stack</node>
+            <node x="0.0" y="480.0">java.util.HashSet</node>
+            <node x="1865.0452991452994" y="590.0">java.util.LinkedList</node>
+            <node x="2753.450534188034" y="190.0">java.util.Hashtable</node>
+            <node x="883.9999999999999" y="590.0">java.util.LongSummaryStatistics</node>
+            <node x="2639.200534188034" y="480.0">java.util.WeakHashMap</node>
+            <node x="2333.4542735042733" y="320.0">java.util.AbstractMap</node>
+            <node x="1260.7042735042733" y="190.0">java.util.jar</node>
+            <node x="482.9999999999999" y="590.0">java.util.IntSummaryStatistics</node>
+            <node x="326.0" y="590.0">java.util.JumboEnumSet</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="java.util.Hashtable" target="java.util.Dictionary">
+              <point x="26.5" y="-15.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.concurrent" target="java.util.AbstractMap">
+              <point x="68.25" y="-15.0" />
+              <point x="1325.0755341880342" y="440.0" />
+              <point x="2343.7042735042733" y="440.0" />
+              <point x="-51.25" y="15.0" />
+            </edge>
+            <edge source="java.util.concurrent" target="java.util.RandomAccess">
+              <point x="47.25" y="-15.0" />
+              <point x="1304.0755341880342" y="420.0" />
+              <point x="1483.2119658119664" y="420.0" />
+              <point x="-45.33333333333326" y="15.0" />
+            </edge>
+            <edge source="java.util.HashMap" target="java.util.Map">
+              <point x="26.0" y="-15.0" />
+              <point x="2593.200534188034" y="160.0" />
+              <point x="2426.7916666666665" y="160.0" />
+              <point x="16.66666666666663" y="15.0" />
+            </edge>
+            <edge source="java.util.jar" target="java.util.Map">
+              <point x="25.0" y="-15.0" />
+              <point x="1335.7042735042733" y="130.0" />
+              <point x="2376.7916666666665" y="130.0" />
+              <point x="-33.333333333333314" y="15.0" />
+            </edge>
+            <edge source="java.util.AbstractQueue" target="java.util.AbstractCollection">
+              <point x="-33.5" y="-15.0" />
+              <point x="834.8702991452994" y="280.0" />
+              <point x="914.9542735042734" y="280.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.Properties" target="java.util.Hashtable">
+              <point x="0.0" y="-15.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.concurrent" target="java.util.AbstractSet">
+              <point x="-68.25" y="-15.0" />
+              <point x="1188.5755341880342" y="440.0" />
+              <point x="388.4452991452995" y="440.0" />
+              <point x="42.75" y="15.0" />
+            </edge>
+            <edge source="java.util.LinkedHashSet" target="java.util.Set">
+              <point x="33.25" y="-15.0" />
+              <point x="109.75" y="570.0" />
+              <point x="105.5" y="570.0" />
+              <point x="105.5" y="170.0" />
+              <point x="299.11976495726503" y="170.0" />
+              <point x="-8.25" y="15.0" />
+            </edge>
+            <edge source="java.util.SortedSet" target="java.util.Set">
+              <point x="0.0" y="-15.0" />
+              <point x="595.3697649572651" y="170.0" />
+              <point x="332.11976495726503" y="170.0" />
+              <point x="24.75" y="15.0" />
+            </edge>
+            <edge source="java.util.concurrent" target="java.util.Deque">
+              <point x="-36.75" y="-15.0" />
+              <point x="1220.0755341880342" y="410.0" />
+              <point x="1100.6292735042734" y="410.0" />
+              <point x="10.75" y="15.0" />
+            </edge>
+            <edge source="java.util.WeakHashMap" target="java.util.Map">
+              <point x="34.25" y="-15.0" />
+              <point x="2741.950534188034" y="150.0" />
+              <point x="2435.125" y="150.0" />
+              <point x="25.0" y="15.0" />
+            </edge>
+            <edge source="java.util.AbstractQueue" target="java.util.Queue">
+              <point x="33.5" y="-15.0" />
+              <point x="901.8702991452994" y="290.0" />
+              <point x="1165.4542735042733" y="290.0" />
+              <point x="-32.25" y="15.0" />
+            </edge>
+            <edge source="java.util.NavigableMap" target="java.util.SortedMap">
+              <point x="0.0" y="-15.0" />
+              <point x="1683.5452991452994" y="280.0" />
+              <point x="1615.2042735042733" y="280.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.Set" target="java.util.Collection">
+              <point x="0.0" y="-15.0" />
+              <point x="307.36976495726503" y="50.0" />
+              <point x="1126.5" y="50.0" />
+              <point x="-39.375" y="15.0" />
+            </edge>
+            <edge source="java.util.EnumSet" target="java.util.AbstractSet">
+              <point x="0.0" y="-15.0" />
+              <point x="-14.25" y="15.0" />
+            </edge>
+            <edge source="java.util.AbstractCollection" target="java.util.Collection">
+              <point x="0.0" y="-15.0" />
+              <point x="914.9542735042734" y="60.0" />
+              <point x="1152.75" y="60.0" />
+              <point x="-13.125" y="15.0" />
+            </edge>
+            <edge source="java.util.JumboEnumSet" target="java.util.EnumSet">
+              <point x="0.0" y="-15.0" />
+              <point x="394.5" y="570.0" />
+              <point x="355.9452991452995" y="570.0" />
+              <point x="24.5" y="15.0" />
+            </edge>
+            <edge source="java.util.DoubleSummaryStatistics" target="java.util.function">
+              <point x="0.0" y="-15.0" />
+              <point x="766.9999999999999" y="560.0" />
+              <point x="976.9292735042735" y="560.0" />
+              <point x="-26.199999999999818" y="15.0" />
+            </edge>
+            <edge source="java.util.ArrayDeque" target="java.util.Deque">
+              <point x="29.25" y="-15.0" />
+              <point x="888.3792735042733" y="460.0" />
+              <point x="1057.6292735042734" y="460.0" />
+              <point x="-32.25" y="15.0" />
+            </edge>
+            <edge source="java.util.HashMap" target="java.util.AbstractMap">
+              <point x="-26.0" y="-15.0" />
+              <point x="2541.200534188034" y="450.0" />
+              <point x="2425.7042735042733" y="450.0" />
+              <point x="30.75" y="15.0" />
+            </edge>
+            <edge source="java.util.AbstractSequentialList" target="java.util.AbstractList">
+              <point x="-1.1368683772161603E-13" y="-15.0" />
+              <point x="1884.700534188034" y="430.0" />
+              <point x="1932.716025641026" y="430.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.LinkedList" target="java.util.List">
+              <point x="35.0" y="-15.0" />
+              <point x="1952.5452991452994" y="570.0" />
+              <point x="2088.700534188034" y="570.0" />
+              <point x="2088.700534188034" y="240.0" />
+              <point x="1919.9249999999997" y="240.0" />
+              <point x="26.799999999999955" y="15.0" />
+            </edge>
+            <edge source="java.util.IdentityHashMap" target="java.util.AbstractMap">
+              <point x="36.75" y="-15.0" />
+              <point x="2330.450534188034" y="460.0" />
+              <point x="2384.7042735042733" y="460.0" />
+              <point x="-10.25" y="15.0" />
+            </edge>
+            <edge source="java.util.TreeSet" target="java.util.AbstractSet">
+              <point x="-23.0" y="-15.0" />
+              <point x="518.1197649572651" y="460.0" />
+              <point x="359.9452991452995" y="460.0" />
+              <point x="14.25" y="15.0" />
+            </edge>
+            <edge source="java.util.AbstractList" target="java.util.AbstractCollection">
+              <point x="-28.75" y="-15.0" />
+              <point x="1903.966025641026" y="270.0" />
+              <point x="976.1542735042734" y="270.0" />
+              <point x="61.200000000000045" y="15.0" />
+            </edge>
+            <edge source="java.util.Vector" target="java.util.RandomAccess">
+              <point x="-28.66666666666663" y="-15.0" />
+              <point x="2006.5338675213675" y="400.0" />
+              <point x="1573.8786324786329" y="400.0" />
+              <point x="45.33333333333326" y="15.0" />
+            </edge>
+            <edge source="java.util.Deque" target="java.util.Queue">
+              <point x="0.0" y="-15.0" />
+              <point x="1089.8792735042734" y="300.0" />
+              <point x="1186.9542735042733" y="300.0" />
+              <point x="-10.75" y="15.0" />
+            </edge>
+            <edge source="java.util.LinkedHashSet" target="java.util.HashSet">
+              <point x="-33.25" y="-15.0" />
+              <point x="43.25" y="570.0" />
+              <point x="47.5" y="570.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.AbstractSet" target="java.util.Set">
+              <point x="-28.5" y="-15.0" />
+              <point x="317.1952991452995" y="170.0" />
+              <point x="315.61976495726503" y="170.0" />
+              <point x="8.25" y="15.0" />
+            </edge>
+            <edge source="java.util.TreeMap" target="java.util.NavigableMap">
+              <point x="-25.25" y="-15.0" />
+              <point x="2124.450534188034" y="380.0" />
+              <point x="1717.0452991452994" y="380.0" />
+              <point x="33.5" y="15.0" />
+            </edge>
+            <edge source="java.util.RegularEnumSet" target="java.util.EnumSet">
+              <point x="0.0" y="-15.0" />
+              <point x="234.5" y="570.0" />
+              <point x="306.9452991452995" y="570.0" />
+              <point x="-24.5" y="15.0" />
+            </edge>
+            <edge source="java.util.LinkedList" target="java.util.AbstractSequentialList">
+              <point x="0.0" y="-15.0" />
+              <point x="1917.5452991452994" y="530.0" />
+              <point x="1884.7005341880342" y="530.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.ArrayList" target="java.util.List">
+              <point x="0.0" y="-15.0" />
+              <point x="1692.7042735042733" y="410.0" />
+              <point x="1761.0452991452994" y="410.0" />
+              <point x="1761.0452991452994" y="300.0" />
+              <point x="1879.725" y="300.0" />
+              <point x="-13.399999999999977" y="15.0" />
+            </edge>
+            <edge source="java.util.ArrayList" target="java.util.AbstractList">
+              <point x="32.66666666666674" y="-15.0" />
+              <point x="1725.3709401709402" y="420.0" />
+              <point x="1894.3826923076927" y="420.0" />
+              <point x="-38.33333333333337" y="15.0" />
+            </edge>
+            <edge source="java.util.concurrent" target="java.util.List">
+              <point x="36.75" y="-15.0" />
+              <point x="1293.5755341880342" y="410.0" />
+              <point x="1450.0452991452994" y="410.0" />
+              <point x="1450.0452991452994" y="290.0" />
+              <point x="1866.3249999999998" y="290.0" />
+              <point x="-26.799999999999955" y="15.0" />
+            </edge>
+            <edge source="java.util.HashSet" target="java.util.Set">
+              <point x="-23.75" y="-15.0" />
+              <point x="23.75" y="160.0" />
+              <point x="282.61976495726503" y="160.0" />
+              <point x="-24.75" y="15.0" />
+            </edge>
+            <edge source="java.util.concurrent" target="java.util.AbstractCollection">
+              <point x="-15.75" y="-15.0" />
+              <point x="1241.0755341880342" y="390.0" />
+              <point x="1143.3792735042734" y="390.0" />
+              <point x="1143.3792735042734" y="280.0" />
+              <point x="945.5542735042733" y="280.0" />
+              <point x="30.59999999999991" y="15.0" />
+            </edge>
+            <edge source="java.util.PriorityQueue" target="java.util.AbstractQueue">
+              <point x="0.0" y="-15.0" />
+              <point x="717.1292735042733" y="460.0" />
+              <point x="834.8702991452994" y="460.0" />
+              <point x="-33.5" y="15.0" />
+            </edge>
+            <edge source="java.util.concurrent" target="java.util.Random">
+              <point x="15.75" y="-15.0" />
+              <point x="1272.5755341880342" y="390.0" />
+              <point x="1312.2042735042733" y="390.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.IdentityHashMap" target="java.util.Map">
+              <point x="-36.75" y="-15.0" />
+              <point x="2256.950534188034" y="430.0" />
+              <point x="2221.4542735042733" y="430.0" />
+              <point x="2221.4542735042733" y="160.0" />
+              <point x="2401.7916666666665" y="160.0" />
+              <point x="-8.333333333333371" y="15.0" />
+            </edge>
+            <edge source="java.util.SortedMap" target="java.util.Map">
+              <point x="0.0" y="-15.0" />
+              <point x="1615.2042735042733" y="150.0" />
+              <point x="2393.458333333333" y="150.0" />
+              <point x="-16.66666666666663" y="15.0" />
+            </edge>
+            <edge source="java.util.Queue" target="java.util.Collection">
+              <point x="0.0" y="-15.0" />
+              <point x="1197.7042735042733" y="60.0" />
+              <point x="1179.0" y="60.0" />
+              <point x="13.125" y="15.0" />
+            </edge>
+            <edge source="java.util.NavigableSet" target="java.util.SortedSet">
+              <point x="0.0" y="-15.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.LinkedHashMap" target="java.util.Map">
+              <point x="-35.5" y="-15.0" />
+              <point x="2500.450534188034" y="570.0" />
+              <point x="2504.700534188034" y="570.0" />
+              <point x="2504.700534188034" y="170.0" />
+              <point x="2418.458333333333" y="170.0" />
+              <point x="8.333333333333371" y="15.0" />
+            </edge>
+            <edge source="java.util.ArrayList" target="java.util.RandomAccess">
+              <point x="-32.66666666666674" y="-15.0" />
+              <point x="1660.0376068376067" y="420.0" />
+              <point x="1528.5452991452994" y="420.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.List" target="java.util.Collection">
+              <point x="0.0" y="-15.0" />
+              <point x="1893.1249999999998" y="60.0" />
+              <point x="1205.25" y="60.0" />
+              <point x="39.375" y="15.0" />
+            </edge>
+            <edge source="java.util.AbstractList" target="java.util.List">
+              <point x="28.75" y="-15.0" />
+              <point x="1961.466025641026" y="260.0" />
+              <point x="1893.1249999999998" y="260.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.EnumMap" target="java.util.AbstractMap">
+              <point x="0.0" y="-15.0" />
+              <point x="2440.700534188034" y="460.0" />
+              <point x="2405.2042735042733" y="460.0" />
+              <point x="10.25" y="15.0" />
+            </edge>
+            <edge source="java.util.concurrent" target="java.util.AbstractQueue">
+              <point x="-47.25" y="-15.0" />
+              <point x="1209.5755341880342" y="420.0" />
+              <point x="901.8702991452994" y="420.0" />
+              <point x="33.5" y="15.0" />
+            </edge>
+            <edge source="java.util.ArrayDeque" target="java.util.AbstractCollection">
+              <point x="-29.25" y="-15.0" />
+              <point x="829.8792735042733" y="450.0" />
+              <point x="707.0697649572652" y="450.0" />
+              <point x="707.0697649572652" y="270.0" />
+              <point x="884.3542735042735" y="270.0" />
+              <point x="-30.59999999999991" y="15.0" />
+            </edge>
+            <edge source="java.util.LongSummaryStatistics" target="java.util.function">
+              <point x="0.0" y="-15.0" />
+              <point x="974.4999999999999" y="570.0" />
+              <point x="1003.1292735042733" y="570.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.AbstractSet" target="java.util.AbstractCollection">
+              <point x="28.5" y="-15.0" />
+              <point x="374.1952991452995" y="260.0" />
+              <point x="853.7542735042733" y="260.0" />
+              <point x="-61.200000000000045" y="15.0" />
+            </edge>
+            <edge source="java.util.HashSet" target="java.util.AbstractSet">
+              <point x="23.75" y="-15.0" />
+              <point x="71.25" y="460.0" />
+              <point x="302.9452991452995" y="460.0" />
+              <point x="-42.75" y="15.0" />
+            </edge>
+            <edge source="java.util.jar" target="java.util.zip">
+              <point x="-25.0" y="-15.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.Vector" target="java.util.AbstractList">
+              <point x="0.0" y="-15.0" />
+              <point x="2035.2005341880342" y="390.0" />
+              <point x="1971.0493589743592" y="390.0" />
+              <point x="38.33333333333337" y="15.0" />
+            </edge>
+            <edge source="java.util.WeakHashMap" target="java.util.AbstractMap">
+              <point x="-34.25" y="-15.0" />
+              <point x="2673.450534188034" y="440.0" />
+              <point x="2446.2042735042733" y="440.0" />
+              <point x="51.25" y="15.0" />
+            </edge>
+            <edge source="java.util.concurrent" target="java.util.NavigableMap">
+              <point x="57.75" y="-15.0" />
+              <point x="1314.5755341880342" y="430.0" />
+              <point x="1650.0452991452994" y="430.0" />
+              <point x="-33.5" y="15.0" />
+            </edge>
+            <edge source="java.util.concurrent" target="java.util.Map">
+              <point x="26.25" y="-15.0" />
+              <point x="1283.0755341880342" y="400.0" />
+              <point x="1371.2042735042733" y="400.0" />
+              <point x="1371.2042735042733" y="140.0" />
+              <point x="2385.125" y="140.0" />
+              <point x="-25.0" y="15.0" />
+            </edge>
+            <edge source="java.util.Vector" target="java.util.List">
+              <point x="28.66666666666663" y="-15.0" />
+              <point x="2063.867200854701" y="430.0" />
+              <point x="2048.0452991452994" y="430.0" />
+              <point x="2048.0452991452994" y="250.0" />
+              <point x="1906.5249999999999" y="250.0" />
+              <point x="13.399999999999977" y="15.0" />
+            </edge>
+            <edge source="java.util.Hashtable" target="java.util.Map">
+              <point x="-26.5" y="-15.0" />
+              <point x="2779.950534188034" y="140.0" />
+              <point x="2443.458333333333" y="140.0" />
+              <point x="33.33333333333337" y="15.0" />
+            </edge>
+            <edge source="java.util.LinkedList" target="java.util.Deque">
+              <point x="-35.0" y="-15.0" />
+              <point x="1882.5452991452994" y="540.0" />
+              <point x="1126.494764957265" y="540.0" />
+              <point x="1126.494764957265" y="460.0" />
+              <point x="1079.1292735042734" y="460.0" />
+              <point x="-10.75" y="15.0" />
+            </edge>
+            <edge source="java.util.stream" target="java.util.function">
+              <point x="-41.66666666666674" y="-15.0" />
+              <point x="1231.6249999999998" y="570.0" />
+              <point x="1029.3292735042733" y="570.0" />
+              <point x="26.199999999999818" y="15.0" />
+            </edge>
+            <edge source="java.util.Stack" target="java.util.Vector">
+              <point x="0.0" y="-15.0" />
+              <point x="2083.216025641026" y="560.0" />
+              <point x="2035.2005341880342" y="560.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.stream" target="java.util.concurrent">
+              <point x="41.66666666666674" y="-15.0" />
+              <point x="1314.9583333333333" y="550.0" />
+              <point x="1256.8255341880342" y="550.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.TreeMap" target="java.util.AbstractMap">
+              <point x="25.25" y="-15.0" />
+              <point x="2174.950534188034" y="450.0" />
+              <point x="2364.2042735042733" y="450.0" />
+              <point x="-30.75" y="15.0" />
+            </edge>
+            <edge source="java.util.IntSummaryStatistics" target="java.util.function">
+              <point x="0.0" y="-15.0" />
+              <point x="566.4999999999999" y="550.0" />
+              <point x="950.7292735042732" y="550.0" />
+              <point x="-52.40000000000009" y="15.0" />
+            </edge>
+            <edge source="java.util.AbstractMap" target="java.util.Map">
+              <point x="0.0" y="-15.0" />
+              <point x="2394.9542735042733" y="170.0" />
+              <point x="2410.125" y="170.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.concurrent" target="java.util.NavigableSet">
+              <point x="-57.75" y="-15.0" />
+              <point x="1199.0755341880342" y="430.0" />
+              <point x="626.6197649572651" y="430.0" />
+              <point x="31.25" y="15.0" />
+            </edge>
+            <edge source="java.util.TreeSet" target="java.util.NavigableSet">
+              <point x="23.0" y="-15.0" />
+              <point x="-31.25" y="15.0" />
+            </edge>
+            <edge source="java.util.LinkedHashMap" target="java.util.HashMap">
+              <point x="35.5" y="-15.0" />
+              <point x="2571.450534188034" y="570.0" />
+              <point x="2567.200534188034" y="570.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.util.concurrent" target="java.util.Queue">
+              <point x="5.25" y="-15.0" />
+              <point x="1262.0755341880342" y="370.0" />
+              <point x="1241.5792735042733" y="370.0" />
+              <point x="1241.5792735042733" y="290.0" />
+              <point x="1229.9542735042733" y="290.0" />
+              <point x="32.25" y="15.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0770846594525778" x="1375.0" y="311.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>public</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hua/project/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12507">
+          <caret line="405" column="16" selection-start-line="405" selection-start-column="16" selection-end-line="405" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58905">
+          <caret line="1853" column="23" selection-start-line="1853" selection-start-column="23" selection-end-line="1853" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/Hashtable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42438">
+          <caret line="1353" column="25" selection-start-line="1353" selection-start-column="25" selection-end-line="1353" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/AbstractSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/Set.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2937">
+          <caret line="112" column="17" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/AbstractMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12804">
+          <caret line="447" column="36" selection-start-line="447" selection-start-column="36" selection-end-line="447" selection-end-column="36" />
+          <folding>
+            <element signature="docComment;method#equals#0;class#AbstractMap#0" />
+            <element signature="method#equals#0;class#AbstractMap#0" />
+            <element signature="docComment;method#hashCode#0;class#AbstractMap#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/TreeMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="1117" column="39" selection-start-line="1117" selection-start-column="39" selection-end-line="1117" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

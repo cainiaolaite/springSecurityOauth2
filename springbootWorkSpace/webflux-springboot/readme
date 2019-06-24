@@ -1,0 +1,391 @@
+
+
+spring boot 中 反应式流编程 组成结构
+    1.Netty,Servlet 3.1+Containers （netty容器 和 Servlet 3.1 + Servlet 3.1 以上容器）
+    2.Reactive Streams Adapters (反应式流编程)
+    3.Spring Security Reactive (反应式安全框架)
+    4.Spring WebFlux （反应式Web）
+    5.Spring Data Reactive Repositories (反应式数据仓库)
+        Mongo,Cassandra,Redis,Couchbase
+
+spring boot 中 使用 hibernate valid
+
+web Flux 两种开发方式  (webFlux 不支持对关系型数据库进行操作)
+    1.传统处理器开发方式
+        1.依赖
+            Reactive web
+            Reactive MongoDB
+
+    2.Router Functions (路由函数)
+        使用Router Functions 开发，指的是使用由@Componnet 注解的普通类作为处理器类
+        使用Router 进行请求与处理器方法映射，来开发WebFlux服务端的开发方式
+        该开发方式所开发的WebFlux 服务端不仅可以运行在Servlet3.1容器（Tomcat）
+        还可以运行在Netty,Jetty等容器中，不过在开发过程中会出现一个问题：Servlet
+        中的HttpServletRequest,HttpServletResponse,在好多Web容器中并不支持，例如Netty,
+        为了能够统一请求与响应，Router Functions 专门定义了所有容器都支持的ServerRequest
+        与ServerResponse 作为请求与响应对象。注意，是ServerRequest 与 Server Response ,
+        不是ServletRequest 与 ServletResponse.
+
+
+1.ZooKeeper 简介
+    ZooKeeper 是一个开源的分布式应用程序协调服务器，其为分布式系统提供一致性
+    服务。其一致性是通过基于Paxos 算法的ZAB 协议完成的
+2.ZooKeeper 四大功能
+    1.配置维护
+    2.域名服务
+    3.分布式同步
+    4.集群管理
+3.ZooKeeper 功能介绍
+    1.配置维护
+            分布式系统中，很多服务都是部署在集群服务中的。即多台服务器中部署这完全相同的应用，
+        骑着完全相同的作用。当然，几圈中的这些服务器的配置文件是完全相同的
+            若几圈中服务器的配置文件需要进行修改，那么我们就需要逐台修改这些服务器中的配置
+        文件。如果我们集全服务器比较少。那么这些修改还是不太麻烦，但如果集群服务器特别，
+        多，比如某些大型公司互联网公司的Hadoop集群有数千台服务器，那么纯手工的更改这些配置
+        文件几乎就是一件不可能完成的任务。即使使用大量人力进行修改可行。但过多的人员参与，
+        出错的概率大大提升，对于几圈的形成的危险很大的。
+            这时候ZooKeeper就可以排上用场了。其对于配置文件的维护采用的是“发布/订阅模型”。
+        发布者将修改的几圈的配置文件发布到ZooKeeper服务器的文件系统中，那么订阅者马上就可
+        以即受到通知，并主动去同步ZooKeeper里的配置文件。ZooKeeper具有同步操作的原子性
+        确保每个几圈服务器的配置文件都能被正确的更新。
+
+    2.域名服务
+            在分布式应用中，一个项目包含多个工程，而这些工程中，有些共好处呢格式专门为其它工程
+        提供服务的。一个项目中可能会存在多种提供不同服务的工程，而一种服务又可能存在多个
+        服务器提供者（服务器）。所以，用于消费这些服务的客户端工程若要消费这些服务，就变的
+        异常的复杂了
+            此时，ZooKeeper 就可以上场了。为每个服务起个名称，将这些服务的名称与提供这些
+        服务的主机地址注册到ZooKeeper中，形成一个服务映射表。服务消费者只需要通过服务名
+        称即可享受到服务，而无需了解服务具体的提供者是谁。服务的减少，添加，变更，只需修
+        改ZooKeeper中的服务映射表即可。
+            阿里的Dobbo 就是使用ZooKeeper作为服务域名服务器的
+
+    3.分布式同步
+            在分布式系统中，很多运算（对请求的处理）过程是有分布式集群中的若干服务器共同
+         计算完成的，并且它们之间的运算还具有逻辑上的先后顺序。如何保证这些服务器运行期间
+         的同步性呢？
+            使用ZooKeeper可以协调这些服务器间运算的过程。让这些服务器都同事监听ZooKeeper
+         上的同一个znode(ZooKeeper 文件系统中的一个数据存储节点），一旦其中一个服务器Update
+         了znode,那么另一个相应服务器能够收到通知，并作出相应处理。
+
+    4.集群管理
+            集群管理中最麻烦的就是节点故障管理。ZooKeeper可以让集群选出一个健康的节点做为
+         Master(主人)，Master谁是监控着当前几圈中的每个节点的健康状况，一旦某个节点发生故障，
+         Master会把这个情况立即通知给集群中的其它节点，是其它节点对于人物的分配作出相应调整
+         ZooKeeper不仅可以发现故障，也会对故障进行甄别，如果该故障可以修复，ZooKeeper可以
+         直行修复，若不能修复则会告诉系统管理员错误的原因管理员迅速定位问题
+            但这里也有个问题：Master故障了，那怎么办？ZooKeeper 内部有一个“选举算法”，当
+         Master 故障出现时，ZooKeeper 能马上选出新的Master 对集群进行管理。
+
+
+
+4.ZooKeeper 满足 一致性 的几点要求
+    1 顺序一致性
+        从同一个客户端发起的n多个事务请求（写请求），最终将会严格按照其发起顺序被应用到ZooKeeper中。
+
+    2 原子性
+            所有事务请求的结果在集群中所有机器上的应用情况是一致的。也就是说要么整个集群
+        所有主机都乘公共应用了某一事务，要么都没有应用，不会出现集群中部分主机应用了该事
+        务，而另外一部分没有应用的情况。
+
+    3.单一视图
+            无论客户端连接的是哪个ZooKeeper服务器，其看到的服务端数据模型都是一致的
+
+    4.可靠性
+            一旦服务端成功地应用了一个事务（写操作成功），并完成了对客户端的响应，那么该
+        事务所引起的服务端状态变更将会被一直保留下来，除非有另一个事务又对其进行了变更。
+
+    5.实时性
+            通常人们看到实时性的第一反应是，一旦一个事务被成功应用，那么客户端能够立即从
+        服务端上读取到这个事务变更后的最新数据状态。这里需要注意的是，ZooKeeper仅仅保证
+        在一定的时间段内，客户端最终一定能够从服务端上读取到最新的数据状态。
+
+
+ 5 ZooKeeper 中的重要概念
+    1 Session
+            Session是指客户端会话。ZooKeeper对外的服务端口默认是2181，客户端启动时，首先
+        会与ZooKeeper服务器建立一个TCP长连接，从第一次连接建立开始，客户端段会话的生命周期
+        也开始了。通过这个长连接，客户端能够通过新桃检测保持与服务器的有效会话，也能够向
+        ZooKeeper服务器发送请求并接受响应，同时还能通过该链接接受来自服务器的Watcher事件通知
+            Session的SessionTimeout 值用来设置一个客户端会话的超时时间。当由于服务器压力太大
+        网络故障或是客户端主动断开连接等各种原因导致客户端连接断开时，只要在SessionTimeout
+        规定的事件内客户端能够重新连接上集群中任意一台服务器，那么值钱创建的会话仍然有效。
+    2 znode
+            ZooKeeper的文件系统采用树形层次化的目录结构，与Unix文件系统非常相似。每个目录在
+         zookeeper 中叫做一个znode，每个znode拥有一个唯一的路径标识，即名称。Znode可以包含
+         数据和子znode（临时节点不能有子znode）。Znode中的数据可以有多个版本，所以查询某路径
+         下的数据需要带上版本号。客户端应用可以在znode上设置监视器（Watcher）
+
+    3 Watcher 机制
+            ZooKeeper通过Watcher机制实现了发布/订阅模式。ZooKeeper提供了分布式数据的发布/订阅
+         功能，一个发布者能够让多个订阅者同事监听某一主题对象，当这个主题对象状态发生变化是，
+         会通知所有订阅者，使他们能够做出相应的处理。ZooKeeper引入了Watcher 机制来实现这种分布式
+         的通知功能。ZooKeeper允许客户端（订阅者）想服务端（发布者）注册一个Watcher 监听，当服务端
+         的一些制定事件触发这个Watcher,那么就会向制定客户端发送一个事件通知。而这个事件通知
+         则是通过TCP长连接的Session完成的。
+
+    4 ACL
+            ACL 全称为Access Control List (访问控制列表），用于控制资源的访问权限，是zookeeper数据安
+         全的保障。zookeeper 利用ACL 策略控制 znode 节点的访问权限，如节点数据读写，节点创建，节点删除
+         ，读取直接点里诶博爱，设置节点权限等。
+            在传统的文件系统中，ACL分为两个维度：组与权限。一个组可以包含多个权限，一个文件
+         或目录拥有了某个组的权限即拥有了组里的所有权限。文件或子目录某人会继承其父目录的ACL
+            而在ZooKeeper 中，znode的ACL是没有继承关系的，每个znode的全息都是独立控制的，只有
+         客户端满足znode设置的权限要求时，才能完成相应的操作。ZooKeeper 的ACL 分为三个维度
+         授权策略 scheme,用户id,用户权限permission。
+
+
+ 6.ZooKeeper Paxos 算法
+    1.角色
+        1.Proposer ：提案（Proposal）的提议者
+        2.Acceptor : 提案的表决者。
+        3.Learners : 提案的学习者。当提案被选定后，其会同步并执行提案。
+
+    2.选举算法的过程分为两个阶段
+        1.prepare （准备）阶段  作用 试探集群是否 支持该编号的提案
+            现在有表决者  A  B  C, 提议者 1 2 3
+
+            1.提议者 1 --prepare(20)--》A B
+                表决者A
+                    接收
+                        N=20   maxN=null     (表决者没有接收到任何编号，所以maxN=null)
+                        maxN=20
+                    回复
+                        proposal(myid,null,null)  (我没接收到任何提案)
+                表决者B
+                    接收
+                        N=20   maxN=null     (表决者没有接收到任何编号，所以maxN=null)
+                        maxN=20
+                    回复
+                        proposal(myid,null,null)  (我没接收到任何提案)
+
+              提议者1 接收到了 两个 反馈（编号被通过），那么 提议者1 可以进入 下一个阶段 proposal
+
+            1.提议者 2 --prepare(40)--》B C
+                表决者B
+                    接收
+                        N=40   maxN=20     (表决者没有接收到任何编号，所以maxN=null)
+                        maxN=40
+                    回复
+                        proposal(myid,null,null)  (我没接收到任何提案)
+
+                表决者C
+                    接收
+                        N=40   maxN=0     (表决者没有接收到任何编号，所以maxN=null)
+                        maxN=40
+                    回复
+                        proposal(myid,null,null)  (我没接收到任何提案)
+              提议者2 接收到了 两个 反馈（编号被通过），那么 提议者2 可以进入 下一个阶段 proposal
+
+            1.提议者 3 --prepare(30)--》A C
+                表决者A
+                    接收
+                        N=30   maxN=20     (表决者没有接收到任何编号，所以maxN=null)
+                        maxN=30
+                    回复
+                        proposal(myid,null,null)  (我没接收到任何提案)
+
+                表决者C
+                    接收
+                        N=30   maxN=40     (表决者没有接收到任何编号，所以maxN=null)
+                        maxN=40
+                    回复
+                        error  或 不回复   (提案编号失败)
+              提议者3 接收到了 1个 反馈（编号被通过）（未超过二分之一），那么 提议者3 重新 开始 准备 prepare( 50 )
+
+
+        2.proposal （提议阶段）
+           1.提议者1 --Proposal(20,提案内容)--》A B
+                表决者A
+                    接收
+                        N=20   maxN=30     (表决者没有接收到任何编号，所以maxN=null)
+                        maxN=40
+                    回复
+                        error  或 不回复 (提案被否决)
+                表决者B
+                    接收
+                        N=20   maxN=40     (表决者没有接收到任何编号，所以maxN=null)
+                        maxN=40
+                    回复
+                        error  或 不回复  (提案被否决)
+
+             提议者1 接收到了 0个 反馈（编号被通过）（未超过二分之一），那么 提议者1 重新 开始 准备 prepare( 60 )
+
+           1.提议者2 --Proposal(40,提案内容)--》B C
+                表决者B
+                    接收
+                        N=40   maxN=40     (表决者没有接收到任何编号，所以maxN=null)
+                        maxN=40
+                    回复
+                        error 或 不A回复  (提案被否决)
+                表决者C
+                    接收
+                        N=40   maxN=40     (表决者没有接收到任何编号，所以maxN=null)
+                        maxN=40
+                    回复
+                        proposal(myid,null,null)  (提案被通过)
+             提议者2 提案被通过  这个时候 提议者2 是 Leader （没有考虑 提议者1,3 的 重新准备 提案编号 这个要看反应速度）
+
+
+        两台服务集群的时候 默认是 第二台 被选中为 Leader ,因为第二台的 N 比 第一台的大，第一台也会在 提案阶段 将选举人 改为
+        第二台
+
+        Leader 被确认后 将 自己的数据 同步到 其它（Learner）的 集群服务上
+
+
+
+
+--------------------------ZooKeeper 环境搭建-------------------------
+
+1.Workstation 15.0.2 Pro for Windows 安装
+    https://www.52pojie.cn/thread-829909-1-1.html
+2.cent OS 7
+    https://www.centos.org/download/
+3.安装教程
+    https://blog.csdn.net/liu_xiaobin/article/details/83625074
+
+4.linux 常用命令
+   解压某个文件 到 某个目录  tar -zxvf zookeeper-3.4.13.tar.gz -C /opt/apps
+   创建目录   mkdir /opt/apps
+   创建层级目录 mkdir -p /usr/data/zookeeper
+   建立软连接  ln -s ./zookeeper-3.4.13 /opt/apps/zookeeper  （避免使用版本号）
+   注册(配置换变量)： vim /etc/profile
+        不保存退出 ESC + :q!  (先输入 ESC 然后输入 :q!)
+        保存退出  ESC + :wq   (ESC 光标消失  :wq  w （write） q(quit))
+        保存退出 ESC + :x
+
+        export ZK_HOME=/opt/apps/zookeeper
+        export PATH=$ZK_HOME/bin:$PATH
+
+        启动zookeeper ： zkServer.sh start
+        停止zookeeper ： zkServer.sh stop
+        查看zookeeper 状态 ： zkServer.sh status
+        重启zookeeper : zkServer.sh status restart
+        查看zookeeper : ps aux | grep zookeeper
+
+   重新加载文件 source /etc/profile
+   修改zookeeper 配置文件   /opt/apps/zookeeper/conf
+
+   拷贝文件  cp zoo_sample.cfg zoo.cfg
+   cent os 7 关机 ：poweroff
+
+
+   创建文件 cat>>filename.txt  (创建一个 txt 文件)
+        退出 Ctrl+z
+
+   删除文件夹 rm -rf version-2/
+   解压war unzip -oq nginx-jsp-0.0.1-SNAPSHOT.war
+   显示当前目录结构 : pwd
+   查看端口：netstat -tunlp
+
+   查看防火墙 ： systemctl status firewalld
+   停止防火墙 ： systemctl stop firewalld
+   启动防火墙 ： systemctl start firewalld
+   开机防火墙 ： systemctl enable firewalld
+   取消开机防火墙 ： systemctl disable firewalld
+   Linux 安装c 语言的环境：yum install -y gcc-c++ gcc
+   Linux 安装c 依赖库      yum -y install pcre-devel openssl-devel
+   重启网卡： systemctl restart network  (IPADDR,NETMASK,GATEWAY,DNSI 需要匹配)
+        例如：IPADDR=192.168.132.20 NETMASK=255.255.255.0 GATEWAY=192.168.132.2 DNSI=192.168.132.2
+
+        IPADDR=192.168.220.133
+        NETMASK=255.255.255.0
+        GATEWAY=192.168.220.2
+        DNS1=192.168.220.2
+
+   Linux 下载文件 ： wget http://nginx.org/download/nginx-1.14.2.tar.gz
+
+
+
+5.zookeeper  conf zoo_sample.cfg 配置
+    # zooKeeper 的单位 2000 毫秒 为一个单位
+    tickTime=2000
+    #初始化同步所花费的时间，leader 选举后 leader 需要将 数据同步Learner上所花费的时间
+    initLimit=10   # 10个单位 那么就是 20 秒
+    #更新同步 的 实现时间
+    syncLimit=5
+    #zookeeper 数据存储目录 不能存在这个目录 /tmp（Linux 临时目录）
+    dataDir=/usr/data/zookeeper
+    #zookeeper 端口
+    clientPort=1281
+
+
+
+6.zookeeper 集群
+    克隆搭建好的 zookeeper 虚拟机
+    1.修改主机名
+        vim /etc/hostname
+    2.修改ip
+
+    3.创建myid
+        echo 1 > myid
+
+    4.更新 zoo.cfg
+        添加
+          server.1=192.168.220.129:288:3888   #对应的主机名  可以写ip
+
+
+            server.1=192.168.220.129:2888:3888
+            server.2=192.168.220.130:2888:3888
+            server.3=192.168.220.131:2888:3888
+
+          集群克隆出来的主机 myid 分别为 1,2,3
+
+          2888:3888   （端口号定义随便）
+            2888端口号：叫做连接端口号，数据通信的时候
+            3888端口号：选举端口号
+
+          怎么指定 observer?
+          例如：server.3=192.168.220.132:2888:3888:observer  （注132这台服务就是 observer）
+          注：observer 服务zoo.cfg 必须加上 “peerType=observer”
+
+7nginx
+
+    查看命令
+            nginx -h
+    启动命令
+        nginx
+        nginx -s reload   (平滑启动nginx ：在不启动时提前重新加载Nginx 配置文件)
+    查看进程
+        ps aux | grep nginx
+
+     杀死进程
+        kill -s 9 1827
+
+    查看端口号  netstat -tunlp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

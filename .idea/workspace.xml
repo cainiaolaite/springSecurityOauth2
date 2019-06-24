@@ -1,7 +1,294 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="707fbe77-537d-4f63-b204-cc1eeadaf093" name="Default Changelist" comment="" />
+    <list default="true" id="4423dcce-c176-42ba-be7e-5cbe59b9e92d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/bubbo-springboot-consumer/src/main/java/com/hua/bubbo/user/controller/PermissionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/bubbo-springboot-consumer/src/main/java/com/hua/bubbo/user/controller/RoleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/bubbo-springboot-consumer/src/main/java/com/hua/bubbo/user/controller/RolePermissionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/bubbo-springboot-consumer/src/main/java/com/hua/bubbo/user/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/bubbo-springboot-consumer/src/main/java/com/hua/bubbo/user/controller/UserRoleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-no-register-common/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-no-register-common/src/main/java/com/hua/dubbo/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-no-register-common/src/main/java/com/hua/dubbo/service/DubboBaseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-no-register-consumer/src/main/resources/spring-dubbo-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-no-register-consumer/src/test/java/com/hua/dubbo/ConsumerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-no-register-proviter/dubbo-no-register-proviter.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/dao/PermissionDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/dao/RoleDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/dao/RolePermissionDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/dao/UserRoleDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/service/PermissionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/service/RolePermissionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/service/RoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/service/UserRoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-springboot-provider/src/main/java/com/hua/dubbo/user/service/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-springboot-provider/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-springboot-provider/src/main/resources/mapper/PermissionDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-springboot-provider/src/main/resources/mapper/RoleDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-springboot-provider/src/main/resources/mapper/RolePermissionDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-springboot-provider/src/main/resources/mapper/UserDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-springboot-provider/src/main/resources/mapper/UserRoleDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-springboot-provider/src/main/resources/mybatis-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-zookeeper-clonoy-proviter/src/main/java/com/hua/dubbo/service/DubboBaseServiceChangeImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-zookeeper-no-clonoy-common/src/main/java/com/hua/dubbo/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-zookeeper-no-clonoy-common/src/main/java/com/hua/dubbo/service/DubboBaseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-zookeeper-no-clonoy-consumer/src/main/resources/spring-dubbo-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-zookeeper-no-clonoy-consumer/src/test/java/com/hua/dubbo/ConsumerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-zookeeper-no-clonoy-proviter/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-zookeeper-no-clonoy-proviter/src/main/resources/spring-dubbo-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubboWorkSpace/dubbo-zookeeper-no-clonoy-proviter/src/test/java/service/ProviterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fastdfs-client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fastdfs-client/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fastdfs-client/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fastdfs-client/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fastdfs-client/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fastdfs-client/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fastdfs-client/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fastdfs-client/src/main/java/com/hua/cloud/FastDFSApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fastdfs-client/src/main/java/com/hua/cloud/controller/FdfsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fastdfs-client/src/main/java/com/hua/cloud/controller/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fastdfs-client/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fastdfs-client/src/test/java/com/hua/cloud/FastDFSTestApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java-project/src/com/hua/project/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/luceneWorkSpace/lucene/src/main/java/com/hua/lucene/configuration/LuceneConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/luceneWorkSpace/lucene/src/main/java/com/hua/lucene/entity/Commodity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/luceneWorkSpace/lucene/src/main/java/com/hua/lucene/entity/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/luceneWorkSpace/lucene/src/main/java/com/hua/lucene/propertie/CommodityProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/luceneWorkSpace/lucene/src/main/resources/IKAnalyzer.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/luceneWorkSpace/lucene/src/main/resources/commondity.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/luceneWorkSpace/lucene/src/main/resources/ext.dic" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/luceneWorkSpace/lucene/src/main/resources/stopword.dic" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-consumer/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-consumer/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-consumer/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-consumer/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-consumer/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-consumer/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-consumer/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-consumer/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-consumer/src/main/java/com/hua/cloud/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-consumer/src/main/java/com/hua/cloud/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-consumer/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka-provider1/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka-provider1/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka-provider1/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka-provider1/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka-provider1/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka-provider1/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka-provider1/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka-provider1/src/main/java/com/hua/cloud/SpringCloudEurekaProvider1Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka-provider1/src/main/java/com/hua/cloud/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka-provider1/src/main/java/com/hua/cloud/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka-provider1/src/main/java/com/hua/cloud/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka-provider1/src/main/java/com/hua/cloud/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka-provider1/src/main/java/com/hua/cloud/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka-provider1/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka-provider1/src/main/resources/mapper/UserDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka-provider1/src/test/java/com/hua/cloud/SpringCloudProviderApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka1/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka1/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka1/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka1/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka1/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka1/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka1/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka1/src/main/java/com/hua/cloud/SpringCloudEureka1Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-eureka1/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-feign-consumer/src/main/java/com/hua/cloud/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-hystrix-consumer/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-hystrix-consumer/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-hystrix-consumer/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-hystrix-consumer/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-hystrix-consumer/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-hystrix-consumer/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-hystrix-consumer/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-hystrix-consumer/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-hystrix-consumer/src/main/java/com/hua/cloud/SpringCloudHystrixConsumerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-hystrix-consumer/src/main/java/com/hua/cloud/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-hystrix-consumer/src/main/java/com/hua/cloud/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-hystrix-consumer/src/main/java/com/hua/cloud/irule/CustomRule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-hystrix-consumer/src/main/java/com/hua/cloud/service/HystrixFallbackUserSerivce.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-hystrix-consumer/src/main/java/com/hua/cloud/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-hystrix-consumer/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-hystrix-consumer/src/test/java/com/hua/cloud/SpringCloudConsumerApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-ribbon-consumer/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-ribbon-consumer/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-ribbon-consumer/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-ribbon-consumer/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-ribbon-consumer/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-ribbon-consumer/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-ribbon-consumer/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-ribbon-consumer/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-ribbon-consumer/src/main/java/com/hua/cloud/SpringCloudRibbonConsumerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-ribbon-consumer/src/main/java/com/hua/cloud/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-ribbon-consumer/src/main/java/com/hua/cloud/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-ribbon-consumer/src/main/java/com/hua/cloud/irule/CustomRule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-ribbon-consumer/src/main/java/com/hua/cloud/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-ribbon-consumer/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-ribbon-consumer/src/test/java/com/hua/cloud/SpringCloudConsumerApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-server-config/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-server-config/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-server-config/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-server-config/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-server-config/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-server-config/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-server-config/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-server-config/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-server-config/src/main/java/com/hua/cloud/SpringCloudConfigServerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-server-config/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-server-config/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-zuul/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-zuul/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-zuul/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-zuul/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-zuul/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-zuul/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-zuul/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-zuul/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-zuul/src/main/java/com/hua/cloud/SpringCloudZuulApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-zuul/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-zuul/src/test/java/com/hua/cloud/SpringCloudConsumerApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/nginx-jsp/src/main/java/com/hua/primary/controller/IndexController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/nginx-jsp/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/nginx-jsp/src/main/webapp/statics/haoce.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/nginx-jsp/src/test/java/DaXiaoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/shiro/shiro.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/shiro/webfulx-servlet.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/springboot-dev/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-servlet/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-servlet/src/com/hua/webflux/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-servlet/src/com/hua/webflux/servlet/AsynServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-servlet/src/com/hua/webflux/servlet/SyncServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-servlet/src/com/hua/webflux/sse/SseEventServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-servlet/src/com/hua/webflux/sse/SseServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-servlet/src/com/hua/webflux/stream/ComstomProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-servlet/src/com/hua/webflux/stream/ComstomSubscriber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-servlet/src/com/hua/webflux/stream/ComstomSudentSubscriber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-servlet/src/com/hua/webflux/stream/ProcessorStreamServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-servlet/src/com/hua/webflux/stream/StreamServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-servlet/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-servlet/web/custom.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-servlet/web/default.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-servlet/web/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-servlet/webflux-servlet.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-servlet/开课吧-02反应式Web开发框架WebFlux(笔记).pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-springboot/readme" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-springboot/src/main/java/com/hua/webflux/advice/StudentControllerAdrice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-springboot/src/main/java/com/hua/webflux/controller/StudentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-springboot/src/main/java/com/hua/webflux/entity/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-springboot/src/main/java/com/hua/webflux/exception/StudentValidNameException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-springboot/src/main/java/com/hua/webflux/respsitory/StudentReaciveRespsitory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springbootWorkSpace/webflux-springboot/src/main/java/com/hua/webflux/utils/HibernateValidUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/fileplat-cloud.iml" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/fileplat-cloud.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/LoginHandlerInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/LoginHandlerInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/aop/Operator.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/aop/Operator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/aop/OperatorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/aop/OperatorImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/aop/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/aop/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/aop/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/aop/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/cookie/CookieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/cookie/CookieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/ehcache/AopEhcacheService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/ehcache/AopEhcacheService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/exception/SpringHandlerExceptionResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/exception/SpringHandlerExceptionResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/intl/IntlMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/intl/IntlMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/jms/DefaultFilePlatMessageListenerContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/jms/DefaultFilePlatMessageListenerContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/jms/JmsReceiveListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/jms/JmsReceiveListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/quartz/CustomJobFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/quartz/CustomJobFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/quartz/HelloWordJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/quartz/HelloWordJob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/session/SystemHttpSessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/session/SystemHttpSessionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/test/DefaultGenericConversionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/base/test/DefaultGenericConversionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/error/controller/ErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/error/controller/ErrorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/index/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/index/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/login/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/login/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/dto/RoleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/dto/RoleDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/enums/RoleEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/enums/RoleEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/socket/EchoEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/socket/EchoEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/vo/LoginUserVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/vo/LoginUserVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/vo/RoleVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/vo/RoleVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/vo/SessionUserVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/java/com/hua/fileplat/cloud/user/vo/SessionUserVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/ehcache/ehcache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/ehcache/ehcache.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/i18n/validation_error_zh_CN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/i18n/validation_error_zh_CN.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/log/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/log/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/log/logback.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/log/logback.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/mybatis/jdbc_config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/mybatis/jdbc_config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/mybatis/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/mybatis/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/quartz/quartz.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/quartz/quartz.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/spring/spring-aop.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/spring/spring-aop.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/spring/spring-ehcache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/spring/spring-ehcache.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/spring/spring-jms.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/spring/spring-jms.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/spring/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/spring/spring-mvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/spring/spring-quartz.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/spring/spring-quartz.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/spring/spring-session.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/spring/spring-session.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/spring/spring-transaction.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/spring/spring-transaction.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/spring/spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/spring/spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/sql/fileplat1.0.sql" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/sql/fileplat1.0.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/sql/tables_mysql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/resources/sql/tables_mysql.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/error/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/error/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/index/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/login/css/component.css" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/login/css/component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/login/css/demo.css" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/login/css/demo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/login/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/login/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/cloud/login/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/app.plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/app.plugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/jPlayer/demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/jPlayer/demo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/jquery/jquery-3.1.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/jquery/jquery-3.1.1.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/layui.css" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/layui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/layui.mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/layui.mobile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/modules/code.css" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/modules/code.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/modules/laydate/default/laydate.css" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/modules/laydate/default/laydate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/modules/layer/default/layer.css" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/css/modules/layer/default/layer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/font/iconfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/font/iconfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/code.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/code.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/element.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/element.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/flow.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/flow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/laydate.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/laydate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/layedit.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/layedit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/layer.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/layer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/laypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/laypage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/laytpl.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/laytpl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/mobile.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/mobile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/rate.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/rate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/table.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/tree.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/tree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/upload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/lay/modules/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/layui.all.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/layui.all.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/layui.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/layui/layui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/parsley/parsley.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/view/static/js/parsley/parsley.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat-cloud/src/test/java/com/hua/fileplat/cloud/HelloWordTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat-cloud/src/test/java/com/hua/fileplat/cloud/HelloWordTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat/fileplat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat/fileplat.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileplat/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fileplat/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springCloudWorkSpace/spring-cloud-consumer/src/test/java/com/hua/cloud/SpringCloudProviderApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/hibernate-01/hibernate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/springbootWorkSpace/hibernate-01/hibernate.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/hibernate-01/src/test/java/com/hua/hibernate/HibernateConnectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/springbootWorkSpace/hibernate-01/src/test/java/com/hua/hibernate/HibernateConnectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/main/resources/application-dev.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/main/resources/ehcache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/main/resources/ehcache.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/test/java/com/hua/primary/Primary01ApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/test/java/com/hua/primary/controller/AutoPropertiesController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/test/java/com/hua/primary/controller/SomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/test/java/com/hua/primary/dao/UserDaoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/test/java/com/hua/primary/entity/Author.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/test/java/com/hua/primary/entity/ListObjectPro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/test/java/com/hua/primary/entity/ListPro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/test/java/com/hua/primary/entity/ObjectPro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/test/java/com/hua/primary/entity/Pro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/test/java/com/hua/primary/service/DevMsgService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/test/java/com/hua/primary/service/MsgService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/test/java/com/hua/primary/service/ProMsgService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/primary-01/src/test/java/com/hua/primary/service/TestMsgService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/shiro/src/main/java/com/hua/shiro/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springbootWorkSpace/shiro/src/main/java/com/hua/shiro/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/springboot-dev/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springbootWorkSpace/springboot-dev/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootWorkSpace/springboot-dev/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/springbootWorkSpace/springboot-dev/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,9 +299,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="440" />
-    <option name="y" value="153" />
-    <option name="width" value="1936" />
+    <option name="x" value="463" />
+    <option name="y" value="390" />
+    <option name="width" value="1103" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
@@ -23,26 +310,16 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="ideaGitWorkspaces" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ideaGitWorkspaces" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -61,33 +338,30 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="707fbe77-537d-4f63-b204-cc1eeadaf093" name="Default Changelist" comment="" />
-      <created>1554550224869</created>
+      <changelist id="4423dcce-c176-42ba-be7e-5cbe59b9e92d" name="Default Changelist" comment="" />
+      <created>1560084335769</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1554550224869</updated>
-      <workItem from="1554550226179" duration="36000" />
+      <updated>1560084335769</updated>
+      <workItem from="1560084337111" duration="19000" />
+      <workItem from="1560425243954" duration="7000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36000" />
+    <option name="totallyTimeSpent" value="26000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -95,15 +369,21 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="PlantUML" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,7 +393,7 @@
     <states>
       <state key="ProjectJDKs.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>11</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

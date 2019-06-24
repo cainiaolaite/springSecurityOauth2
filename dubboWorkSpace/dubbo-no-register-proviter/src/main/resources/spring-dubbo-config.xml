@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+>
+
+    <!--没有配置扫描器，所以需要通过配置文件注册到spring 容器中-->
+    <bean name="dubboBaseService" class="com.hua.dubbo.service.DubboBaseServiceImpl"></bean>
+    <!--注册服务对象-->
+    <dubbo:application name="dubbo-no-register-proviter"> </dubbo:application>
+    <!--暴露服务，将服务注册到注册中心
+        register="N/A" 代表没有注册中心，消费者 直接对应着 服务提供者
+        -->
+    <dubbo:service
+            interface="com.hua.dubbo.service.DubboBaseService"
+            ref="dubboBaseService"
+            registry="N/A"
+    ></dubbo:service>
+</beans>

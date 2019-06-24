@@ -1,0 +1,14 @@
+server:
+  servlet:
+    context-path: /
+  port: 9090
+
+
+
+fdfs:
+  web-server-url: FastDFS:22122
+  connect-timeout: 3000
+  so-timeout: 3000
+  tracker-list: FastDFS:22122
+
+
