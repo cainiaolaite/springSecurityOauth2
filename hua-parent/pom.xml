@@ -55,7 +55,7 @@
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-core</artifactId>
-                <version>1.1.7</version>
+                <version>1.2.0</version>
             </dependency>
             <!--logback-classic 实现了SLF4J API ，可以在 logback 和 其他日志记录系统之间切换-->
             <dependency>
