@@ -61,7 +61,7 @@
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
-                <version>1.1.7</version>
+                <version>1.2.0</version>
             </dependency>
             <!--logback-access 集成了Servlet 容器，可以提供 HTTP访问日志功能。
                 https://logback.qos.ch/access.html
